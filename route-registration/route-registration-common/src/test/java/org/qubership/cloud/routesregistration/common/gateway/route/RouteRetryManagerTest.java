@@ -48,5 +48,7 @@ public class RouteRetryManagerTest {
                         .anyMatch(throwable -> throwable.isPresent() && throwable.get() instanceof Error
                                 && throwable.get().getMessage().contains("This is Error from runnable task"))
         );
+        
+        roteRetryManager.disposeResources();
     }
 }
