@@ -77,8 +77,11 @@ public class RoutesRestRegistrationProcessor {
                 ControlPlaneApiVersion.V3);
 
         Map<Integer, List<Runnable>> priorityPayload = new HashMap<>();
-        requests.forEach(request -> priorityPayload.computeIfAbsent(request.getPriority(), any -> new ArrayList<>())
-                .add(() -> controlPlaneClient.sendRequest(request)));
+        log.info("VLLA requests: {}", requests);
+        requests.forEach(request -> {
+            log.info("VLLA request: {}", request.getPayload());
+            priorityPayload.computeIfAbsent(request.getPriority(), any -> new ArrayList<>())
+                .add(() -> controlPlaneClient.sendRequest(request));});
 
         routeRetryManager.execute(priorityPayload);
     }

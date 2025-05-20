@@ -43,6 +43,7 @@ public class RoutesRestRegistrationProcessorTest {
 
         final CountDownLatch countDownLatch = new CountDownLatch(7);
         Mockito.doAnswer(invocationOnMock -> {
+            System.out.println("VLLA invocationOnMock " + invocationOnMock);
             countDownLatch.countDown();
             return null;
         }).when(controlPlaneClient).sendRequest(any());
