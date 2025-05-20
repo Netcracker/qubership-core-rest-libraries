@@ -31,8 +31,9 @@ public class RouteRetryManagerTest {
                                     // success
                                 },
                                 () -> {
-                                    run2Cnt.incrementAndGet();
-                                    throw new RuntimeException("This is RuntimeException from runnable task");
+                                    if (run2Cnt.incrementAndGet() <= 3){
+                                        throw new RuntimeException("This is RuntimeException from runnable task");
+                                    }
                                 },
                                 () -> {
                                     throw new Error("This is Error from runnable task");
@@ -48,7 +49,7 @@ public class RouteRetryManagerTest {
                         .anyMatch(throwable -> throwable.isPresent() && throwable.get() instanceof Error
                                 && throwable.get().getMessage().contains("This is Error from runnable task"))
         );
-        
-        roteRetryManager.disposeResources();
+
+        Thread.sleep(10000);
     }
 }
