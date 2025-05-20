@@ -56,6 +56,7 @@ public class RouteRetryManager {
 
             @Override
             public void onSubscribe(Disposable d) {
+                log.info("VLLA SingleObserver onSubscribe");
                 disposable = d;
             }
 
@@ -63,6 +64,7 @@ public class RouteRetryManager {
                As we use retry() for SingleObserver, this method is not called. */
             @Override
             public void onError(Throwable t) {
+                log.info("VLLA SingleObserver onError");
                 log.error("Error during task executing: ", t);
                 groupedTasksObservable.onError(t);
                 dispose();
@@ -70,6 +72,7 @@ public class RouteRetryManager {
 
             @Override
             public void onSuccess(String message) {
+                log.info("VLLA SingleObserver onSuccess");
                 delayProvider.activateRegistration();
                 log.debug("Task have been done successfully");
                 if (atomicInteger.decrementAndGet() == 0) {
@@ -79,6 +82,7 @@ public class RouteRetryManager {
             }
 
             private void dispose() {
+                log.info("VLLA SingleObserver dispose");
                 disposable.dispose();
                 disposable = null;
             }
@@ -97,6 +101,7 @@ public class RouteRetryManager {
 
         @Override
         public void onSubscribe(Disposable d) {
+            log.info("VLLA GroupedTasksSubscriber onSubscribe");
             disposable = d;
             if (tasksByPriority == null || tasksByPriority.isEmpty()) {
                 onComplete();
@@ -107,6 +112,7 @@ public class RouteRetryManager {
 
         @Override
         public void onNext(Object ignore) {
+            log.info("VLLA GroupedTasksSubscriber onNext");
             runNextTasks();
         }
 
@@ -127,12 +133,14 @@ public class RouteRetryManager {
 
         @Override
         public void onError(Throwable t) {
+            log.info("VLLA GroupedTasksSubscriber onError");
             log.error("Error during group processing:", t);
             onComplete();
         }
 
         @Override
         public void onComplete() {
+            log.info("VLLA GroupedTasksSubscriber onComplete");
             log.debug("Group of tasks have been done successfully");
             disposable.dispose();
             disposable = null;
