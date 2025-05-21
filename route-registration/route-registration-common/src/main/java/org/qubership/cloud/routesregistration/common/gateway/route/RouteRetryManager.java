@@ -36,11 +36,13 @@ public class RouteRetryManager {
 
     @NotNull
     protected SingleOnSubscribe<String> getSource(Runnable task) {
+        log.info("VLLA getSource. task = {}", task);
         return singleOnSubscribe -> {
             try {
                 task.run();
                 singleOnSubscribe.onSuccess("Success");
             } catch (Exception e) {
+                log.info("VLLA error", e);
                 delayProvider.pauseRegistration();
                 log.error("Error during routes posting:", e);
                 singleOnSubscribe.onError(new RoutePostingPauseException(e));
@@ -117,11 +119,13 @@ public class RouteRetryManager {
         }
 
         private void runNextTasks() {
+            log.info("VLLA GroupedTasksSubscriber runNextTasks");
             if (prioritiesIterator == null || !prioritiesIterator.hasNext()) {
                 onComplete();
                 return;
             }
             List<Runnable> tasks = tasksByPriority.get(prioritiesIterator.next());
+            log.info("VLLA GroupedTasksSubscriber runNextTasks tasks = {}", tasks);
             atomicInteger.addAndGet(tasks.size());
             tasks.forEach(runnable ->
                     Single.create(getSource(runnable))
