@@ -81,9 +81,12 @@ public class RoutesRestRegistrationProcessor {
         requests.forEach(request -> {
             log.info("VLLA request: {}", request.getPayload());
             priorityPayload.computeIfAbsent(request.getPriority(), any -> new ArrayList<>())
-                .add(() -> {
-                    log.info("VLLA send request {}", request.getPayload());
-                    controlPlaneClient.sendRequest(request);
+                .add(new Runnable() {
+                    @Override
+                    public void run() {
+                        log.info("VLLA send request {}, task = {}", request.getPayload(), this, new Throwable());
+                        controlPlaneClient.sendRequest(request);
+                    }
                 });});
 
         routeRetryManager.execute(priorityPayload);

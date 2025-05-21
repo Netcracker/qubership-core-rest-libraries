@@ -39,8 +39,11 @@ public class RouteRetryManager {
         log.info("VLLA getSource. task = {}", task);
         return singleOnSubscribe -> {
             try {
+                log.info("VLLA getSource. before run task = {}", task);
                 task.run();
+                log.info("VLLA getSource. after run task = {}", task);
                 singleOnSubscribe.onSuccess("Success");
+                log.info("VLLA getSource. after onSuccess task= {}", task);
             } catch (Exception e) {
                 log.info("VLLA error", e);
                 delayProvider.pauseRegistration();
