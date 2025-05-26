@@ -1,29 +1,24 @@
 package org.qubership.cloud.routesregistration.common.spring.gateway.route;
 
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RoutesTestConfiguration.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
+@SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
 public class RouteAnnotationProcessorTest {
 
     @Autowired
@@ -401,9 +396,9 @@ public class RouteAnnotationProcessorTest {
     }
 
     private void validateRoutes(int expectedSize, List<RouteEntry> expectedRoutes, Collection<RouteEntry> routes) {
-        Assert.assertEquals(expectedSize, routes.size());
-        expectedRoutes.forEach(expectedRoute -> Assert.assertTrue(collectionContainsExactRoute(routes, expectedRoute)));
-        routes.forEach(actualRoute -> Assert.assertTrue(collectionContainsExactRoute(expectedRoutes, actualRoute)));
+        assertEquals(expectedSize, routes.size());
+        expectedRoutes.forEach(expectedRoute -> assertTrue(collectionContainsExactRoute(routes, expectedRoute)));
+        routes.forEach(actualRoute -> assertTrue(collectionContainsExactRoute(expectedRoutes, actualRoute)));
     }
 
     static boolean collectionContainsExactRoute(Collection<RouteEntry> routes, RouteEntry expectedRoute) {
@@ -420,14 +415,14 @@ public class RouteAnnotationProcessorTest {
 
     @Test
     public void validatePathsFromTo() throws Exception {
-        routeAnnotationProcessor.getRouteEntries(TestController1.class).stream().forEach(route -> Assert.assertEquals(route.getFrom(), route.getTo()));
-        routeAnnotationProcessor.getRouteEntries(TestController2.class).stream().forEach(route -> Assert.assertEquals(route.getFrom(), route.getTo()));
-        routeAnnotationProcessor.getRouteEntries(TestController3.class).stream().forEach(route -> Assert.assertNotEquals(route.getFrom(), route.getTo()));
+        routeAnnotationProcessor.getRouteEntries(TestController1.class).stream().forEach(route -> assertEquals(route.getFrom(), route.getTo()));
+        routeAnnotationProcessor.getRouteEntries(TestController2.class).stream().forEach(route -> assertEquals(route.getFrom(), route.getTo()));
+        routeAnnotationProcessor.getRouteEntries(TestController3.class).stream().forEach(route -> assertNotEquals(route.getFrom(), route.getTo()));
 
         List<RouteEntry> customRoutes = routeAnnotationProcessor.getRouteEntries(TestController4.class);
         customRoutes.stream().forEach(route -> {
-            Assert.assertNotEquals(route.getFrom(), route.getTo());
-            Assert.assertTrue(route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_1) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_1)
+            assertNotEquals(route.getFrom(), route.getTo());
+            assertTrue(route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_1) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_1)
                     || route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_2) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_1)
                     || route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_1 + RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_1) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_2)
                     || route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_2 + RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_2) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_2));
@@ -439,36 +434,36 @@ public class RouteAnnotationProcessorTest {
         List<RouteEntry> routes = routeAnnotationProcessor.getRouteEntries(TestController1.class);
 
         List<RouteEntry> filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_1));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertNull(route.getTimeout()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertNull(route.getTimeout()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_2));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertNull(route.getTimeout()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertNull(route.getTimeout()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_1 + RoutesTestConfiguration.METHOD_ROUTES_1 + RoutesTestConfiguration.METHOD_ROUTES_2));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_1, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_1, route.getTimeout().longValue()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_2 + RoutesTestConfiguration.METHOD_ROUTES_1 + RoutesTestConfiguration.METHOD_ROUTES_2));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_1, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_1, route.getTimeout().longValue()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_1 + RoutesTestConfiguration.METHOD_ROUTES_1));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_2 + RoutesTestConfiguration.METHOD_ROUTES_1));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_1 + RoutesTestConfiguration.METHOD_ROUTES_2));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
 
         filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_2 + RoutesTestConfiguration.METHOD_ROUTES_2));
-        Assert.assertFalse(filteredRoutes.isEmpty());
-        filteredRoutes.forEach(route -> Assert.assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
+        assertFalse(filteredRoutes.isEmpty());
+        filteredRoutes.forEach(route -> assertEquals(RoutesTestConfiguration.TEST_TIMEOUT_2, route.getTimeout().longValue()));
     }
 
     private List<RouteEntry> findRoutes(Collection<RouteEntry> routes, Predicate<RouteEntry> predicate) {

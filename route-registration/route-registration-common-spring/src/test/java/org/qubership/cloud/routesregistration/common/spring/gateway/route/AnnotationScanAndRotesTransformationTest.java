@@ -1,22 +1,22 @@
 package org.qubership.cloud.routesregistration.common.spring.gateway.route;
 
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
 import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorTest.collectionContainsExactRoute;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
+@SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
 public class AnnotationScanAndRotesTransformationTest {
 
     @Autowired
@@ -50,15 +50,15 @@ public class AnnotationScanAndRotesTransformationTest {
 
     private void validateRoutes(Collection<RouteEntry> routes) {
         Collection<RouteEntry> expectedRoutes = enrichExpectedRoutes(RouteAnnotationProcessorTest.getExpectedRoutes());
-        expectedRoutes.forEach(expectedRoute -> Assert.assertTrue(collectionContainsExactRoute(routes, expectedRoute)));
-        routes.forEach(actualRoute -> Assert.assertTrue(collectionContainsExactRoute(expectedRoutes, actualRoute)));
+        expectedRoutes.forEach(expectedRoute -> assertTrue(collectionContainsExactRoute(routes, expectedRoute)));
+        routes.forEach(actualRoute -> assertTrue(collectionContainsExactRoute(expectedRoutes, actualRoute)));
         verifyNoDuplicates(routes);
     }
 
     private void verifyNoDuplicates(Collection<RouteEntry> routes) {
         List<RouteEntry> alreadyMetRoutes = new ArrayList<>(routes.size());
         routes.forEach(route -> {
-            Assert.assertFalse(alreadyMetRoutes.contains(route));
+            assertFalse(alreadyMetRoutes.contains(route));
             alreadyMetRoutes.add(route);
         });
     }

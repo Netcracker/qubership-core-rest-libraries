@@ -5,7 +5,7 @@ import io.reactivex.schedulers.Schedulers;
 import lombok.extern.slf4j.Slf4j;
 import nl.altindag.log.LogCaptor;
 import nl.altindag.log.model.LogEvent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;

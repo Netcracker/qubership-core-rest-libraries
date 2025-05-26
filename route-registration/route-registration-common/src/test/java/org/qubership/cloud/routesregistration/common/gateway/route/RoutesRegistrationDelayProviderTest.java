@@ -1,20 +1,16 @@
 package org.qubership.cloud.routesregistration.common.gateway.route;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(MockitoJUnitRunner.class)
 public class RoutesRegistrationDelayProviderTest {
 
     private RoutesRegistrationDelayProvider routesRegistrationDelayProvider;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         routesRegistrationDelayProvider = new RoutesRegistrationDelayProvider();
     }
@@ -29,7 +25,7 @@ public class RoutesRegistrationDelayProviderTest {
     public void testPauseRegistration() {
         long timeBeforeWait = System.currentTimeMillis();
         routesRegistrationDelayProvider.pauseRegistration();
-        Assert.assertTrue((System.currentTimeMillis() - timeBeforeWait) >= 1000);
+        assertTrue((System.currentTimeMillis() - timeBeforeWait) >= 1000);
     }
 
     @Test

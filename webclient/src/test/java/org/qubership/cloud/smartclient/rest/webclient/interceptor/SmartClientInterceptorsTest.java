@@ -1,15 +1,12 @@
 package org.qubership.cloud.smartclient.rest.webclient.interceptor;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.context.propagation.core.ContextManager;
 import org.qubership.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;
 import org.qubership.cloud.framework.contexts.acceptlanguage.AcceptLanguageContextObject;
 import org.qubership.cloud.framework.contexts.allowedheaders.AllowedHeadersContextObject;
 import org.qubership.cloud.framework.contexts.xrequestid.XRequestIdContextObject;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.reactive.function.client.ClientRequest;
 import org.springframework.web.reactive.function.client.ClientResponse;
@@ -19,19 +16,16 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 import java.util.Collections;
 
-import static org.qubership.cloud.framework.contexts.xrequestid.XRequestIdContextProvider.X_REQUEST_ID_CONTEXT_NAME;
 import static jakarta.ws.rs.core.HttpHeaders.ACCEPT_LANGUAGE;
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.qubership.cloud.framework.contexts.xrequestid.XRequestIdContextProvider.X_REQUEST_ID_CONTEXT_NAME;
 
-@RunWith(MockitoJUnitRunner.class)
 public class SmartClientInterceptorsTest {
     private final URI DEFAULT_URL = URI.create("http://example.com");
     private final String ALLOWED_HEADER = "allowed_header";
 
-    @After
+    @AfterEach
     public void clean() {
         ContextManager.clearAll();
     }
@@ -104,7 +98,7 @@ public class SmartClientInterceptorsTest {
         ClientResponse response = mock(ClientResponse.class);
 
         ExchangeFunction exchange = r -> {
-            Assert.assertEquals(1, r.headers().size());
+            assertEquals(1, r.headers().size());
             return Mono.just(response);
         };
 

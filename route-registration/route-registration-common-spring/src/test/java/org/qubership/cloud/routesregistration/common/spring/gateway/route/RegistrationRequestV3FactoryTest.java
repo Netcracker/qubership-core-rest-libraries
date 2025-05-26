@@ -1,5 +1,9 @@
 package org.qubership.cloud.routesregistration.common.spring.gateway.route;
 
+import io.reactivex.Scheduler;
+import okhttp3.mockwebserver.MockWebServer;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restclient.MicroserviceRestClient;
 import org.qubership.cloud.routesregistration.common.gateway.route.ControlPlaneClient;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
@@ -7,31 +11,20 @@ import org.qubership.cloud.routesregistration.common.gateway.route.RouteRetryMan
 import org.qubership.cloud.routesregistration.common.gateway.route.RoutesRestRegistrationProcessor;
 import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactory;
 import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
-import io.reactivex.Scheduler;
-import okhttp3.mockwebserver.MockWebServer;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.Timeout;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest(classes = RoutesTestConfigurationWithoutDefaultMapping.class,
         properties = {"apigateway.routes.registration.enabled=true"})
 public class RegistrationRequestV3FactoryTest {
-
-    @Rule
-    public final Timeout TEST_TIMEOUT = Timeout.seconds(1000000);
 
     private static final String LOCALDEV_NAMESPACE_ENV = "LOCALDEV_NAMESPACE";
     private static final String DEFAULT_DEPLOYMENT_VERSION = "v1";
@@ -80,7 +73,7 @@ public class RegistrationRequestV3FactoryTest {
         beanFactory.autowireBean(routesRestRegistrationProcessor);
     }
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         server = new MockWebServer();
         server.start();

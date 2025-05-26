@@ -1,6 +1,6 @@
 package org.qubership.cloud.routesregistration.common.gateway.route.rest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegistrationRequestFactoryTest {
     static final String MICROSERVICE_URL = "http://test-ms-v1:8080";
