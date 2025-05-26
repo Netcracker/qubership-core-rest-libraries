@@ -1,12 +1,12 @@
 package org.qubership.cloud.restlegacy.restclient.error.v2;
 
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
 import org.qubership.cloud.restlegacy.restclient.error.*;
 import org.qubership.cloud.restlegacy.restclient.service.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +15,6 @@ import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.retry.RetryStatistics;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -26,11 +25,10 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.text.MessageFormat;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.*;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {TestConfig.class, TestExceptionHandlingConfiguration.class, ControllerWithV2ExceptionModel.class})
 public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
@@ -42,7 +40,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     HttpServletRequest httpServletRequest;
     private ControllersAdvice baseAdvice;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         baseAdvice = new ControllersAdvice(messageService);
     }
@@ -53,9 +51,9 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
         assertNotNull(context.getBean(ControllersAdvice.class));
     }
 
-    @Test(expected = NoSuchBeanDefinitionException.class)
+    @Test
     public void dontUseV2VersionOfErrorHandlingByDefault() {
-        context.getBean(ExceptionHandlingV2MainConfiguration.class);
+        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(ExceptionHandlingV2MainConfiguration.class));
     }
 
     @Test
@@ -63,7 +61,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
-        assertThat(statisticForRequest, abortedAfterFirstError());
+        MatcherAssert.assertThat(statisticForRequest, abortedAfterFirstError());
     }
 
     @Test
@@ -71,7 +69,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);
-        assertThat(statisticForRequest, abortedAfterSeveralAttempts());
+        MatcherAssert.assertThat(statisticForRequest, abortedAfterSeveralAttempts());
     }
 
     @Test
@@ -255,5 +253,4 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
             return this.message;
         }
     }
-
 }

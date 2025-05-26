@@ -1,12 +1,10 @@
 package org.qubership.cloud.restlegacy.restclient.error.v2;
 
+import org.hamcrest.*;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
 import org.qubership.cloud.restlegacy.restclient.error.ExceptionHandlerControllersAdviceBase;
 import org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingConfiguration;
-import org.hamcrest.*;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
@@ -14,11 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.MediaType;
 import org.springframework.retry.RetryStatistics;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.qubership.cloud.restlegacy.restclient.error.ErrorMessageCodes.DB_IN_CONFLICT_ERROR_CODE;
 import static org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingRestController.*;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
@@ -26,15 +28,10 @@ import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.VERSI
 import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithCustomException.CUSTOM_DATA_FROM_CUSTOM_EXCEPTION;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithCustomException.THROW_CUSTOM_EXEPTION_WITH_CUSTOM_DATA;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV1ExceptionModel.*;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {TestConfig.class, TestExceptionHandlingConfiguration.class, ControllerWithV1ExceptionModel.class, CustomExceptionHandler.class, ControllerWithCustomException.class},
         properties = {ERROR_HANDLER_VERSION_CONDITION_PROPERTY + "=" + VERSION_2})
@@ -62,7 +59,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     private static Matcher<? super ObjectValidationErrorDescription> hasObjectValidationMessage(String expectedMessage) {
-        return new FeatureMatcher<ObjectValidationErrorDescription, String>
+        return new FeatureMatcher<>
                 (Matchers.equalTo(expectedMessage), "has objectValidationMessage", "objectValidationMessage") {
             @Override
             protected String featureValueOf(ObjectValidationErrorDescription actual) {
@@ -72,7 +69,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     private static Matcher<ObjectValidationErrorDescription.FieldValidationErrorDescription> equalTo(String fieldName, String message) {
-        return new TypeSafeDiagnosingMatcher<ObjectValidationErrorDescription.FieldValidationErrorDescription>() {
+        return new TypeSafeDiagnosingMatcher<>() {
             @Override
             protected boolean matchesSafely(ObjectValidationErrorDescription.FieldValidationErrorDescription item, Description mismatchDescription) {
                 boolean result = true;
@@ -95,7 +92,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     private static Matcher<PlainTextErrorDescription> hasErrorMessage(Matcher<String> messageMatcher) {
-        return new FeatureMatcher<PlainTextErrorDescription, String>(messageMatcher, "has errorMessage", "errorMessage") {
+        return new FeatureMatcher<>(messageMatcher, "has errorMessage", "errorMessage") {
 
             @Override
             protected String featureValueOf(PlainTextErrorDescription actual) {
@@ -104,9 +101,9 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
         };
     }
 
-    @Test(expected = NoSuchBeanDefinitionException.class)
+    @Test
     public void dontUseV1VersionOfErrorHandlingIfItIsV2SpecifiedDirectly() {
-        context.getBean(ControllersAdvice.class);
+        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(ControllersAdvice.class));
     }
 
     @Test
@@ -231,7 +228,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
                 String contentAsString = result.getResponse().getContentAsString();
                 PlainTextErrorDescription actual = plainTextJsonTester.parseObject(contentAsString);
 
-                Assert.assertThat(actual, matcher);
+                assertThat(actual, matcher);
             };
         }
 
@@ -240,7 +237,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
                 String contentAsString = result.getResponse().getContentAsString();
                 ObjectValidationErrorDescription actual = formErrorJsonTester.parseObject(contentAsString);
 
-                Assert.assertThat(actual, matcher);
+                assertThat(actual, matcher);
             };
         }
     }

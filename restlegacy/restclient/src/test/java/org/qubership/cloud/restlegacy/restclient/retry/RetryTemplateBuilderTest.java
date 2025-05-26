@@ -1,11 +1,16 @@
 package org.qubership.cloud.restlegacy.restclient.retry;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RetryTemplateBuilderTest {
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void testIncorrectCreateBuilder(){
-        new RetryTemplateBuilder().withCircuitBreakerOpenTimeoutInMillis(100L).build();
+        assertThrows(IllegalStateException.class, () -> {
+            new RetryTemplateBuilder().withCircuitBreakerOpenTimeoutInMillis(100L).build();
+        });
     }
 }

@@ -1,5 +1,6 @@
 package org.qubership.cloud.restlegacy.restclient.error.v2.v2_1;
 
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
 import org.qubership.cloud.restlegacy.restclient.error.ExceptionHandlerControllersAdviceBase;
 import org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingConfiguration;
@@ -8,16 +9,12 @@ import org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV1Except
 import org.qubership.cloud.restlegacy.restclient.error.v2.CustomExceptionHandler;
 import org.qubership.cloud.restlegacy.restclient.error.v2.ExceptionHandlingV2MainConfiguration;
 import org.hamcrest.*;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.MediaType;
 import org.springframework.retry.RetryStatistics;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.time.ZoneId;
@@ -25,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingRestController.*;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
 import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.VERSION_2_1;
@@ -35,13 +33,10 @@ import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.ErrorMessa
 import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.MessageParameterTypes.*;
 import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {TestConfig.class,
                 TestExceptionHandlingConfiguration.class,
@@ -63,7 +58,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
     }
 
     private static Matcher<ErrorMessage> hasErrorMessageCode(final String messageCode) {
-        return new TypeSafeDiagnosingMatcher<ErrorMessage>() {
+        return new TypeSafeDiagnosingMatcher<>() {
             @Override
             public void describeTo(Description description) {
                 description.appendText(", has messageCode ").appendText(messageCode);
@@ -93,7 +88,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
     }
 
     private static Matcher<ObjectValidationErrorResponse> hasObjectValidationMessage(Matcher<ErrorMessage> matcher) {
-        return new FeatureMatcher<ObjectValidationErrorResponse, ErrorMessage>
+        return new FeatureMatcher<>
                 (matcher, "has validationErrors", "validationErrors") {
             @Override
             protected ErrorMessage featureValueOf(final ObjectValidationErrorResponse actual) {
@@ -103,7 +98,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
     }
 
     private static Matcher<FieldValidationMessage> equalToMessageCode(final String failedField, final String messageCode) {
-        return new TypeSafeDiagnosingMatcher<FieldValidationMessage>() {
+        return new TypeSafeDiagnosingMatcher<>() {
             @Override
             protected boolean matchesSafely(final FieldValidationMessage item, final Description mismatchDescription) {
                 boolean result = true;
@@ -129,7 +124,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
 
     private static Matcher<SimpleErrorMessageResponse> hasErrorMessage(final Matcher<String> messageCodeMatcher,
                                                                        final Matcher<Map<? extends String, ? extends MessageParameter>> messageParametersMatcher) {
-        return new TypeSafeDiagnosingMatcher<SimpleErrorMessageResponse>() {
+        return new TypeSafeDiagnosingMatcher<>() {
             @Override
             protected boolean matchesSafely(final SimpleErrorMessageResponse simpleErrorMessageResponse, final Description description) {
                 final ErrorMessage errorMessage = simpleErrorMessageResponse.getErrorMessage();
@@ -291,7 +286,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
         restClient.safelySendRequest(SYSTEM_WITH_V1_MODEL + TRANSITIVE_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V1_MODEL + TRANSITIVE_FAILED_REQUEST);
-        assertThat(statisticForRequest, abortedAfterFirstError());
+        MatcherAssert.assertThat(statisticForRequest, abortedAfterFirstError());
     }
 
     @Test
@@ -300,7 +295,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
         restClient.safelySendRequest(SYSTEM_WITH_V1_MODEL + DIRECTLY_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V1_MODEL + DIRECTLY_FAILED_REQUEST);
-        assertThat(statisticForRequest, abortedAfterSeveralAttempts());
+        MatcherAssert.assertThat(statisticForRequest, abortedAfterSeveralAttempts());
     }
 
     @Test
@@ -312,10 +307,10 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
                         hasMessageParameter(TRANSITIVE_LEVEL_METHOD_MESSAGE_PARAM_NAME, TRANSITIVE_LEVEL_METHOD_MESSAGE_PARAM_VALUE, STRING))));
 
         final RetryStatistics statisticForFirstLevelService = getStatisticForRequest(FIRST_TRANSITIVE_LEVEL_METHOD_THAT_REDIRECTS_TO_ALWAYS_FAILED_METHOD_V2_1);
-        assertThat(statisticForFirstLevelService, abortedAfterFirstError());
+        MatcherAssert.assertThat(statisticForFirstLevelService, abortedAfterFirstError());
 
         final RetryStatistics statisticForSecondLevelService = getStatisticForRequest(SECOND_TRANSITIVE_LEVEL_METHOD_THAT_FAILS_ALWAYS_V2_1);
-        assertThat(statisticForSecondLevelService, abortedAfterSeveralAttempts());
+        MatcherAssert.assertThat(statisticForSecondLevelService, abortedAfterSeveralAttempts());
     }
 
     @Test
@@ -344,7 +339,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
                 String contentAsString = result.getResponse().getContentAsString();
                 SimpleErrorMessageResponse actual = simpleMessageJsonTester.parseObject(contentAsString);
 
-                Assert.assertThat(actual, matcher);
+                MatcherAssert.assertThat(actual, matcher);
             };
         }
 
@@ -353,7 +348,7 @@ public class ExceptionHandlerErrorCodeControllersAdviceTest extends ExceptionHan
                 String contentAsString = result.getResponse().getContentAsString();
                 ObjectValidationErrorResponse actual = objectValidationJsonTester.parseObject(contentAsString);
 
-                Assert.assertThat(actual, matcher);
+                MatcherAssert.assertThat(actual, matcher);
             };
         }
 

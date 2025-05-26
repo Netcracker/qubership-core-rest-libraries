@@ -1,35 +1,32 @@
 package org.qubership.cloud.restlegacy.restclient.app;
 
-import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
-import org.qubership.cloud.context.propagation.core.ContextManager;
-import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
-import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import com.sun.net.httpserver.HttpServer;
 import net.jodah.failsafe.Failsafe;
 import net.jodah.failsafe.RetryPolicy;
-import org.junit.*;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.qubership.cloud.context.propagation.core.ContextManager;
+import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
+import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
+import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
+import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.time.Duration;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {TestConfig.class, RestTemplateConfiguration.class})
-@TestPropertySource(properties = {
-        "apigateway.url=http://localhost:18292"
-})
+@SpringBootTest(classes = {TestConfig.class, RestTemplateConfiguration.class},
+        properties = {"apigateway.url=http://localhost:18292"})
 public class RestServerTest {
 
     private static HttpServer httpServer;
@@ -42,7 +39,7 @@ public class RestServerTest {
     protected final static RetryPolicy<Object> DEFAULT_RETRY_POLICY = new RetryPolicy<>()
             .withMaxRetries(-1).withDelay(Duration.ofMillis(500)).withMaxDuration(Duration.ofSeconds(10));
 
-    @BeforeClass
+    @BeforeAll
     public static void initServer() throws Exception {
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject(""));
         httpServer = HttpServer.create(new InetSocketAddress(18292), 0);
@@ -79,21 +76,22 @@ public class RestServerTest {
         httpServer.start();
     }
 
-    @AfterClass
+    @AfterAll
     public static void stopHttpServer() {
         httpServer.stop(0);
     }
 
     @Test
     public void testSyncGet() {
-        Assert.assertNotNull(apiGatewayClient.get(url, String.class));
+        assertNotNull(apiGatewayClient.get(url, String.class));
     }
 
     @Test
-    public void testSyncPost(){
+    public void testSyncPost() {
         Failsafe.with(DEFAULT_RETRY_POLICY).run(() ->
-                Assert.assertNotNull(apiGatewayClient.post(url, null, String.class)));
+                assertNotNull(apiGatewayClient.post(url, null, String.class)));
     }
+
     @Test
     public void testSyncPatch() {
         apiGatewayClient.patch(url, null, String.class);
@@ -107,12 +105,12 @@ public class RestServerTest {
     @Test
     public void testSyncOptions() {
         Set<HttpMethod> httpMethods = apiGatewayClient.options(url);
-        Assert.assertNotNull(httpMethods);
+        assertNotNull(httpMethods);
     }
 
     @Test
     public void testSyncHead() {
         HttpHeaders httpHeaders = apiGatewayClient.head(url);
-        Assert.assertNotNull(httpHeaders);
+        assertNotNull(httpHeaders);
     }
 }

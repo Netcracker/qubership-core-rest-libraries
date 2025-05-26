@@ -1,34 +1,28 @@
 package org.qubership.cloud.restlegacy.restclient;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restlegacy.restclient.configuration.ClientsTestConfiguration;
 import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ClientsTestConfiguration.class)
+@SpringBootTest(classes = ClientsTestConfiguration.class)
 public class ApiGatewayClientTest {
 
     private static String relativeURL;
     private static String url;
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
@@ -36,7 +30,7 @@ public class ApiGatewayClientTest {
     @Autowired
     private RestTemplateFactory restTemplateFactory;
 
-    @Before
+    @BeforeEach
     public void setup() {
         relativeURL = "/relativeUrl";
         url = "http://api-gateway/api/v1/some-app" + relativeURL;
@@ -107,7 +101,6 @@ public class ApiGatewayClientTest {
     public void testGetWith503() {
         when(restTemplate.getForEntity(url, String.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE));
-        expectedException.expect(RestClientException.class);
-        apiGatewayClient.get(relativeURL, String.class);
+        assertThrows(RestClientException.class, () -> apiGatewayClient.get(relativeURL, String.class));
     }
 }

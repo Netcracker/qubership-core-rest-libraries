@@ -1,12 +1,11 @@
 package org.qubership.cloud.restlegacy.restclient.error;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.qubership.cloud.context.propagation.core.ContextManager;
 import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
 import org.qubership.cloud.restlegacy.restclient.service.MessageService;
 import org.hamcrest.Matcher;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.retry.RetryStatistics;
@@ -17,20 +16,15 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Iterator;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
 import static org.qubership.cloud.restlegacy.restclient.error.RetryStatisticsMatcher.*;
 import static org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingRestController.*;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-// @Ignore is added to prevent test failing if you will execute tests directly on this class from IDE.
-// It is norm behaviour, because IDE test runner starts all tests annotated by @Test.
-// But maven surefire plugin (is used to execute test during maven build) will not start test for this class never, because class name does not contain 'Test'.
-// See details here http://maven.apache.org/surefire/maven-surefire-plugin/examples/inclusion-exclusion.html
-@Ignore
 public class ExceptionHandlerControllersAdviceBase {
 
     @Autowired
@@ -63,7 +57,7 @@ public class ExceptionHandlerControllersAdviceBase {
         return allOf(hasStarted(2), hasCompleted(1), hasErrors(1));
     }
 
-    @Before
+    @BeforeEach
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject("test-tenant"));

@@ -1,14 +1,14 @@
 package org.qubership.cloud.restlegacy.restclient.error;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.validation.Errors;
 import org.springframework.validation.MapBindingResult;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.qubership.cloud.restlegacy.restclient.error.UtilException.*;
-import static org.junit.Assert.*;
 
 public class UtilExceptionTest {
 
@@ -30,17 +30,19 @@ public class UtilExceptionTest {
         assertEquals("test", actualResult.get(0));
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testRethrowConsumerWhenExceptionAppears() {
-        final List<String> result = new ArrayList<>();
-        result.add("test");
-        result.add("test2");
+        assertThrows(Exception.class, () -> {
+            final List<String> result = new ArrayList<>();
+            result.add("test");
+            result.add("test2");
 
-        result.forEach(rethrowConsumer(element -> {
-            if ("test2".equals(element)) {
-                throw new Exception();
-            }
-        }));
+            result.forEach(rethrowConsumer(element -> {
+                if ("test2".equals(element)) {
+                    throw new Exception();
+                }
+            }));
+        });
     }
 
     @Test
@@ -58,20 +60,22 @@ public class UtilExceptionTest {
         assertEquals("test2*", actualResult.get(1));
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testRethrowFunctionWithException() {
-        final List<String> testData = new ArrayList<>();
-        testData.add("test");
-        testData.add("test2");
+        assertThrows(Exception.class, () -> {
+            final List<String> testData = new ArrayList<>();
+            testData.add("test");
+            testData.add("test2");
 
-        testData.stream()
-                .map(rethrowFunction(str -> {
-                    if ("test2".equals(str)) {
-                        throw new Exception();
-                    }
-                    return str + "*";
-                }))
-                .collect(Collectors.toList());
+            testData.stream()
+                    .map(rethrowFunction(str -> {
+                        if ("test2".equals(str)) {
+                            throw new Exception();
+                        }
+                        return str + "*";
+                    }))
+                    .toList();
+        });
     }
 
     @Test
@@ -82,11 +86,13 @@ public class UtilExceptionTest {
         assertEquals("test,test2", stringJoiner.toString());
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testRethrowSupplierWithException() {
-        rethrowSupplier(() -> {
-            throw new Exception();
-        }).get();
+        assertThrows(Exception.class, () -> {
+            rethrowSupplier(() -> {
+                throw new Exception();
+            }).get();
+        });
     }
 
     @Test
@@ -113,32 +119,38 @@ public class UtilExceptionTest {
         assertEquals("UtilExceptionTest", clazz.getSimpleName());
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testUncheckFunctionWithException() {
-        uncheck((classForName -> {
-            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-            if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
-                throw new Exception();
-            }
-            return clazzTmp;
-        }), "org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-    }
-
-    @Test(expected = Exception.class)
-    public void testUncheckRunnableWithException() {
-        uncheck(() -> {
-            throw new Exception();
+        assertThrows(Exception.class, () -> {
+            uncheck((classForName -> {
+                Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+                if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
+                    throw new Exception();
+                }
+                return clazzTmp;
+            }), "org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
         });
     }
 
-    @Test(expected = Exception.class)
-    public void testUncheckWithException() {
-        uncheck(() -> {
-            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-            if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
+    @Test
+    public void testUncheckRunnableWithException() {
+        assertThrows(Exception.class, () -> {
+            uncheck(() -> {
                 throw new Exception();
-            }
-            return clazzTmp;
+            });
+        });
+    }
+
+    @Test
+    public void testUncheckWithException() {
+        assertThrows(Exception.class, () -> {
+            uncheck(() -> {
+                Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+                if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
+                    throw new Exception();
+                }
+                return clazzTmp;
+            });
         });
     }
 
