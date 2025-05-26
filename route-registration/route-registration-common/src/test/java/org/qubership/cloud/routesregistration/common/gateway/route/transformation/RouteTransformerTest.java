@@ -36,10 +36,7 @@ public class RouteTransformerTest {
                         .withGatewayPathsFrom(Collections.singleton("/test-path-from"))
                         .build());
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            routeTransformer.transform(microserviceRoutesBuilder.build());
-
-        });
+        assertThrows(IllegalArgumentException.class, () -> routeTransformer.transform(microserviceRoutesBuilder.build()));
     }
 
     @Test

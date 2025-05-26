@@ -32,17 +32,14 @@ public class UtilExceptionTest {
 
     @Test
     public void testRethrowConsumerWhenExceptionAppears() {
-        assertThrows(Exception.class, () -> {
-            final List<String> result = new ArrayList<>();
-            result.add("test");
-            result.add("test2");
-
-            result.forEach(rethrowConsumer(element -> {
-                if ("test2".equals(element)) {
-                    throw new Exception();
-                }
-            }));
-        });
+        final List<String> result = new ArrayList<>();
+        result.add("test");
+        result.add("test2");
+        assertThrows(Exception.class, () -> result.forEach(rethrowConsumer(element -> {
+            if ("test2".equals(element)) {
+                throw new Exception();
+            }
+        })));
     }
 
     @Test
@@ -62,20 +59,18 @@ public class UtilExceptionTest {
 
     @Test
     public void testRethrowFunctionWithException() {
-        assertThrows(Exception.class, () -> {
-            final List<String> testData = new ArrayList<>();
-            testData.add("test");
-            testData.add("test2");
+        final List<String> testData = new ArrayList<>();
+        testData.add("test");
+        testData.add("test2");
 
-            testData.stream()
-                    .map(rethrowFunction(str -> {
-                        if ("test2".equals(str)) {
-                            throw new Exception();
-                        }
-                        return str + "*";
-                    }))
-                    .toList();
-        });
+        assertThrows(Exception.class, () -> testData.stream()
+                .map(rethrowFunction(str -> {
+                    if ("test2".equals(str)) {
+                        throw new Exception();
+                    }
+                    return str + "*";
+                }))
+                .toList());
     }
 
     @Test
@@ -88,11 +83,9 @@ public class UtilExceptionTest {
 
     @Test
     public void testRethrowSupplierWithException() {
-        assertThrows(Exception.class, () -> {
-            rethrowSupplier(() -> {
-                throw new Exception();
-            }).get();
-        });
+        assertThrows(Exception.class, () -> rethrowSupplier(() -> {
+            throw new Exception();
+        }).get());
     }
 
     @Test
@@ -121,37 +114,31 @@ public class UtilExceptionTest {
 
     @Test
     public void testUncheckFunctionWithException() {
-        assertThrows(Exception.class, () -> {
-            uncheck((classForName -> {
-                Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-                if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
-                    throw new Exception();
-                }
-                return clazzTmp;
-            }), "org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-        });
+        assertThrows(Exception.class, () -> uncheck((classForName -> {
+            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
+                throw new Exception();
+            }
+            return clazzTmp;
+        }), "org.qubership.cloud.microserviceframework.error.UtilExceptionTest"));
     }
 
     @Test
     public void testUncheckRunnableWithException() {
-        assertThrows(Exception.class, () -> {
-            uncheck(() -> {
-                throw new Exception();
-            });
-        });
+        assertThrows(Exception.class, () -> uncheck(() -> {
+            throw new Exception();
+        }));
     }
 
     @Test
     public void testUncheckWithException() {
-        assertThrows(Exception.class, () -> {
-            uncheck(() -> {
-                Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
-                if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
-                    throw new Exception();
-                }
-                return clazzTmp;
-            });
-        });
+        assertThrows(Exception.class, () -> uncheck(() -> {
+            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
+                throw new Exception();
+            }
+            return clazzTmp;
+        }));
     }
 
     @Test
