@@ -13,7 +13,7 @@ class RouteFormatterTest {
     RouteFormatter routeFormatter;
 
     @Test
-    void processRoute() throws Exception {
+    void processRoute() {
         /* pure route*/
         assertEquals("/api/v1/create", routeFormatter.processRoute("/api/v1/create"));
 

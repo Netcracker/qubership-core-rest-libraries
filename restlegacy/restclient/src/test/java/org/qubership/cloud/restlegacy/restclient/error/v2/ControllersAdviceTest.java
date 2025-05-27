@@ -57,7 +57,7 @@ class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    void dontRetryRequestToSystemThatUsesV2ModelIfFailWasInTransitiveService() throws Exception {
+    void dontRetryRequestToSystemThatUsesV2ModelIfFailWasInTransitiveService() {
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
@@ -65,7 +65,7 @@ class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    void retryRequestToSystemThatUsesV2ModelIfFailWasInDirectService() throws Exception {
+    void retryRequestToSystemThatUsesV2ModelIfFailWasInDirectService() {
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);

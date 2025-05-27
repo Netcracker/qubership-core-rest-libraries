@@ -38,7 +38,7 @@ class ErrorDescriptionMapperTest {
             "}";
 
     @Test
-    void testUnknownField() throws JsonProcessingException {
+    void testUnknownField() {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, errorDescriptionWithUnknowField.getBytes(), null);
         ProxyErrorException ex = new ProxyErrorException(cause, "");
 

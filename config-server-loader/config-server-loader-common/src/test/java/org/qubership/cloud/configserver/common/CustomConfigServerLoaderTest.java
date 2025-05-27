@@ -45,7 +45,7 @@ class CustomConfigServerLoaderTest {
     }
 
     @Test
-    void locateMainActivityTest() throws Exception {
+    void locateMainActivityTest() {
 
         Environment environment = new Environment("test", "dev");
         environment.setVersion("test-version");

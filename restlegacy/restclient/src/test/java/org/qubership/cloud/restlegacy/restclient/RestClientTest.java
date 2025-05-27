@@ -194,13 +194,13 @@ class RestClientTest {
     }
 
     @Test
-    void testUserRestTemplate() throws Exception {
+    void testUserRestTemplate() {
         RestTemplate clientRestTemplate = restClient.getRestTemplate();
         assertEquals(restTemplateFactory.getRestTemplate(), clientRestTemplate);
     }
 
     @Test
-    void testDefaultRestTemplate() throws Exception {
+    void testDefaultRestTemplate() {
         RestTemplate clientRestTemplate = restClient.getRestTemplate();
         assertEquals(restTemplate, clientRestTemplate);
     }

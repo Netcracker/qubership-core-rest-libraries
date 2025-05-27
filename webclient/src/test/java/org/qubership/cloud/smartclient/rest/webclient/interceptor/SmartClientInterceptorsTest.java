@@ -74,7 +74,7 @@ class SmartClientInterceptorsTest {
     }
 
     @Test
-    void allowedHeadersInterceptorTest() throws Exception {
+    void allowedHeadersInterceptorTest() {
         String allowedHeader = "allowed_header";
         String allowedHeaderValue = "fValue";
 
@@ -92,7 +92,7 @@ class SmartClientInterceptorsTest {
     }
 
     @Test
-    void allowedHeadersInterceptorMissingHeadersTest() throws Exception {
+    void allowedHeadersInterceptorMissingHeadersTest() {
         ClientRequest request = ClientRequest.create(HttpMethod.GET, DEFAULT_URL).build();
         ClientResponse response = mock(ClientResponse.class);
 
