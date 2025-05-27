@@ -24,18 +24,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest(classes = RoutesTestConfigurationWithoutDefaultMapping.class,
         properties = {"apigateway.routes.registration.enabled=true"})
-public class RegistrationRequestV3FactoryTest {
+class RegistrationRequestV3FactoryTest {
 
     private static final String LOCALDEV_NAMESPACE_ENV = "LOCALDEV_NAMESPACE";
     private static final String DEFAULT_DEPLOYMENT_VERSION = "v1";
-    private static final String V2_DEPLOYMENT_VERSION = "v2";
 
     private static final String LOCALDEV_NAMESPACE = "127.0.0.1.xip.io";
     private static final String APP_NAME = "name";
     private static final String CLOUD_NAMESPACE = "default";
-    private static final Class<TestController2> BEAN_CLASS = TestController2.class;
 
-    private static final int TEST_REGISTRATIONS_NUM = 3;
     private RoutesRestRegistrationProcessor routesRestRegistrationProcessor;
     @Autowired
     private RouteAnnotationProcessor routeAnnotationProcessor;
@@ -74,14 +71,14 @@ public class RegistrationRequestV3FactoryTest {
     }
 
     @BeforeEach
-    public void setUp() throws IOException {
+    void setUp() throws IOException {
         server = new MockWebServer();
         server.start();
         rxScheduler.start();
     }
 
     @Test
-    public void testRoutesValidateAnyHosts() throws Exception {
+    void testRoutesValidateAnyHosts() throws Exception {
         System.setProperty(LOCALDEV_NAMESPACE_ENV, LOCALDEV_NAMESPACE);
         resetTestContext(CLOUD_NAMESPACE, DEFAULT_DEPLOYMENT_VERSION);
 
@@ -94,7 +91,7 @@ public class RegistrationRequestV3FactoryTest {
     }
 
     @Test
-    public void testRoutesValidateEmptyHosts() throws Exception {
+    void testRoutesValidateEmptyHosts() throws Exception {
         System.setProperty(LOCALDEV_NAMESPACE_ENV, LOCALDEV_NAMESPACE);
         resetTestContext(CLOUD_NAMESPACE, DEFAULT_DEPLOYMENT_VERSION);
 
@@ -107,7 +104,7 @@ public class RegistrationRequestV3FactoryTest {
     }
 
     @Test
-    public void testRoutesValidateEmptyAndAnyHosts() throws Exception {
+    void testRoutesValidateEmptyAndAnyHosts() throws Exception {
         System.setProperty(LOCALDEV_NAMESPACE_ENV, LOCALDEV_NAMESPACE);
         resetTestContext(CLOUD_NAMESPACE, DEFAULT_DEPLOYMENT_VERSION);
 

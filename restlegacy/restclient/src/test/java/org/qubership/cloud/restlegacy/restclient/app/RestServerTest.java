@@ -27,7 +27,7 @@ import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.T
 
 @SpringBootTest(classes = {TestConfig.class, RestTemplateConfiguration.class},
         properties = {"apigateway.url=http://localhost:18292"})
-public class RestServerTest {
+class RestServerTest {
 
     private static HttpServer httpServer;
     @Autowired
@@ -40,7 +40,7 @@ public class RestServerTest {
             .withMaxRetries(-1).withDelay(Duration.ofMillis(500)).withMaxDuration(Duration.ofSeconds(10));
 
     @BeforeAll
-    public static void initServer() throws Exception {
+    static void initServer() throws Exception {
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject(""));
         httpServer = HttpServer.create(new InetSocketAddress(18292), 0);
 
@@ -77,39 +77,39 @@ public class RestServerTest {
     }
 
     @AfterAll
-    public static void stopHttpServer() {
+    static void stopHttpServer() {
         httpServer.stop(0);
     }
 
     @Test
-    public void testSyncGet() {
+    void testSyncGet() {
         assertNotNull(apiGatewayClient.get(url, String.class));
     }
 
     @Test
-    public void testSyncPost() {
+    void testSyncPost() {
         Failsafe.with(DEFAULT_RETRY_POLICY).run(() ->
                 assertNotNull(apiGatewayClient.post(url, null, String.class)));
     }
 
     @Test
-    public void testSyncPatch() {
+    void testSyncPatch() {
         apiGatewayClient.patch(url, null, String.class);
     }
 
     @Test
-    public void testSyncDelete() {
+    void testSyncDelete() {
         apiGatewayClient.delete(url);
     }
 
     @Test
-    public void testSyncOptions() {
+    void testSyncOptions() {
         Set<HttpMethod> httpMethods = apiGatewayClient.options(url);
         assertNotNull(httpMethods);
     }
 
     @Test
-    public void testSyncHead() {
+    void testSyncHead() {
         HttpHeaders httpHeaders = apiGatewayClient.head(url);
         assertNotNull(httpHeaders);
     }

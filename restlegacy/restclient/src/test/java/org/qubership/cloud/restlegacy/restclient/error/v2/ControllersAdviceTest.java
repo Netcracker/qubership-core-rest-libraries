@@ -1,13 +1,13 @@
 package org.qubership.cloud.restlegacy.restclient.error.v2;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
 import org.qubership.cloud.restlegacy.restclient.error.*;
 import org.qubership.cloud.restlegacy.restclient.service.MessageService;
-import jakarta.servlet.http.HttpServletRequest;
-import org.mockito.Mock;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.MethodParameter;
@@ -26,12 +26,12 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.*;
 import static org.mockito.Mockito.when;
+import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {TestConfig.class, TestExceptionHandlingConfiguration.class, ControllerWithV2ExceptionModel.class})
-public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
+class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
 
     private final MessageFormat messageFormat = new MessageFormat("{0}");
     @Mock
@@ -41,23 +41,23 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     private ControllersAdvice baseAdvice;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         baseAdvice = new ControllersAdvice(messageService);
     }
 
 
     @Test
-    public void useV1VersionOfErrorHandlingByDefault() {
+    void useV1VersionOfErrorHandlingByDefault() {
         assertNotNull(context.getBean(ControllersAdvice.class));
     }
 
     @Test
-    public void dontUseV2VersionOfErrorHandlingByDefault() {
+    void dontUseV2VersionOfErrorHandlingByDefault() {
         assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(ExceptionHandlingV2MainConfiguration.class));
     }
 
     @Test
-    public void dontRetryRequestToSystemThatUsesV2ModelIfFailWasInTransitiveService() throws Exception {
+    void dontRetryRequestToSystemThatUsesV2ModelIfFailWasInTransitiveService() throws Exception {
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + TRANSITIVE_FAILED_REQUEST);
@@ -65,7 +65,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void retryRequestToSystemThatUsesV2ModelIfFailWasInDirectService() throws Exception {
+    void retryRequestToSystemThatUsesV2ModelIfFailWasInDirectService() throws Exception {
         restClient.safelySendRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V2_MODEL + DIRECTLY_FAILED_REQUEST);
@@ -73,7 +73,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleErrorExceptionTest() {
+    void handleErrorExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("errorExceptionTest");
         Object[] parameters = {"test characteristic"};
         String templateMessage = "Parameters: {0}";
@@ -89,7 +89,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleMethodArgumentNotValidExceptionTest() {
+    void handleMethodArgumentNotValidExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleMethodArgumentNotValidExceptionTest");
         BindingResult bindingResult = new BindException(new Object(), "");
         FieldError fieldError = new FieldError("objectName", "field", "defaultMessage");
@@ -114,7 +114,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleMethodArgumentTypeMismatchExceptionTest() {
+    void handleMethodArgumentTypeMismatchExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleMethodArgumentTypeMismatchExceptionTest");
         String[] parameters = {"objectName", "value"};
         String templateMessage = "Parameters: {0}, {1}";
@@ -130,7 +130,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleHttpMessageNotReadableExceptionTest() {
+    void handleHttpMessageNotReadableExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleHttpMessageNotReadableExceptionTest");
         String templateMessage = "Parameters: objectName, value";
         ErrorType errorType = ErrorType.BAD_REQUEST;
@@ -144,7 +144,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleOptimisticLockingFailureExceptionTest() {
+    void handleOptimisticLockingFailureExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleOptimisticLockingFailureExceptionTest");
         String templateMessage = "Parameters: objectName, value";
         ErrorType errorType = ErrorType.CONFLICT;
@@ -158,7 +158,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleIllegalArgumentExceptionTest() {
+    void handleIllegalArgumentExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleIllegalArgumentExceptionTest");
         String templateMessage = "Parameters: objectName, value";
         ErrorType errorType = ErrorType.BAD_REQUEST;
@@ -172,7 +172,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleMissingServletRequestParameterExceptionTest() {
+    void handleMissingServletRequestParameterExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleMissingServletRequestParameterExceptionTest");
         ErrorType errorType = ErrorType.BAD_REQUEST;
 
@@ -191,7 +191,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleEntityNotFoundExceptionTest() {
+    void handleEntityNotFoundExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleEntityNotFoundExceptionTest");
         String message = "Parameters: entityTypeName, \"550e8400-e29b-41d4-a716-446655440000\"";
         Object[] parameters = {"entityTypeName", "550e8400-e29b-41d4-a716-446655440000"};
@@ -211,7 +211,7 @@ public class ControllersAdviceTest extends ExceptionHandlerControllersAdviceBase
     }
 
     @Test
-    public void handleExceptionTest() {
+    void handleExceptionTest() {
         when(httpServletRequest.getRequestURI()).thenReturn("handleExceptionTest");
         String templateMessage = "templateMessage";
         ErrorType errorType = ErrorType.INTERNAL_SERVER_ERROR;

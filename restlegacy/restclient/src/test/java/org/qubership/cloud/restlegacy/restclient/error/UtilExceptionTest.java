@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.qubership.cloud.restlegacy.restclient.error.UtilException.*;
 
-public class UtilExceptionTest {
+class UtilExceptionTest {
 
     @Test
-    public void testRethrowConsumer() {
+    void testRethrowConsumer() {
         final List<String> result = new ArrayList<>();
         result.add("test");
         result.add("test2");
@@ -31,7 +31,7 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRethrowConsumerWhenExceptionAppears() {
+    void testRethrowConsumerWhenExceptionAppears() {
         final List<String> result = new ArrayList<>();
         result.add("test");
         result.add("test2");
@@ -43,14 +43,14 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRethrowFunction() {
+    void testRethrowFunction() {
         final List<String> testData = new ArrayList<>();
         testData.add("test");
         testData.add("test2");
 
         List<String> actualResult = testData.stream()
                 .map(rethrowFunction(str -> str + "*"))
-                .collect(Collectors.toList());
+                .toList();
 
         assertEquals(2, actualResult.size());
         assertEquals("test*", actualResult.get(0));
@@ -58,7 +58,7 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRethrowFunctionWithException() {
+    void testRethrowFunctionWithException() {
         final List<String> testData = new ArrayList<>();
         testData.add("test");
         testData.add("test2");
@@ -74,7 +74,7 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRethrowSupplier() {
+    void testRethrowSupplier() {
         final StringJoiner stringJoiner = rethrowSupplier(() -> new StringJoiner(",")).get()
                 .add("test")
                 .add("test2");
@@ -82,21 +82,21 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRethrowSupplierWithException() {
+    void testRethrowSupplierWithException() {
         assertThrows(Exception.class, () -> rethrowSupplier(() -> {
             throw new Exception();
         }).get());
     }
 
     @Test
-    public void testUncheck() {
-        final Class clazz = uncheck(() -> UtilExceptionTest.class);
+    void testUncheck() {
+        final Class<UtilExceptionTest> clazz = uncheck(() -> UtilExceptionTest.class);
         assertNotNull(clazz);
         assertEquals("UtilExceptionTest", clazz.getSimpleName());
     }
 
     @Test
-    public void testUncheckRunnable() {
+    void testUncheckRunnable() {
         List<String> list = new ArrayList<>();
         uncheck(() -> {
             list.add("test");
@@ -106,16 +106,16 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testUncheckFunction() {
-        final Class clazz = uncheck(() -> UtilExceptionTest.class);
+    void testUncheckFunction() {
+        final Class<UtilExceptionTest> clazz = uncheck(() -> UtilExceptionTest.class);
         assertNotNull(clazz);
         assertEquals("UtilExceptionTest", clazz.getSimpleName());
     }
 
     @Test
-    public void testUncheckFunctionWithException() {
+    void testUncheckFunctionWithException() {
         assertThrows(Exception.class, () -> uncheck((classForName -> {
-            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            Class<?> clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
             if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
                 throw new Exception();
             }
@@ -124,16 +124,16 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testUncheckRunnableWithException() {
+    void testUncheckRunnableWithException() {
         assertThrows(Exception.class, () -> uncheck(() -> {
             throw new Exception();
         }));
     }
 
     @Test
-    public void testUncheckWithException() {
+    void testUncheckWithException() {
         assertThrows(Exception.class, () -> uncheck(() -> {
-            Class clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            Class<?> clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
             if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
                 throw new Exception();
             }
@@ -142,7 +142,7 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRejectConsumer() {
+    void testRejectConsumer() {
         Errors errors = new MapBindingResult(new HashMap<>(), "testObject");
         final List<String> testData = new ArrayList<>();
         testData.add("test");
@@ -154,7 +154,7 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRejectConsumerWithException() {
+    void testRejectConsumerWithException() {
         Errors errors = new MapBindingResult(new HashMap<>(), "testObject");
         final List<String> testData = new ArrayList<>();
         testData.add("test");
@@ -181,10 +181,10 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRejectFunction() {
+    void testRejectFunction() {
         Errors errors = new MapBindingResult(new HashMap<>(), "testObject");
         List<String> data = Collections.singletonList(UtilExceptionTest.class.getName());
-        List<Class> classes = data.stream()
+        List<Class<?>> classes = data.stream()
                 .map(rejectFunction(errors, Class::forName))
                 .collect(Collectors.toList());
         assertEquals(1, classes.size());
@@ -192,27 +192,18 @@ public class UtilExceptionTest {
     }
 
     @Test
-    public void testRejectFunctionWithExceptions() {
+    void testRejectFunctionWithExceptions() {
         Errors errors = new MapBindingResult(new HashMap<>(), "testObject");
         final List<String> testData = new ArrayList<>();
         testData.add("test");
         testData.add("test2");
         testData.add("test3");
-        List<Class> classes = testData.stream()
-                .map(rejectFunction(errors, str -> {
-                    switch (str) {
-                        case "test": {
-                            return UtilExceptionTest.class;
-                        }
-                        case "test2": {
-                            throw new ErrorException(new Exception(), ErrorType.INTERNAL_SERVER_ERROR);
-                        }
-                        case "test3": {
-                            throw new ProxyErrorException(new Exception(), "some-test-url");
-                        }
-                        default:
-                            return null;
-                    }
+        List<Class<?>> classes = testData.stream()
+                .map(rejectFunction(errors, str -> switch (str) {
+                    case "test" -> UtilExceptionTest.class;
+                    case "test2" -> throw new ErrorException(new Exception(), ErrorType.INTERNAL_SERVER_ERROR);
+                    case "test3" -> throw new ProxyErrorException(new Exception(), "some-test-url");
+                    default -> null;
                 }))
                 .collect(Collectors.toList());
 

@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(classes = RoutesTestConfiguration.class,
         properties = {"apigateway.routes.registration.enabled=true"})
-public class RoutesRegistrationTest {
+class RoutesRegistrationTest {
 
     private static final String LOCALDEV_NAMESPACE_ENV = "LOCALDEV_NAMESPACE";
     private static final String DEFAULT_DEPLOYMENT_VERSION = "v1";
@@ -86,14 +86,14 @@ public class RoutesRegistrationTest {
     }
 
     @BeforeEach
-    public void setUp() throws IOException {
+    void setUp() throws IOException {
         server = new MockWebServer();
         server.start();
         rxScheduler.start();
     }
 
     @Test
-    public void testRoutesNamespaceInLocalDev() throws Exception {
+    void testRoutesNamespaceInLocalDev() throws Exception {
         System.setProperty(LOCALDEV_NAMESPACE_ENV, LOCALDEV_NAMESPACE);
         resetTestContext(CLOUD_NAMESPACE, DEFAULT_DEPLOYMENT_VERSION);
 
@@ -111,7 +111,7 @@ public class RoutesRegistrationTest {
     }
 
     @Test
-    public void testRoutesNamespaceInCloud() throws Exception {
+    void testRoutesNamespaceInCloud() throws Exception {
         System.clearProperty(LOCALDEV_NAMESPACE_ENV);
         resetTestContext(CLOUD_NAMESPACE, DEFAULT_DEPLOYMENT_VERSION);
 
@@ -130,7 +130,7 @@ public class RoutesRegistrationTest {
 
 
     @Test
-    public void testVersionedRoutesRegistration() throws Exception {
+    void testVersionedRoutesRegistration() throws Exception {
         System.clearProperty(LOCALDEV_NAMESPACE_ENV);
         resetTestContext(CLOUD_NAMESPACE, V2_DEPLOYMENT_VERSION);
 
@@ -148,7 +148,7 @@ public class RoutesRegistrationTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         rxScheduler.shutdown();
     }
 }

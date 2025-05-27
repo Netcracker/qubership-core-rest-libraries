@@ -22,7 +22,7 @@ import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.T
 @SpringBootTest(classes = TestConfig.class,
         properties = {"apigateway.url=http://localhost:18283"}
 )
-public class RestTemplateTest {
+class RestTemplateTest {
 
     private static HttpServer httpServer;
 
@@ -33,7 +33,7 @@ public class RestTemplateTest {
     private static final String FULL_URL = "http://localhost:18283/api/v1/test-app/test";
 
     @BeforeAll
-    public static void initServer() throws Exception {
+    static void initServer() throws Exception {
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject(""));
         httpServer = HttpServer.create(new InetSocketAddress(18283), 0);
 
@@ -67,39 +67,38 @@ public class RestTemplateTest {
     }
 
     @AfterAll
-    public static void stopHttpServer() {
+    static void stopHttpServer() {
         httpServer.stop(0);
     }
 
     @Test
-    public void testSyncRestTemplateGet() {
+    void testSyncRestTemplateGet() {
         assertNotNull(restTemplate.getForEntity(FULL_URL, String.class));
     }
 
 
     @Test
-    public void testSyncRestTemplatePost() {
+    void testSyncRestTemplatePost() {
         assertNotNull(restTemplate.postForEntity(FULL_URL, null, String.class));
     }
 
-
     @Test
-    public void testSyncRestTemplatePatch() {
+    void testSyncRestTemplatePatch() {
         assertNotNull(restTemplate.patchForObject(FULL_URL, null, String.class));
     }
 
     @Test
-    public void testSyncRestTemplateDelete() {
+    void testSyncRestTemplateDelete() {
         restTemplate.delete(FULL_URL);
     }
 
     @Test
-    public void testSyncRestTemplateOptional() {
+    void testSyncRestTemplateOptional() {
         assertNotNull(restTemplate.optionsForAllow(FULL_URL));
     }
 
     @Test
-    public void testSyncRestTemplateHead() {
+    void testSyncRestTemplateHead() {
         assertNotNull(restTemplate.headForHeaders(FULL_URL));
     }
 }

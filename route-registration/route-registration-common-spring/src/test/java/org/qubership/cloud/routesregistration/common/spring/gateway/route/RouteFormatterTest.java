@@ -7,13 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = RoutesTestConfiguration.class)
-public class RouteFormatterTest {
+class RouteFormatterTest {
 
     @Autowired
     RouteFormatter routeFormatter;
 
     @Test
-    public void processRoute() throws Exception {
+    void processRoute() throws Exception {
         /* pure route*/
         assertEquals("/api/v1/create", routeFormatter.processRoute("/api/v1/create"));
 
@@ -36,5 +36,4 @@ public class RouteFormatterTest {
         assertEquals("/" + RoutesTestConfiguration.SPRING_APPLICATION_NAME_VALUE + "/" + RoutesTestConfiguration.SPRING_CLOUD_CONFIG_URI_VALUE + "/" + RoutesTestConfiguration.SPRING_APPLICATION_NAME_VALUE + "/create",
                 routeFormatter.processRoute("/${cloud.microservice.name}/${spring.cloud.config.uri}/${cloud.microservice.name}/create"));
     }
-
 }

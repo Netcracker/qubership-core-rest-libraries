@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ProgressiveTimeoutTest {
+class ProgressiveTimeoutTest {
 
     private static final int RETRY_DELAY_MILLIS = 1000;
 
     @Test
-    public void progressiveTimeoutConstructorTest() {
+    void progressiveTimeoutConstructorTest() {
         ProgressiveTimeout progressiveTimeout = new ProgressiveTimeout(RETRY_DELAY_MILLIS, 1, 10, 1);
         assertEquals(1, progressiveTimeout.getStartMultiplier());
         assertEquals(10, progressiveTimeout.getEndMultiplier());
@@ -20,19 +20,19 @@ public class ProgressiveTimeoutTest {
     }
 
     @Test
-    public void progressiveTimeoutConstructorWithIllegalArgumentExceptionTest() {
+    void progressiveTimeoutConstructorWithIllegalArgumentExceptionTest() {
         assertThrows(IllegalArgumentException.class, () -> new ProgressiveTimeout(RETRY_DELAY_MILLIS, 100, 10, 1));
     }
 
     @Test
-    public void newTimeoutValueTest() {
+    void newTimeoutValueTest() {
         ProgressiveTimeout progressiveTimeout = new ProgressiveTimeout(RETRY_DELAY_MILLIS, 1, 10, 1);
         assertEquals(1_000, progressiveTimeout.nextTimeoutValue());
         assertEquals(2_000, progressiveTimeout.nextTimeoutValue());
     }
 
     @Test
-    public void resetTest() {
+    void resetTest() {
         ProgressiveTimeout progressiveTimeout = new ProgressiveTimeout(RETRY_DELAY_MILLIS, 1, 10, 1);
         assertEquals(1_000, progressiveTimeout.nextTimeoutValue());
         progressiveTimeout.reset();

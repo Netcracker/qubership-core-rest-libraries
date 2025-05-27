@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RoutesTestConfiguration.*;
 
 @SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
-public class RouteAnnotationProcessorTest {
+class RouteAnnotationProcessorTest {
 
     @Autowired
     RouteAnnotationProcessor routeAnnotationProcessor;
@@ -128,7 +128,6 @@ public class RouteAnnotationProcessorTest {
                 .from(RoutesTestConfiguration.CLASS_ROUTES_12)
                 .to(RoutesTestConfiguration.CLASS_ROUTES_12)
                 .namespace("default")
-//                .gateway(Constants.PUBLIC_GATEWAY_SERVICE)
                 .build());
         ROUTES_LIST.add(RouteEntry.builder()
                 .type(RouteType.FACADE)
@@ -163,7 +162,6 @@ public class RouteAnnotationProcessorTest {
                 .from(RoutesTestConfiguration.CLASS_ROUTES_12 + RoutesTestConfiguration.METHOD_ROUTES_3)
                 .to(RoutesTestConfiguration.CLASS_ROUTES_12 + RoutesTestConfiguration.METHOD_ROUTES_3)
                 .namespace("default")
-//                .gateway(Constants.PRIVATE_GATEWAY_SERVICE)
                 .build());
 
         /* Routes for TestController13*/
@@ -189,7 +187,7 @@ public class RouteAnnotationProcessorTest {
                 .gateway(INGRESS_GATEWAY)
                 .build());
 
-//        /* Routes for TestController15*/
+        /* Routes for TestController15*/
         ROUTES_LIST.add(RouteEntry.builder()
                 .type(RouteType.FACADE)
                 .from("/api/v1/sample-service/ingress")
@@ -213,7 +211,7 @@ public class RouteAnnotationProcessorTest {
                 .gateway(INGRESS_GATEWAY)
                 .build());
 
-//        /* Routes for TestController16*/
+        /* Routes for TestController16*/
         ROUTES_LIST.add(RouteEntry.builder()
                 .type(RouteType.FACADE)
                 .from("/api/v1/sample-service/ingress")
@@ -287,7 +285,7 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void getRouteEntries_shouldError_whenBorderGatewayContainsHost() {
+    void getRouteEntries_shouldError_whenBorderGatewayContainsHost() {
         Exception exception = assertThrows(
                 Exception.class,
                 () -> routeAnnotationProcessor.getRouteEntries(TestController14.class)
@@ -298,7 +296,7 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void getRouteEntriesWithDefaultGatewaysAndHosts() throws Exception {
+    void getRouteEntriesWithDefaultGatewaysAndHosts() throws Exception {
         List<RouteEntry> routes = new ArrayList<>(routeAnnotationProcessor.getRouteEntries(TestController18.class));
         List<RouteEntry> expectedRoutes = Arrays.asList(
                 RouteEntry.builder()
@@ -361,7 +359,7 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void getRouteEntries() throws Exception {
+    void getRouteEntries() throws Exception {
         List<RouteEntry> routes = new ArrayList<>();
         routes.addAll(routeAnnotationProcessor.getRouteEntries(TestController1.class));
         routes.addAll(routeAnnotationProcessor.getRouteEntries(TestController2.class));
@@ -383,7 +381,7 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void testGetRouteEntriesFromContext() {
+    void testGetRouteEntriesFromContext() {
         List<RouteEntry> routes = routeAnnotationProcessor.getRouteEntries();
         List<RouteEntry> expectedRoutes = getExpectedRoutes();
         // 4 more route duplicates are caused by @Validated on TestController4
@@ -414,13 +412,13 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void validatePathsFromTo() throws Exception {
-        routeAnnotationProcessor.getRouteEntries(TestController1.class).stream().forEach(route -> assertEquals(route.getFrom(), route.getTo()));
-        routeAnnotationProcessor.getRouteEntries(TestController2.class).stream().forEach(route -> assertEquals(route.getFrom(), route.getTo()));
-        routeAnnotationProcessor.getRouteEntries(TestController3.class).stream().forEach(route -> assertNotEquals(route.getFrom(), route.getTo()));
+    void validatePathsFromTo() throws Exception {
+        routeAnnotationProcessor.getRouteEntries(TestController1.class).forEach(route -> assertEquals(route.getFrom(), route.getTo()));
+        routeAnnotationProcessor.getRouteEntries(TestController2.class).forEach(route -> assertEquals(route.getFrom(), route.getTo()));
+        routeAnnotationProcessor.getRouteEntries(TestController3.class).forEach(route -> assertNotEquals(route.getFrom(), route.getTo()));
 
         List<RouteEntry> customRoutes = routeAnnotationProcessor.getRouteEntries(TestController4.class);
-        customRoutes.stream().forEach(route -> {
+        customRoutes.forEach(route -> {
             assertNotEquals(route.getFrom(), route.getTo());
             assertTrue(route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_1) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_1)
                     || route.getFrom().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_FROM_2) && route.getTo().equals(RoutesTestConfiguration.METHOD_ROUTE_PATH_TO_1)
@@ -430,7 +428,7 @@ public class RouteAnnotationProcessorTest {
     }
 
     @Test
-    public void validateRouteTimeout() throws Exception {
+    void validateRouteTimeout() throws Exception {
         List<RouteEntry> routes = routeAnnotationProcessor.getRouteEntries(TestController1.class);
 
         List<RouteEntry> filteredRoutes = findRoutes(routes, route -> route.getFrom().equals(RoutesTestConfiguration.CLASS_ROUTES_1));

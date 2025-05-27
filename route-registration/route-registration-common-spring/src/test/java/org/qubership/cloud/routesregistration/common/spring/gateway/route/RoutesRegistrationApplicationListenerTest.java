@@ -15,7 +15,7 @@ import java.util.Set;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class RoutesRegistrationApplicationListenerTest {
+class RoutesRegistrationApplicationListenerTest {
 
     @Mock
     private RouteAnnotationProcessor routeAnnotationProcessor;
@@ -23,7 +23,7 @@ public class RoutesRegistrationApplicationListenerTest {
     private RoutesRestRegistrationProcessor routesRestRegistrationProcessor;
 
     @Test
-    public void testRegisterRoutes() throws Exception {
+    void testRegisterRoutes() throws Exception {
         RoutesRegistrationApplicationListener routesRegistrationApplicationListener
                 = new RoutesRegistrationApplicationListener(routeAnnotationProcessor, routesRestRegistrationProcessor);
         final ContextRefreshedEvent event = mock(ContextRefreshedEvent.class);
@@ -39,5 +39,4 @@ public class RoutesRegistrationApplicationListenerTest {
         verify(routesRestRegistrationProcessor, times(1))
                 .postRoutes(anySet());
     }
-
 }

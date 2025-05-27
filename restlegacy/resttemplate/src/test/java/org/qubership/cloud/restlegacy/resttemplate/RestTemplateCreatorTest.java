@@ -20,7 +20,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class RestTemplateCreatorTest {
+class RestTemplateCreatorTest {
 
     List<ClientHttpRequestInterceptor> clientHttpRequestInterceptorList;
     @Mock
@@ -31,7 +31,7 @@ public class RestTemplateCreatorTest {
     private RestTemplateBuilder restTemplateBuilder;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         clientHttpRequestInterceptorList = Collections.singletonList(mock(ClientHttpRequestInterceptor.class));
 
         RestTemplateFactory restTemplateFactory = new RestTemplateFactory(oAuthRestTemplateProvider,
@@ -48,7 +48,7 @@ public class RestTemplateCreatorTest {
 
 
     @Test
-    public void createRestTemplate() {
+    void createRestTemplate() {
         RestTemplate expectedRestTemplate = getExpectedRestTemplate();
         when(restTemplateBuilder.build()).thenReturn(new RestTemplate());
         RestTemplate restTemplate = restTemplateCreator.create();
@@ -56,7 +56,7 @@ public class RestTemplateCreatorTest {
     }
 
     @Test
-    public void createRestTemplateWithM2M() {
+    void createRestTemplateWithM2M() {
         RestTemplate expectedRestTemplate = getExpectedRestTemplate();
         Mockito.when(oAuthRestTemplateProvider.getOAuthRestTemplate()).thenReturn(expectedRestTemplate);
 

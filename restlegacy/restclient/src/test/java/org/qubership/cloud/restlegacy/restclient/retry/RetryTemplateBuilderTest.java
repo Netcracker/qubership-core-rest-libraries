@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class RetryTemplateBuilderTest {
+class RetryTemplateBuilderTest {
 
     @Test
-    public void testIncorrectCreateBuilder() {
+    void testIncorrectCreateBuilder() {
         assertThrows(IllegalStateException.class, () -> new RetryTemplateBuilder().withCircuitBreakerOpenTimeoutInMillis(100L).build());
     }
 }

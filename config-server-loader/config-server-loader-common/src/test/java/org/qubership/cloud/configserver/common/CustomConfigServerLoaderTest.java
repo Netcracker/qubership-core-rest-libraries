@@ -31,7 +31,7 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CustomConfigServerLoaderTest {
+class CustomConfigServerLoaderTest {
 
     private CustomConfigServerDataLoader customConfigServerDataLoader;
     private RestClientResponseEntity<Environment> restClientResponseEntity;
@@ -40,12 +40,12 @@ public class CustomConfigServerLoaderTest {
     MicroserviceRestClient microserviceRestClient;
 
     @BeforeEach
-    public void before() {
+    void before() {
         customConfigServerDataLoader = new CustomConfigServerDataLoader();
     }
 
     @Test
-    public void locateMainActivityTest() throws Exception {
+    void locateMainActivityTest() throws Exception {
 
         Environment environment = new Environment("test", "dev");
         environment.setVersion("test-version");
@@ -109,7 +109,7 @@ public class CustomConfigServerLoaderTest {
     }
 
     @Test
-    public void throwHttpException() {
+    void throwHttpException() {
         HttpHeaders httpHeader = new HttpHeaders();
         httpHeader.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         Mockito.doThrow(new HttpServerErrorException(HttpStatus.BAD_REQUEST, "", httpHeader, "httpBody".getBytes(), null))
@@ -121,14 +121,14 @@ public class CustomConfigServerLoaderTest {
     }
 
     @Test
-    public void catchMicroserviceRestClientResponseException() {
+    void catchMicroserviceRestClientResponseException() {
         Mockito.doThrow(new MicroserviceRestClientResponseException("test", 400, "test-body".getBytes(), Collections.emptyMap())).when(microserviceRestClient).doRequest(Mockito.any(),
                 Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any());
         assertNull(getConfigData(microserviceRestClient, createConfigClientProperties()));
     }
 
     @Test
-    public void testWillRetryTwelveTimesIfConfigserverIsNotAvailableAndMicroserviceRestClientResponseException() {
+    void testWillRetryTwelveTimesIfConfigserverIsNotAvailableAndMicroserviceRestClientResponseException() {
         Mockito.doThrow(new MicroserviceRestClientResponseException("test", 400, "test-body".getBytes(), Collections.emptyMap())).when(microserviceRestClient).doRequest(Mockito.any(),
                 Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any());
         assertNull(getConfigData(microserviceRestClient, createConfigClientProperties()));
@@ -137,7 +137,7 @@ public class CustomConfigServerLoaderTest {
     }
 
     @Test
-    public void testWillRetryTwelveTimesIfConfigserverIsNotAvailableAndMicroserviceRestClientException() {
+    void testWillRetryTwelveTimesIfConfigserverIsNotAvailableAndMicroserviceRestClientException() {
         Mockito.doThrow(new MicroserviceRestClientException("Error during request")).when(microserviceRestClient).doRequest(Mockito.any(),
                 Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any());
         assertNull(getConfigData(microserviceRestClient, createConfigClientProperties()));

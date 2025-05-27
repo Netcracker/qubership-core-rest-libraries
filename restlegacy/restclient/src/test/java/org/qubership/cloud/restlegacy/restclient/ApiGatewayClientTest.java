@@ -2,9 +2,9 @@ package org.qubership.cloud.restlegacy.restclient;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.qubership.cloud.restlegacy.restclient.configuration.ClientsTestConfiguration;
 import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = ClientsTestConfiguration.class)
-public class ApiGatewayClientTest {
+class ApiGatewayClientTest {
 
     private static String relativeURL;
     private static String url;
@@ -31,13 +31,13 @@ public class ApiGatewayClientTest {
     private RestTemplateFactory restTemplateFactory;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         relativeURL = "/relativeUrl";
         url = "http://api-gateway/api/v1/some-app" + relativeURL;
     }
 
     @Test
-    public void testPost() throws Exception {
+    void testPost() throws Exception {
         Object requestObject = new Object();
         when(restTemplate.postForEntity(url, requestObject, Object.class))
                 .thenReturn(new ResponseEntity<Object>(new Object(), HttpStatus.OK));
@@ -46,7 +46,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testPut() throws Exception {
+    void testPut() throws Exception {
         Object requestObject = new Object();
         Mockito.doNothing().when(restTemplate).put(url, requestObject);
         apiGatewayClient.put(relativeURL, requestObject);
@@ -55,7 +55,7 @@ public class ApiGatewayClientTest {
 
 
     @Test
-    public void testPatch() {
+    void testPatch() {
         Object requestObject = new Object();
 
         apiGatewayClient.patch(relativeURL, requestObject, Object.class);
@@ -64,7 +64,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testPostWithResponseTypeDefined() throws Exception {
+    void testPostWithResponseTypeDefined() throws Exception {
         Object requestObject = new Object();
         when(restTemplate.postForEntity(url, requestObject, String.class))
                 .thenReturn(new ResponseEntity<String>("Test", HttpStatus.OK));
@@ -73,7 +73,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testGet() {
+    void testGet() {
         when(restTemplate.getForEntity(url, Object.class))
                 .thenReturn(new ResponseEntity<Object>(new Object(), HttpStatus.OK));
         apiGatewayClient.get(relativeURL);
@@ -81,7 +81,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testGetWithResponseTypeDefined() throws Exception {
+    void testGetWithResponseTypeDefined() throws Exception {
         when(restTemplate.getForEntity(url, String.class))
                 .thenReturn(new ResponseEntity<String>("Test", HttpStatus.OK));
         apiGatewayClient.get(relativeURL, String.class);
@@ -89,7 +89,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testGetWithResponseTypeAndEntityDefined() throws Exception {
+    void testGetWithResponseTypeAndEntityDefined() throws Exception {
         HttpEntity<String> entity = new HttpEntity<>("Test body");
         when(restTemplate.exchange(url, HttpMethod.GET, entity, String.class))
                 .thenReturn(new ResponseEntity<>("Test", HttpStatus.OK));
@@ -98,7 +98,7 @@ public class ApiGatewayClientTest {
     }
 
     @Test
-    public void testGetWith503() {
+    void testGetWith503() {
         when(restTemplate.getForEntity(url, String.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE));
         assertThrows(RestClientException.class, () -> apiGatewayClient.get(relativeURL, String.class));

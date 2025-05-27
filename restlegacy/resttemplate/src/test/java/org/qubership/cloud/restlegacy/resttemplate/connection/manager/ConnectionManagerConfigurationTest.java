@@ -16,21 +16,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 "core.connection.manager.maxConnectionsTotal=22"
         }
 )
-public class ConnectionManagerConfigurationTest {
+class ConnectionManagerConfigurationTest {
 
     @Autowired
     @Qualifier("coreConnectionManager")
     HttpClientConnectionManager httpClientConnectionManager;
 
-
     @Test
-    public void maxTotalTest() {
+    void maxTotalTest() {
         assertEquals(22, ((PoolingHttpClientConnectionManager) httpClientConnectionManager).getMaxTotal());
     }
 
     @Test
-    public void maxPerRoutTest() {
+    void maxPerRoutTest() {
         assertEquals(12, ((PoolingHttpClientConnectionManager) httpClientConnectionManager).getDefaultMaxPerRoute());
     }
-
 }

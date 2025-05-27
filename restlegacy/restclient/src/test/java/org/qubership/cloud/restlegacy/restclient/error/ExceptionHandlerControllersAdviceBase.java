@@ -58,28 +58,28 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject("test-tenant"));
     }
 
     @Test
-    public void keepStatusCodeInResponseIfThrowLegacyErrorException() throws Exception {
+    void keepStatusCodeInResponseIfThrowLegacyErrorException() throws Exception {
         mockMvc.perform(get(THROW_LEGACY_ERROR_EXCEPTION_WITH_404)).andExpect(status().isNotFound());
     }
 
     @Test
-    public void badRequestStatusCodeInResponseIfThrowIllegalArgumentException() throws Exception {
+    void badRequestStatusCodeInResponseIfThrowIllegalArgumentException() throws Exception {
         mockMvc.perform(get(THROW_ILLEGAL_ARGUMENT_EXCEPTION_METHOD)).andExpect(status().isBadRequest());
     }
 
     @Test
-    public void notFoundStatusCodeInResponseIfThrowEntityNotFoundException() throws Exception {
+    void notFoundStatusCodeInResponseIfThrowEntityNotFoundException() throws Exception {
         mockMvc.perform(get(THROW_ENTITY_NOT_FOUND_METHOD)).andExpect(status().isNotFound());
     }
 
     @Test
-    public void propogateSpecialUserMessageWithEntityNameAndIdToResponseIfObjectNotFoundWasThrown() throws Exception {
+    void propogateSpecialUserMessageWithEntityNameAndIdToResponseIfObjectNotFoundWasThrown() throws Exception {
         mockMvc.perform(get(THROW_ENTITY_NOT_FOUND_METHOD))
                 .andExpect(status().isNotFound())
                 .andExpect(content().string(containsString(NOT_FOUNDED_ENTITY_ID)))
@@ -87,40 +87,40 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void internalErrorCodeInResponseIfStandardJavaExceptionWasThrown() throws Exception {
+    void internalErrorCodeInResponseIfStandardJavaExceptionWasThrown() throws Exception {
         mockMvc.perform(get(THROW_ILLEGAL_STATE_EXCEPTION_METHOD))
                 .andExpect(status().isInternalServerError());
     }
 
     @Test
-    public void conflictErrorMessageToResponseIfOptimisticLockingFailureExceptionWasThrown() throws Exception {
+    void conflictErrorMessageToResponseIfOptimisticLockingFailureExceptionWasThrown() throws Exception {
         mockMvc.perform(get(THROW_OPTIMISTIC_LOCKING_EXCEPTION_METHOD))
                 .andExpect(status().isConflict());
     }
 
     @Test
-    public void unprocessableEntityCodeInResponseIfValidationFailed() throws Exception {
+    void unprocessableEntityCodeInResponseIfValidationFailed() throws Exception {
 
         mockMvc.perform(get(THROW_OBJECT_VALIDATION_EXCEPTION).content("{}").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnprocessableEntity());
     }
 
     @Test
-    public void badRequestCodeInResponseIfRequestContainsNotReadableMessage() throws Exception {
+    void badRequestCodeInResponseIfRequestContainsNotReadableMessage() throws Exception {
 
         mockMvc.perform(get(THROW_OBJECT_VALIDATION_EXCEPTION).content("{").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
     }
 
     @Test
-    public void badRequestCodeInResponseIfRequestDoesNotContainsRequiredParameter() throws Exception {
+    void badRequestCodeInResponseIfRequestDoesNotContainsRequiredParameter() throws Exception {
 
         mockMvc.perform(get(THROW_METHOD_ARGUMENT_TYPE_MISMATCH).param(INTEGER_REQUEST_PARAMETER_NAME, "notInteger").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
     }
 
     @Test
-    public void dontRetryAlwaysFailedTransitiveRestRequest() throws Exception {
+    void dontRetryAlwaysFailedTransitiveRestRequest() throws Exception {
 
         mockMvc.perform(get(REDIRECT_TO_TRANSITIVE_SERVICE_THAT_FAILS_ALWAYS))
                 .andExpect(status().isInternalServerError());
@@ -133,7 +133,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfBadRequest() throws Exception {
+    void dontRetryDirectFailedRestRequestIfBadRequest() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_400_METHOD)).andExpect(status().isBadRequest());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_400_METHOD);
@@ -141,7 +141,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfUnprocessableEntityError() throws Exception {
+    void dontRetryDirectFailedRestRequestIfUnprocessableEntityError() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_422_METHOD)).andExpect(status().isUnprocessableEntity());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_422_METHOD);
@@ -149,7 +149,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfNotFoundError() throws Exception {
+    void dontRetryDirectFailedRestRequestIfNotFoundError() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_404_METHOD)).andExpect(status().isNotFound());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_404_METHOD);
@@ -157,7 +157,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfConflictError() throws Exception {
+    void dontRetryDirectFailedRestRequestIfConflictError() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_409_METHOD)).andExpect(status().isConflict());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_409_METHOD);
@@ -165,7 +165,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfUnauthorizedError() throws Exception {
+    void dontRetryDirectFailedRestRequestIfUnauthorizedError() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_401_METHOD)).andExpect(status().isUnauthorized());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_401_METHOD);
@@ -173,7 +173,7 @@ public class ExceptionHandlerControllersAdviceBase {
     }
 
     @Test
-    public void dontRetryDirectFailedRestRequestIfForbiddenError() throws Exception {
+    void dontRetryDirectFailedRestRequestIfForbiddenError() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_FAILED_WITH_403_METHOD)).andExpect(status().isForbidden());
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(FAILED_WITH_403_METHOD);

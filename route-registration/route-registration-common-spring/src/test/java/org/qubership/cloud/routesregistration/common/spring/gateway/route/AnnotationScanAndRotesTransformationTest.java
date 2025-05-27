@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorTest.collectionContainsExactRoute;
 
 @SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
-public class AnnotationScanAndRotesTransformationTest {
+class AnnotationScanAndRotesTransformationTest {
 
     @Autowired
     RouteAnnotationProcessor routeAnnotationProcessor;
@@ -26,7 +26,7 @@ public class AnnotationScanAndRotesTransformationTest {
     RouteTransformer routeTransformer;
 
     @Test
-    public void getAndTransformRouteEntries() throws Exception {
+    void getAndTransformRouteEntries() throws Exception {
         Collection<RouteEntry> routes = new ArrayList<>();
         routes.addAll(routeAnnotationProcessor.getRouteEntries(TestController1.class));
         routes.addAll(routeAnnotationProcessor.getRouteEntries(TestController2.class));

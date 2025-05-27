@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.*;
         RoutesTestConfiguration.class,
         RoutesRestRegistrationProcessorTest.TestRegistrationConfiguration.class},
         properties = {"apigateway.routes.registration.enabled=true"})
-public class RoutesRestRegistrationProcessorTest {
+class RoutesRestRegistrationProcessorTest {
 
     private RoutesRestRegistrationProcessor routesRestRegistrationProcessor;
     @Autowired
@@ -71,7 +71,7 @@ public class RoutesRestRegistrationProcessorTest {
     private static final int POST_ROUTES_CALLS_NUMBER = 3;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         rxScheduler.start();
         server = new MockWebServer();
         server.start();
@@ -88,7 +88,7 @@ public class RoutesRestRegistrationProcessorTest {
     }
 
     @AfterEach
-    public void tearDown() throws IOException {
+    void tearDown() throws IOException {
         rxScheduler.shutdown();
         server.shutdown();
     }

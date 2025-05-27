@@ -36,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         classes = {TestConfig.class, TestExceptionHandlingConfiguration.class, ControllerWithV1ExceptionModel.class, CustomExceptionHandler.class, ControllerWithCustomException.class},
         properties = {ERROR_HANDLER_VERSION_CONDITION_PROPERTY + "=" + VERSION_2})
 @AutoConfigureJsonTesters
-public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
+class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerControllersAdviceBase {
 
     @Autowired
     private JacksonTester<PlainTextErrorDescription> plainTextJsonTester;
@@ -102,79 +102,76 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     @Test
-    public void dontUseV1VersionOfErrorHandlingIfItIsV2SpecifiedDirectly() {
+    void dontUseV1VersionOfErrorHandlingIfItIsV2SpecifiedDirectly() {
         assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(ControllersAdvice.class));
     }
 
     @Test
-    public void useV2VersionOfErrorHandlingIfItIsSpecifiedDirectly() {
+    void useV2VersionOfErrorHandlingIfItIsSpecifiedDirectly() {
         assertNotNull(context.getBean(ExceptionHandlingV2MainConfiguration.class));
         assertNotNull(context.getBean(ExceptionHandlingV2_0Configuration.class));
     }
 
     @Test
-    public void propagateUserMessageFromErrorTypeToResponseIfThrowLegacyErrorException() throws Exception {
+    void propagateUserMessageFromErrorTypeToResponseIfThrowLegacyErrorException() throws Exception {
         mockMvc.perform(get(THROW_LEGACY_ERROR_EXCEPTION_WITH_404))
                 .andExpect(body().isPlainTextError(hasErrorMessage(getEntityNotFoundMessage(ENTITY_TYPE, NOT_FOUNDED_ENTITY_ID))));
     }
 
     @Test
-    public void propagateUserMessageToResponseIfErrorClassHasSpecialAnnotation() throws Exception {
+    void propagateUserMessageToResponseIfErrorClassHasSpecialAnnotation() throws Exception {
         mockMvc.perform(get(THROW_DISPLAYED_MESSAGE_EXCEPTION_METHOD))
                 .andExpect(status().isInternalServerError())
                 .andExpect(body().isPlainTextError(hasErrorMessage(CUSTOM_USER_MESSAGE)));
     }
 
     @Test
-    public void propagateUserMessageToResponseIfGenericDisplayedExceptionWasThrown() throws Exception {
+    void propagateUserMessageToResponseIfGenericDisplayedExceptionWasThrown() throws Exception {
         mockMvc.perform(get(THROW_GENERIC_DISPLAYED_EXCEPTION_METHOD))
                 .andExpect(status().isInternalServerError())
                 .andExpect(body().isPlainTextError(hasErrorMessage(CUSTOM_USER_MESSAGE)));
     }
 
     @Test
-    public void propagateSpecialUserMessageWithEntityNameAndIdToResponseIfObjectNotFoundWasThrown() throws Exception {
+    void propagateSpecialUserMessageWithEntityNameAndIdToResponseIfObjectNotFoundWasThrown() throws Exception {
         mockMvc.perform(get(THROW_ENTITY_NOT_FOUND_METHOD))
                 .andExpect(content().string(containsString(NOT_FOUNDED_ENTITY_ID)))
                 .andExpect(content().string(containsString(ENTITY_TYPE)));
     }
 
     @Test
-    public void propagateGeneralInternalErrorMessageToResponseIfErrorClassDoesNotHaveSpecialAnnotation() throws Exception {
+    void propagateGeneralInternalErrorMessageToResponseIfErrorClassDoesNotHaveSpecialAnnotation() throws Exception {
         mockMvc.perform(get(THROW_NOT_DISPLAYED_MESSAGE_EXCEPTION_METHOD))
                 .andExpect(status().isInternalServerError())
                 .andExpect(body().isPlainTextError(hasErrorMessage(getInternalErrorMessage())));
     }
 
     @Test
-    public void propagateGeneralInternalErrorMessageToResponseIfStandardJavaExceptionWasThrown() throws Exception {
+    void propagateGeneralInternalErrorMessageToResponseIfStandardJavaExceptionWasThrown() throws Exception {
         mockMvc.perform(get(THROW_ILLEGAL_STATE_EXCEPTION_METHOD))
                 .andExpect(body().isPlainTextError(hasErrorMessage(getInternalErrorMessage())));
     }
 
     @Test
-    public void propagateConflictErrorMessageToResponseIfOptimisticLockingFailureExceptionWasThrown() throws Exception {
+    void propagateConflictErrorMessageToResponseIfOptimisticLockingFailureExceptionWasThrown() throws Exception {
         mockMvc.perform(get(THROW_OPTIMISTIC_LOCKING_EXCEPTION_METHOD))
                 .andExpect(body().isPlainTextError(hasErrorMessage(messageService.getMessage(DB_IN_CONFLICT_ERROR_CODE))));
     }
 
     @Test
-    public void addFieldValidationDetailsInResponseIfValidationFailed() throws Exception {
-
+    void addFieldValidationDetailsInResponseIfValidationFailed() throws Exception {
         mockMvc.perform(get(THROW_OBJECT_VALIDATION_EXCEPTION).content("{}").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(body().isObjectValidationError(hasValidationErrors(contains(equalTo(FAILED_FIELD, FIELD_VALIDATION_MESSAGE)))));
     }
 
     @Test
-    public void addObjectValidationMessageInResponseIfEntireObjectWasRejected() throws Exception {
-
+    void addObjectValidationMessageInResponseIfEntireObjectWasRejected() throws Exception {
         mockMvc.perform(get(THROW_ENTIRE_OBJECT_VALIDATION_EXCEPTION).content("{}").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(body().isObjectValidationError(hasObjectValidationMessage(OBJECT_VALIDATION_MESSAGE)));
     }
 
     @Test
-    public void dontRetryRequestToSystemThatUsesV1ModelIfFailWasInTransitiveService() throws Exception {
-
+    void dontRetryRequestToSystemThatUsesV1ModelIfFailWasInTransitiveService() throws Exception {
         restClient.safelySendRequest(SYSTEM_WITH_V1_MODEL + TRANSITIVE_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V1_MODEL + TRANSITIVE_FAILED_REQUEST);
@@ -182,8 +179,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     @Test
-    public void retryRequestToSystemThatUsesV1ModelIfFailWasInDirectService() throws Exception {
-
+    void retryRequestToSystemThatUsesV1ModelIfFailWasInDirectService() throws Exception {
         restClient.safelySendRequest(SYSTEM_WITH_V1_MODEL + DIRECTLY_FAILED_REQUEST);
 
         final RetryStatistics statisticForRequest = getStatisticForRequest(SYSTEM_WITH_V1_MODEL + DIRECTLY_FAILED_REQUEST);
@@ -191,7 +187,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     @Test
-    public void dontRetryAlwaysFailedTransitiveRestRequest() throws Exception {
+    void dontRetryAlwaysFailedTransitiveRestRequest() throws Exception {
         mockMvc.perform(get(REDIRECT_TO_TRANSITIVE_SERVICE_THAT_FAILS_ALWAYS))
                 .andExpect(status().isInternalServerError())
                 .andExpect(body().isPlainTextError(hasErrorMessage(TRANSITIVE_LEVEL_METHOD_ERROR_MESSAGE)));
@@ -204,7 +200,7 @@ public class ExceptionHandlerControllersAdviceTest extends ExceptionHandlerContr
     }
 
     @Test
-    public void thereIsAbilityToCreateCustomExceptionHandlerAndSendCustomDataInResponse() throws Exception {
+    void thereIsAbilityToCreateCustomExceptionHandlerAndSendCustomDataInResponse() throws Exception {
         mockMvc.perform(get(THROW_CUSTOM_EXEPTION_WITH_CUSTOM_DATA))
                 .andExpect(status().isInternalServerError())
                 .andExpect(content().string(containsString(CUSTOM_DATA_FROM_CUSTOM_EXCEPTION)));

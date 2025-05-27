@@ -31,36 +31,36 @@ public class ExceptionHandlerV2DebugInfoBase {
     private MockMvc mockMvc;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
 
     @AfterEach
-    public void clear() {
+    void clear() {
         System.clearProperty(DEBUG_MODE_PROPERTY_NAME);
     }
 
     @Test
-    public void sendDebugInfoIfDebugModeIsOnDirectly() throws Exception {
+    void sendDebugInfoIfDebugModeIsOnDirectly() throws Exception {
         System.setProperty(DEBUG_MODE_PROPERTY_NAME, "true");
 
         mockMvc.perform(get(THROW_ANY_EXCEPTION_METHOD)).andExpect(bodyHasDebugInfo(notNullValue(DebugInfo.class)));
     }
 
     @Test
-    public void dontSendDebugInfoByDefault() throws Exception {
+    void dontSendDebugInfoByDefault() throws Exception {
         mockMvc.perform(get(THROW_ANY_EXCEPTION_METHOD)).andExpect(bodyHasDebugInfo(nullValue(DebugInfo.class)));
     }
 
     @Test
-    public void dontSendDebugInfoIfDebugModeIsOffDirectly() throws Exception {
+    void dontSendDebugInfoIfDebugModeIsOffDirectly() throws Exception {
         System.setProperty(DEBUG_MODE_PROPERTY_NAME, "false");
 
         mockMvc.perform(get(THROW_ANY_EXCEPTION_METHOD)).andExpect(bodyHasDebugInfo(nullValue(DebugInfo.class)));
     }
 
     @Test
-    public void weCanChangeDebugModeValueWithoutRestartingEnvironment() throws Exception {
+    void weCanChangeDebugModeValueWithoutRestartingEnvironment() throws Exception {
         System.setProperty(DEBUG_MODE_PROPERTY_NAME, "true");
         mockMvc.perform(get(THROW_ANY_EXCEPTION_METHOD)).andExpect(bodyHasDebugInfo(notNullValue(DebugInfo.class)));
 

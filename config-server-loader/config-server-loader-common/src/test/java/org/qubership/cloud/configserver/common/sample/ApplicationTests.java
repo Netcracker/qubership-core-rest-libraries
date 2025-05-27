@@ -49,10 +49,9 @@ public class ApplicationTests {
     private int port;
 
     @Test
-    public void contextLoads() {
+    void contextLoads() {
         String res = new TestRestTemplate().getForObject(
                 "http://localhost:" + this.port + "/test", String.class);
         assertEquals("test_value", res);
     }
-
 }

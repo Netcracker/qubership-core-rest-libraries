@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = ClientsTestConfiguration.class)
-public class RestClientTest {
+class RestClientTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
@@ -41,13 +41,13 @@ public class RestClientTest {
     private RestTemplateFactory restTemplateFactory;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         reset(retryTemplate, restTemplate);
         Whitebox.setInternalState(restClient, "restTemplateFactory", restTemplateFactory);
     }
 
     @Test
-    public void testPost() throws Throwable {
+    void testPost() throws Throwable {
         final Object objectToPost = new Object();
 
         restClient.post("someUrl", objectToPost);
@@ -57,7 +57,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testPostWithResponseType() throws Throwable {
+    void testPostWithResponseType() throws Throwable {
         final Object objectToPost = new Object();
 
         restClient.post("someUrl", objectToPost, String.class);
@@ -67,7 +67,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testGet() throws Throwable {
+    void testGet() throws Throwable {
         restClient.get("someUrl");
 
         verify(retryTemplate).execute(any());
@@ -75,7 +75,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testGetWithResponseType() throws Throwable {
+    void testGetWithResponseType() throws Throwable {
         restClient.get("someUrl", String.class);
 
         verify(retryTemplate).execute(any());
@@ -83,7 +83,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testPut() throws Throwable {
+    void testPut() throws Throwable {
         final Object objectToPut = new Object();
         restClient.put("someUrl", objectToPut);
 
@@ -92,7 +92,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testDelete() throws Throwable {
+    void testDelete() throws Throwable {
         restClient.delete("someUrl");
 
         verify(retryTemplate).execute(any());
@@ -100,7 +100,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testPatch() throws Throwable {
+    void testPatch() throws Throwable {
         Object request = new Object();
         restClient.patch("someUrl", request, Object.class);
 
@@ -109,7 +109,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testHead() throws Throwable {
+    void testHead() throws Throwable {
         restClient.head("someUrl");
 
         verify(retryTemplate).execute(any());
@@ -117,7 +117,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testOptions() throws Throwable {
+    void testOptions() throws Throwable {
         restClient.options("someUrl");
 
         verify(retryTemplate).execute(any());
@@ -125,7 +125,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyErrorExceptionOnPost() throws Exception {
+    void testExceptionIsWrappedInProxyErrorExceptionOnPost() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE);
         when(restTemplate.postForEntity(anyString(), any(), any())).thenThrow(cause);
 
@@ -134,7 +134,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyRethrowExceptionOnPost() throws Exception {
+    void testExceptionIsWrappedInProxyRethrowExceptionOnPost() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, getErrorDescription().getBytes(), null);
         when(restTemplate.postForEntity(anyString(), any(), any())).thenThrow(cause);
 
@@ -143,7 +143,7 @@ public class RestClientTest {
 
 
     @Test
-    public void testExceptionIsWrapperInProxyErrorExceptionOnGet() throws Exception {
+    void testExceptionIsWrapperInProxyErrorExceptionOnGet() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE);
         when(restTemplate.getForEntity(anyString(), any())).thenThrow(cause);
 
@@ -152,7 +152,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrapperInProxyRethrowExceptionOnGet() throws Exception {
+    void testExceptionIsWrapperInProxyRethrowExceptionOnGet() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, getErrorDescription().getBytes(), null);
         when(restTemplate.getForEntity(anyString(), any())).thenThrow(cause);
 
@@ -160,7 +160,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyErrorExceptionOnPut() throws Exception {
+    void testExceptionIsWrappedInProxyErrorExceptionOnPut() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE);
         doThrow(cause).when(restTemplate).put(anyString(), any());
 
@@ -169,7 +169,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyRethrowExceptionOnPut() throws Exception {
+    void testExceptionIsWrappedInProxyRethrowExceptionOnPut() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, getErrorDescription().getBytes(), null);
         doThrow(cause).when(restTemplate).put(anyString(), any());
 
@@ -177,7 +177,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyErrorExceptionOnDelete() throws Exception {
+    void testExceptionIsWrappedInProxyErrorExceptionOnDelete() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE);
         doThrow(cause).when(restTemplate).delete(anyString());
 
@@ -186,7 +186,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testExceptionIsWrappedInProxyRethrowExceptionOnDelete() throws Exception {
+    void testExceptionIsWrappedInProxyRethrowExceptionOnDelete() throws Exception {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, getErrorDescription().getBytes(), null);
         doThrow(cause).when(restTemplate).delete(anyString());
 
@@ -194,19 +194,19 @@ public class RestClientTest {
     }
 
     @Test
-    public void testUserRestTemplate() throws Exception {
+    void testUserRestTemplate() throws Exception {
         RestTemplate clientRestTemplate = restClient.getRestTemplate();
         assertEquals(restTemplateFactory.getRestTemplate(), clientRestTemplate);
     }
 
     @Test
-    public void testDefaultRestTemplate() throws Exception {
+    void testDefaultRestTemplate() throws Exception {
         RestTemplate clientRestTemplate = restClient.getRestTemplate();
         assertEquals(restTemplate, clientRestTemplate);
     }
 
     @Test
-    public void testAddClientHttpRequestInterceptor() {
+    void testAddClientHttpRequestInterceptor() {
         ClientHttpRequestInterceptor testClientHttpInterceptor = (httpRequest, bytes, clientHttpRequestExecution) -> null;
         restClient.addClientHttpRequestInterceptor(testClientHttpInterceptor);
 
@@ -215,7 +215,7 @@ public class RestClientTest {
     }
 
     @Test
-    public void testAddClientHttpRequestInterceptorM2MTrue() {
+    void testAddClientHttpRequestInterceptorM2MTrue() {
         ClientHttpRequestInterceptor testClientHttpInterceptor = (httpRequest, bytes, clientHttpRequestExecution) -> null;
         restClient.addClientHttpRequestInterceptor(testClientHttpInterceptor);
 

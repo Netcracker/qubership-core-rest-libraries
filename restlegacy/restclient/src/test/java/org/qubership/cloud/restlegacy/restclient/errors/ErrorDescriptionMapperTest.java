@@ -13,8 +13,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ErrorDescriptionMapperTest {
-
+class ErrorDescriptionMapperTest {
     private final String ERROR_CODE = "errorCode";
     private final String ERROR_MESSAGE = "errorMessage";
     private final String FIELD_NAME = "fieldName";
@@ -39,7 +38,7 @@ public class ErrorDescriptionMapperTest {
             "}";
 
     @Test
-    public void testUnknownField() throws JsonProcessingException {
+    void testUnknownField() throws JsonProcessingException {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, errorDescriptionWithUnknowField.getBytes(), null);
         ProxyErrorException ex = new ProxyErrorException(cause, "");
 
@@ -56,7 +55,7 @@ public class ErrorDescriptionMapperTest {
     }
 
     @Test
-    public void testErrorsDescriptionFieldsInResponse() throws JsonProcessingException {
+    void testErrorsDescriptionFieldsInResponse() throws JsonProcessingException {
         final HttpClientErrorException cause = new HttpClientErrorException(HttpStatus.SERVICE_UNAVAILABLE, null, errorDescriptionWithUnknowField.getBytes(), null);
         ProxyErrorException ex = new ProxyErrorException(cause, "");
         assertNotNull(ex.getResponseEntity().getBody());

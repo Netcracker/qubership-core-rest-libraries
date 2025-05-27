@@ -21,17 +21,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.qubership.cloud.framework.contexts.xrequestid.XRequestIdContextProvider.X_REQUEST_ID_CONTEXT_NAME;
 
-public class SmartClientInterceptorsTest {
+class SmartClientInterceptorsTest {
     private final URI DEFAULT_URL = URI.create("http://example.com");
     private final String ALLOWED_HEADER = "allowed_header";
 
     @AfterEach
-    public void clean() {
+    void clean() {
         ContextManager.clearAll();
     }
 
     @Test
-    public void acceptLanguageInterceptorTest() {
+    void acceptLanguageInterceptorTest() {
         ContextManager.set(ACCEPT_LANGUAGE, new AcceptLanguageContextObject(new ContextDataRequest()));
 
         ClientRequest request = ClientRequest.create(HttpMethod.GET, DEFAULT_URL).build();
@@ -47,7 +47,7 @@ public class SmartClientInterceptorsTest {
     }
 
     @Test
-    public void acceptLanguageInterceptorMissingHeaderTest() {
+    void acceptLanguageInterceptorMissingHeaderTest() {
         ClientRequest request = ClientRequest.create(HttpMethod.GET, DEFAULT_URL).build();
         ClientResponse response = mock(ClientResponse.class);
 
@@ -61,8 +61,7 @@ public class SmartClientInterceptorsTest {
     }
 
     @Test
-    public void requestIdHeaderInterceptorTest() {
-        String uuid = "123";
+    void requestIdHeaderInterceptorTest() {
         ContextManager.set(X_REQUEST_ID_CONTEXT_NAME, new XRequestIdContextObject(new ContextDataRequest()));
 
         ClientRequest request = ClientRequest.create(HttpMethod.GET, DEFAULT_URL).build();
@@ -75,7 +74,7 @@ public class SmartClientInterceptorsTest {
     }
 
     @Test
-    public void allowedHeadersInterceptorTest() throws Exception {
+    void allowedHeadersInterceptorTest() throws Exception {
         String allowedHeader = "allowed_header";
         String allowedHeaderValue = "fValue";
 
@@ -93,7 +92,7 @@ public class SmartClientInterceptorsTest {
     }
 
     @Test
-    public void allowedHeadersInterceptorMissingHeadersTest() throws Exception {
+    void allowedHeadersInterceptorMissingHeadersTest() throws Exception {
         ClientRequest request = ClientRequest.create(HttpMethod.GET, DEFAULT_URL).build();
         ClientResponse response = mock(ClientResponse.class);
 
@@ -105,5 +104,4 @@ public class SmartClientInterceptorsTest {
         SpringWebClientInterceptor allowedHeadersInterceptor = new SpringWebClientInterceptor();
         allowedHeadersInterceptor.filter(request, exchange).block();
     }
-
 }

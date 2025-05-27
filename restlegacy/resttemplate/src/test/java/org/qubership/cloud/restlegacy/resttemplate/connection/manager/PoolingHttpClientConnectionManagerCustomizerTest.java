@@ -10,18 +10,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = {ConnectionManagerConfiguration.class, TestConnectionManagerCustomizerImpl.class})
-public class PoolingHttpClientConnectionManagerCustomizerTest {
+class PoolingHttpClientConnectionManagerCustomizerTest {
     @Autowired
     @Qualifier("coreConnectionManager")
     HttpClientConnectionManager httpClientConnectionManager;
 
     @Test
-    public void maxTotalTest() {
+    void maxTotalTest() {
         Assertions.assertEquals(13, ((PoolingHttpClientConnectionManager) httpClientConnectionManager).getMaxTotal());
     }
 
     @Test
-    public void maxPerRoutTest() {
+    void maxPerRoutTest() {
         Assertions.assertEquals(9, ((PoolingHttpClientConnectionManager) httpClientConnectionManager).getDefaultMaxPerRoute());
     }
 }

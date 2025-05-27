@@ -10,11 +10,11 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MicroserviceRoutesBuilderTest {
+class MicroserviceRoutesBuilderTest {
     private static final String TEST_MICROSERVICE = "test-microservice";
 
     @Test
-    public void testRoutesAreBuilt() {
+    void testRoutesAreBuilt() {
         RouteAnnotationInfo privateRouteAnnotation = RouteAnnotationInfo.builder().routeType(RouteType.PRIVATE).build();
         RouteAnnotationInfo internalRouteAnnotation = RouteAnnotationInfo.builder().routeType(RouteType.INTERNAL).build();
 

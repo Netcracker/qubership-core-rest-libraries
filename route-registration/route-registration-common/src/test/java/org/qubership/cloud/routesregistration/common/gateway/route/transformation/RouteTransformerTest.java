@@ -13,11 +13,11 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RouteTransformerTest {
+class RouteTransformerTest {
     private static final String TEST_MICROSERVICE = "test-microservice";
 
     @Test
-    public void testInvalidRouteConfiguration() {
+    void testInvalidRouteConfiguration() {
         RouteAnnotationInfo routeAnnotation = RouteAnnotationInfo.builder().routeType(RouteType.PRIVATE).build();
 
         MicroserviceRoutesBuilder microserviceRoutesBuilder = new MicroserviceRoutesBuilder();
@@ -40,7 +40,7 @@ public class RouteTransformerTest {
     }
 
     @Test
-    public void testAllowedRouteIsPreferred() {
+    void testAllowedRouteIsPreferred() {
         RouteAnnotationInfo privateRouteAnnotation = RouteAnnotationInfo.builder().routeType(RouteType.PRIVATE).build();
         RouteAnnotationInfo internalRouteAnnotation = RouteAnnotationInfo.builder().routeType(RouteType.INTERNAL).build();
 
