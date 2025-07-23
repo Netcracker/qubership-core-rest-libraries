@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>6.2.8</version>
+            <version>6.2.9</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -42,13 +42,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
-            <version>6.2.8</version>
+            <version>6.2.9</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
-            <version>3.7.7</version>
+            <version>3.7.8</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
