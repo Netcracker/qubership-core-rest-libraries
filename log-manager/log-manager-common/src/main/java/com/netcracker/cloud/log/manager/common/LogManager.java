@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common;
+package com.netcracker.cloud.log.manager.common;
 
 import java.util.HashMap;
 import java.util.List;

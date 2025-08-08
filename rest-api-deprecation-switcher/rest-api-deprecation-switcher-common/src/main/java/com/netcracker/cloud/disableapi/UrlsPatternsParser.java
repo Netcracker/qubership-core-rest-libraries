@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi;
+package com.netcracker.cloud.disableapi;
 
 import java.util.*;
 import java.util.regex.Matcher;

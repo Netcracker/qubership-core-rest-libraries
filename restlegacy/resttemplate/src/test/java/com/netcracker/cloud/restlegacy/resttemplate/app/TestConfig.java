@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.app;
+package com.netcracker.cloud.restlegacy.resttemplate.app;
 
 import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

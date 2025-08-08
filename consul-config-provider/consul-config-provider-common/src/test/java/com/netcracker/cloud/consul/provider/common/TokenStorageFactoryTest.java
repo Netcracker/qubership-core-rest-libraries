@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.common;
+package com.netcracker.cloud.consul.provider.common;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

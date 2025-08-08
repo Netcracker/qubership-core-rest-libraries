@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2;
+package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

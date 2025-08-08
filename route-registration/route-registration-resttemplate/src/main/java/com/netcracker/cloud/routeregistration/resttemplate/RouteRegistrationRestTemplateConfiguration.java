@@ -1,4 +1,4 @@
-package org.qubership.cloud.routeregistration.resttemplate;
+package com.netcracker.cloud.routeregistration.resttemplate;
 
 import org.qubership.cloud.restclient.MicroserviceRestClient;
 import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplate;

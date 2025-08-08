@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration;
+package com.netcracker.cloud.configserver.common.configuration;
 
 
 import org.junit.jupiter.api.Assertions;

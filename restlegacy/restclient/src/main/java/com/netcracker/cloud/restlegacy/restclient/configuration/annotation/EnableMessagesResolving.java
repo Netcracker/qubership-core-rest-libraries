@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.configuration.annotation;
+package com.netcracker.cloud.restlegacy.restclient.configuration.annotation;
 
 import org.qubership.cloud.restlegacy.restclient.configuration.MessageConfiguration;
 import org.springframework.context.annotation.Import;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2.v2_1;
+package com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1;
 
 import org.qubership.cloud.restlegacy.restclient.error.v2.DebugInfo;
 import org.qubership.cloud.restlegacy.restclient.error.v2.HasDebugInfo;

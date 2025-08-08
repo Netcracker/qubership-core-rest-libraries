@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.retry;
+package com.netcracker.cloud.restlegacy.restclient.retry;
 
 import org.qubership.cloud.restlegacy.restclient.error.v2.RestClientExceptionRetryPolicy;
 import org.springframework.retry.RetryPolicy;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient;
+package com.netcracker.cloud.restlegacy.restclient;
 
 import org.qubership.cloud.restlegacy.restclient.error.ProxyErrorException;
 import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;

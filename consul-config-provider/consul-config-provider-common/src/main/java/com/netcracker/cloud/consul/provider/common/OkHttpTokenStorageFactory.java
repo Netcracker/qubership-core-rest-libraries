@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.common;
+package com.netcracker.cloud.consul.provider.common;
 
 import org.qubership.cloud.consul.provider.common.client.ConsulClient;
 import org.qubership.cloud.consul.provider.common.client.ConsulOkHttpClient;

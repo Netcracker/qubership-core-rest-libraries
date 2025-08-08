@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.util.StringValueResolver;

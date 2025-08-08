@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.configuration;
+package com.netcracker.cloud.restlegacy.resttemplate.configuration;
 
 import jakarta.validation.constraints.NotNull;
 import org.qubership.cloud.context.propagation.spring.resttemplate.annotation.EnableResttemplateContextProvider;

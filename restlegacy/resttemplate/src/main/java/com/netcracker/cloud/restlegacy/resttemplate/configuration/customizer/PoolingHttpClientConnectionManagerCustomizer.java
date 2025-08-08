@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.configuration.customizer;
+package com.netcracker.cloud.restlegacy.resttemplate.configuration.customizer;
 
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 

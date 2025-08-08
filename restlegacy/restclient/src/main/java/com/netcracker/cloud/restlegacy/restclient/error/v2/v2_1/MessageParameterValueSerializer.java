@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2.v2_1;
+package com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

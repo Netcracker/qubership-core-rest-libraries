@@ -1,4 +1,4 @@
-package org.qubership.cloud.smartclient.rest.webclient.interceptor;
+package com.netcracker.cloud.smartclient.rest.webclient.interceptor;
 
 import org.qubership.cloud.context.propagation.core.contextdata.IncomingContextData;
 

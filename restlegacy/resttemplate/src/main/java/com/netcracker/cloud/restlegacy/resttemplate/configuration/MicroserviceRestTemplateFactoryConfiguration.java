@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.configuration;
+package com.netcracker.cloud.restlegacy.resttemplate.configuration;
 
 import org.qubership.cloud.restclient.MicroserviceRestClientFactory;
 import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplateFactory;

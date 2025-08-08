@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.qubership.cloud.configserver.common.sample;
+package com.netcracker.cloud.configserver.common.sample;
 
 import org.junit.jupiter.api.Test;
 import org.qubership.cloud.configserver.common.configuration.TestConfiguration;

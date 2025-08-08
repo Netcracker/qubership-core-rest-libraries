@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common;
+package com.netcracker.cloud.log.manager.common;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;

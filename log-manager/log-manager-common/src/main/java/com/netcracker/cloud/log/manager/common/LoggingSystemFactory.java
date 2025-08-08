@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common;
+package com.netcracker.cloud.log.manager.common;
 
 import org.qubership.cloud.log.manager.common.jboss.JBossLoggingSystemProvider;
 import org.qubership.cloud.log.manager.common.log4j2.Log4j2LoggingSystemProvider;

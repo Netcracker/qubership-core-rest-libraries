@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.resttemplate.config;
+package com.netcracker.cloud.consul.provider.spring.resttemplate.config;
 
 import org.qubership.cloud.consul.provider.common.TokenStorage;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring.properties;
+package com.netcracker.cloud.disableapi.spring.properties;
 
 import org.qubership.cloud.disableapi.spring.AbstractTestParent;
 import org.qubership.cloud.disableapi.spring.DisableDeprecatedApi;

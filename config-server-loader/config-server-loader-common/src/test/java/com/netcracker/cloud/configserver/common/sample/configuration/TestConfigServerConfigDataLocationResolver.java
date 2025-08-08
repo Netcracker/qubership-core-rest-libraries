@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.sample.configuration;
+package com.netcracker.cloud.configserver.common.sample.configuration;
 
 import org.qubership.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver;
 import org.qubership.cloud.restclient.MicroserviceRestClient;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.validation.Errors;

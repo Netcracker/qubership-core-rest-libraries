@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.resttemplate.config;
+package com.netcracker.cloud.consul.provider.spring.resttemplate.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.context.config.ConfigDataLocation;

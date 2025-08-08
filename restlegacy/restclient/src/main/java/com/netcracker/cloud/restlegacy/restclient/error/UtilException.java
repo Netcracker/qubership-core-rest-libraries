@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.Errors;

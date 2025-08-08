@@ -1,4 +1,4 @@
-package org.qubership.cloud.routeregistration.webclient;
+package com.netcracker.cloud.routeregistration.webclient;
 
 import org.springframework.context.annotation.Import;
 

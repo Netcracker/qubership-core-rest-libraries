@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2;
+package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
 public class Constants {
     public static final String DEBUG_MODE_PROPERTY_NAME = "error.handler.v2.debugMode";

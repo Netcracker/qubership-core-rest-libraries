@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring;
+package com.netcracker.cloud.disableapi.spring;
 
 import org.qubership.cloud.core.error.rest.tmf.TmfErrorResponse;
 import org.qubership.cloud.disableapi.DeprecatedApiException;

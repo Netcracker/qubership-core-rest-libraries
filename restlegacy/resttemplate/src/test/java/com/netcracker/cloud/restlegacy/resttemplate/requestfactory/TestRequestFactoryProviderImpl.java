@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.requestfactory;
+package com.netcracker.cloud.restlegacy.resttemplate.requestfactory;
 
 import org.qubership.cloud.restlegacy.resttemplate.configuration.customizer.RequestFactoryProvider;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;

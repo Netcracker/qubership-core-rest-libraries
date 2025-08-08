@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.configuration;
+package com.netcracker.cloud.restlegacy.restclient.configuration;
 
 import org.qubership.cloud.restlegacy.restclient.service.MessageService;
 import org.springframework.context.MessageSource;

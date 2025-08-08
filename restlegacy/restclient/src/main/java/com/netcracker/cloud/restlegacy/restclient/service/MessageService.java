@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.service;
+package com.netcracker.cloud.restlegacy.restclient.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

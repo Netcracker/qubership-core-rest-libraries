@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.webclient;
+package com.netcracker.cloud.configserver.webclient;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

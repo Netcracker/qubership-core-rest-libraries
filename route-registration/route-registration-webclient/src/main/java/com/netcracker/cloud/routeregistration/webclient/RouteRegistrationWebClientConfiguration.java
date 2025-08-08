@@ -1,4 +1,4 @@
-package org.qubership.cloud.routeregistration.webclient;
+package com.netcracker.cloud.routeregistration.webclient;
 
 import org.qubership.cloud.restclient.MicroserviceRestClient;
 import org.qubership.cloud.restclient.webclient.MicroserviceWebClient;

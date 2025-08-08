@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration.legacy;
+package com.netcracker.cloud.configserver.common.configuration.legacy;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

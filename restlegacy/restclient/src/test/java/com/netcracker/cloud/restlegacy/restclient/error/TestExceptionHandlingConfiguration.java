@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import org.qubership.cloud.restlegacy.restclient.RestClient;
 import org.qubership.cloud.restlegacy.restclient.app.TestConfig;

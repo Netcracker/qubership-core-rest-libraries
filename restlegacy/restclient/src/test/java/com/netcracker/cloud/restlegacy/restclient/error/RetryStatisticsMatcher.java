@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

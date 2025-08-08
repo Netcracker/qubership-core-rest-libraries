@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.common.config;
+package com.netcracker.cloud.consul.provider.spring.common.config;
 
 import org.apache.commons.logging.Log;
 import org.qubership.cloud.consul.provider.common.TokenProvider;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate;
+package com.netcracker.cloud.restlegacy.resttemplate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

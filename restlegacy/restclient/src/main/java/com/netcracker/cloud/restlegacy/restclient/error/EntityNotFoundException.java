@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 /**
  * Exception can be thrown when system can't find BUSINESS entity.

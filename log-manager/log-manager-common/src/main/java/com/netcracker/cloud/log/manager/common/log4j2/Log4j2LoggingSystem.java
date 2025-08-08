@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common.log4j2;
+package com.netcracker.cloud.log.manager.common.log4j2;
 
 import org.qubership.cloud.log.manager.common.LoggingSystem;
 import lombok.extern.slf4j.Slf4j;

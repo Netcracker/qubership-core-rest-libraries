@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

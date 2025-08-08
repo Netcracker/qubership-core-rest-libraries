@@ -1,4 +1,4 @@
-//package org.qubership.cloud.smartclient.rest.webclient.sample;
+//package com.netcracker.cloud.smartclient.rest.webclient.sample;
 //
 //import org.qubership.cloud.context.propagation.core.ContextManager;
 //import org.qubership.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;

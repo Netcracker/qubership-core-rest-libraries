@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

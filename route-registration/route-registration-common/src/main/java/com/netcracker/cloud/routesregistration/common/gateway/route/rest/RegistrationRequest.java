@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route.rest;
+package com.netcracker.cloud.routesregistration.common.gateway.route.rest;
 
 /**
  * <p>{@code RegistrationRequest} is a universal contract for routes registration requests of any version.

@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route.annotation;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route.annotation;
 
 
 import org.springframework.core.annotation.AliasFor;

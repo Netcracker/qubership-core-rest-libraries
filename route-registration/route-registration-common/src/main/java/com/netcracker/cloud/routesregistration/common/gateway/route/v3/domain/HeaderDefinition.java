@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route.v3.domain;
+package com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

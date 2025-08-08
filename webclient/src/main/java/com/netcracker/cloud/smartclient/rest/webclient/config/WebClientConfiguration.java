@@ -1,4 +1,4 @@
-package org.qubership.cloud.smartclient.rest.webclient.config;
+package com.netcracker.cloud.smartclient.rest.webclient.config;
 
 import jakarta.annotation.PostConstruct;
 import org.qubership.cloud.context.propagation.spring.webclient.annotation.EnableWebclientContextProvider;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.webclient.config;
+package com.netcracker.cloud.consul.provider.spring.webclient.config;
 
 import org.qubership.cloud.consul.provider.common.TokenStorage;
 import org.qubership.cloud.consul.provider.common.TokenStorageFactory;

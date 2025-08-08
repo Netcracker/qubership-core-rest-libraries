@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 
 public class TestController6 extends TestControllerBaseFor6 {

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2;
+package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.spring;
+package com.netcracker.cloud.log.manager.spring;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

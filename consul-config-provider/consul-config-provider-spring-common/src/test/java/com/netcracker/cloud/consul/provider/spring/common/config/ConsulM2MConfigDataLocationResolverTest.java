@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.common.config;
+package com.netcracker.cloud.consul.provider.spring.common.config;
 
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;

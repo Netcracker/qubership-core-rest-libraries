@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route.rest;
+package com.netcracker.cloud.routesregistration.common.gateway.route.rest;
 
 public interface CommonRequest {
     Object getPayload();

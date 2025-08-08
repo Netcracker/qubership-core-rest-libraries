@@ -1,4 +1,4 @@
-package org.qubership.cloud.security.common;
+package com.netcracker.cloud.security.common;
 
 import org.qubership.cloud.security.core.auth.DummyM2MManager;
 import org.qubership.cloud.security.core.auth.M2MManager;

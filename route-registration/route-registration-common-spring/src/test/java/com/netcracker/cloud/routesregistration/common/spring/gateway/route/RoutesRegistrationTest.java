@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi;
+package com.netcracker.cloud.disableapi;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route;
+package com.netcracker.cloud.routesregistration.common.gateway.route;
 
 
 import static org.qubership.cloud.routesregistration.common.gateway.route.Constants.*;

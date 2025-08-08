@@ -1,4 +1,4 @@
-package org.qubership.cloud.security.common.restclient;
+package com.netcracker.cloud.security.common.restclient;
 
 import org.springframework.web.client.RestTemplate;
 

@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.config;
+package com.netcracker.cloud.routesregistration.common.config;
 
 import org.qubership.cloud.restclient.MicroserviceRestClient;
 import io.reactivex.Scheduler;

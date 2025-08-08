@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.annotation.processing;
+package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
 import org.qubership.cloud.routesregistration.common.annotation.*;
 import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;

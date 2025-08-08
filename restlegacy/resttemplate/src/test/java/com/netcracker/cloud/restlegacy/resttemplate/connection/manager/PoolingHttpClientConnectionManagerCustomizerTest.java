@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.connection.manager;
+package com.netcracker.cloud.restlegacy.resttemplate.connection.manager;
 
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.io.HttpClientConnectionManager;

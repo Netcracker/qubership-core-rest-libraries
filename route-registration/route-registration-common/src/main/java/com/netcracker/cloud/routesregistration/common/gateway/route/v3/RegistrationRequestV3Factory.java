@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route.v3;
+package com.netcracker.cloud.routesregistration.common.gateway.route.v3;
 
 import lombok.NonNull;
 import org.qubership.cloud.routesregistration.common.gateway.route.Constants;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2;
+package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
 import org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingConfiguration;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;

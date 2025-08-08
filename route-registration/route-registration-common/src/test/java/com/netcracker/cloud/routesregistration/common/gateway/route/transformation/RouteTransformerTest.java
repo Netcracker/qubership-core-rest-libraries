@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route.transformation;
+package com.netcracker.cloud.routesregistration.common.gateway.route.transformation;
 
 import org.junit.jupiter.api.Test;
 import org.qubership.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;

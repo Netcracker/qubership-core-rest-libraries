@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate;
+package com.netcracker.cloud.restlegacy.resttemplate;
 
 import org.qubership.cloud.security.common.restclient.OAuthRestTemplateProvider;
 import jakarta.validation.constraints.NotNull;

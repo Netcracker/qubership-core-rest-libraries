@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.common;
+package com.netcracker.cloud.consul.provider.spring.common;
 
 import org.qubership.cloud.consul.provider.common.SimpleTokenStorageFactory;
 import org.qubership.cloud.consul.provider.common.TokenStorage;

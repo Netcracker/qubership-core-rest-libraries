@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route;
+package com.netcracker.cloud.routesregistration.common.gateway.route;
 
 /**
  * Copy-paste of exception from java8 reflect package which is missing in j11

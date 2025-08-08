@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.app;
+package com.netcracker.cloud.restlegacy.restclient.app;
 
 import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
 import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;

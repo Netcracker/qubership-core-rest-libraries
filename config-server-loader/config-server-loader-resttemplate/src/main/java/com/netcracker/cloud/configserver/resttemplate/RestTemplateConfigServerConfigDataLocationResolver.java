@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.resttemplate;
+package com.netcracker.cloud.configserver.resttemplate;
 
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;

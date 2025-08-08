@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.spring.gateway.route;
+package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import org.qubership.cloud.restclient.HttpMethod;
 import org.qubership.cloud.restclient.MicroserviceRestClient;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring.annotations;
+package com.netcracker.cloud.disableapi.spring.annotations;
 
 import org.qubership.cloud.disableapi.spring.AbstractTestParent;
 import org.qubership.cloud.disableapi.spring.DisableDeprecatedApi;

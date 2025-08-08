@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.common.client;
+package com.netcracker.cloud.consul.provider.common.client;
 
 public interface ConsulClient {
 

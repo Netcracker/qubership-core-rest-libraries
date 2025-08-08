@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.requestfactory;
+package com.netcracker.cloud.restlegacy.resttemplate.requestfactory;
 
 import org.junit.jupiter.api.Test;
 import org.qubership.cloud.restlegacy.resttemplate.configuration.ClientHttpRequestFactoryConfiguration;

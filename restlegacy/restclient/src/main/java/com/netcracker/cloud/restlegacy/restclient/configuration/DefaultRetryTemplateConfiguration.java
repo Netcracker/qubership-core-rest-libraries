@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.configuration;
+package com.netcracker.cloud.restlegacy.restclient.configuration;
 
 import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
 import org.springframework.context.annotation.Bean;

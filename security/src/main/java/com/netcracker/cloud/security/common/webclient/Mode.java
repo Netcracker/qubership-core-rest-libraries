@@ -1,4 +1,4 @@
-package org.qubership.cloud.security.common.webclient;
+package com.netcracker.cloud.security.common.webclient;
 
 public enum Mode {
     USER,

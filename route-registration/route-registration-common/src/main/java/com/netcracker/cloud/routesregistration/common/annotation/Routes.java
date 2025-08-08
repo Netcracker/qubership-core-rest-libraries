@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.annotation;
+package com.netcracker.cloud.routesregistration.common.annotation;
 
 
 import java.lang.annotation.ElementType;

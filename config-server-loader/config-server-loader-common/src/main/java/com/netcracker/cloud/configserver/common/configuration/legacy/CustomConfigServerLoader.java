@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration.legacy;
+package com.netcracker.cloud.configserver.common.configuration.legacy;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

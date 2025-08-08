@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.spring.common;
+package com.netcracker.cloud.consul.provider.spring.common;
 
 import org.qubership.cloud.consul.provider.common.TokenStorage;
 import org.junit.jupiter.api.Assertions;

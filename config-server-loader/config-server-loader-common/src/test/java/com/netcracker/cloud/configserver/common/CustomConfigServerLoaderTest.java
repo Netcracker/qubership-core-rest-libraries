@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common;
+package com.netcracker.cloud.configserver.common;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

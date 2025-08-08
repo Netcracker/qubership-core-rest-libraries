@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring;
+package com.netcracker.cloud.disableapi.spring;
 
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;

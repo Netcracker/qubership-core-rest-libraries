@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration;
+package com.netcracker.cloud.configserver.common.configuration;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route;
+package com.netcracker.cloud.routesregistration.common.gateway.route;
 
 import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
 import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;

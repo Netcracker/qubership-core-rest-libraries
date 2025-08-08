@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring;
+package com.netcracker.cloud.disableapi.spring;
 
 import org.springframework.context.annotation.Import;
 

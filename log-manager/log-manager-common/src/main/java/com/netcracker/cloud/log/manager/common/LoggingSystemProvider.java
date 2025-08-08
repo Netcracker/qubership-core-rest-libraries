@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common;
+package com.netcracker.cloud.log.manager.common;
 
 public interface LoggingSystemProvider {
 

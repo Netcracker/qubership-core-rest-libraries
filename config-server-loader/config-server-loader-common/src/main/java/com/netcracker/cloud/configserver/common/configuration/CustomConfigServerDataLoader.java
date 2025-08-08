@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration;
+package com.netcracker.cloud.configserver.common.configuration;
 
 import org.qubership.cloud.restclient.HttpMethod;
 import org.qubership.cloud.restclient.MicroserviceRestClient;

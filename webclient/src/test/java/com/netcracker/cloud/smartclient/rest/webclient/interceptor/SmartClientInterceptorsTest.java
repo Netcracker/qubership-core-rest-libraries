@@ -1,4 +1,4 @@
-package org.qubership.cloud.smartclient.rest.webclient.interceptor;
+package com.netcracker.cloud.smartclient.rest.webclient.interceptor;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

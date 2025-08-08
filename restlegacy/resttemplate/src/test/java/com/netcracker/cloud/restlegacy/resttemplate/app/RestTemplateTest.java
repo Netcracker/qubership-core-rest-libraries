@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.resttemplate.app;
+package com.netcracker.cloud.restlegacy.resttemplate.app;
 
 import com.sun.net.httpserver.HttpServer;
 import org.junit.jupiter.api.AfterAll;

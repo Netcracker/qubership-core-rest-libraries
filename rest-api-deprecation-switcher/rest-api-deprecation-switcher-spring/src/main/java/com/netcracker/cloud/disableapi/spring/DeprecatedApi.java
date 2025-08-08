@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring;
+package com.netcracker.cloud.disableapi.spring;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.method.HandlerMethod;

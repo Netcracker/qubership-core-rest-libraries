@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error.v2.v2_1;
+package com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1;
 
 public final class ErrorMessageCodes {
     public static final String INTERNAL_SERVER_ERROR_CODE = "Internal server error";

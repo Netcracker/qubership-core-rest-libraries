@@ -1,4 +1,4 @@
-package org.qubership.cloud.consul.provider.common;
+package com.netcracker.cloud.consul.provider.common;
 
 import java.util.concurrent.atomic.AtomicReference;
 

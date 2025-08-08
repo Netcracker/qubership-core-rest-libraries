@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.error;
+package com.netcracker.cloud.restlegacy.restclient.error;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

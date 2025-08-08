@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.gateway.route;
+package com.netcracker.cloud.routesregistration.common.gateway.route;
 
 public interface Constants {
     long UNSPECIFIED_TIMEOUT_FOR_ROUTE = -1L;

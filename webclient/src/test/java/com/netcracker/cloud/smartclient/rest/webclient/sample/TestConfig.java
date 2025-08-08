@@ -1,4 +1,4 @@
-package org.qubership.cloud.smartclient.rest.webclient.sample;
+package com.netcracker.cloud.smartclient.rest.webclient.sample;
 
 import org.qubership.cloud.smartclient.config.annotation.EnableFrameworkWebClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

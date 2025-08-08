@@ -1,4 +1,4 @@
-package org.qubership.cloud.restlegacy.restclient.app;
+package com.netcracker.cloud.restlegacy.restclient.app;
 
 import com.sun.net.httpserver.HttpServer;
 import net.jodah.failsafe.Failsafe;

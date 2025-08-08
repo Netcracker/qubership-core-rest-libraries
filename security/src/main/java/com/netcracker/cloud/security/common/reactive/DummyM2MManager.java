@@ -1,4 +1,4 @@
-package org.qubership.cloud.security.common.reactive;
+package com.netcracker.cloud.security.common.reactive;
 
 import org.qubership.cloud.security.core.auth.Token;
 import reactor.core.publisher.Mono;

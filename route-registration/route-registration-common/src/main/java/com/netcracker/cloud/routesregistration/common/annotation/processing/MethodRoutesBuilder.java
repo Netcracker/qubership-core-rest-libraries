@@ -1,4 +1,4 @@
-package org.qubership.cloud.routesregistration.common.annotation.processing;
+package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
 import java.util.List;
 import java.util.Set;

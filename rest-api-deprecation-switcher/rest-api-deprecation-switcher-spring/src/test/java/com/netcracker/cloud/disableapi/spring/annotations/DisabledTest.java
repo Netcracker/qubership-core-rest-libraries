@@ -1,4 +1,4 @@
-package org.qubership.cloud.disableapi.spring.annotations;
+package com.netcracker.cloud.disableapi.spring.annotations;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

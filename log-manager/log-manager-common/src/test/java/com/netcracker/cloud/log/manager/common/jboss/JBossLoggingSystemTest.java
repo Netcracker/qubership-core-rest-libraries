@@ -1,4 +1,4 @@
-package org.qubership.cloud.log.manager.common.jboss;
+package com.netcracker.cloud.log.manager.common.jboss;
 
 import org.jboss.logmanager.Level;
 import org.jboss.logmanager.LogContext;

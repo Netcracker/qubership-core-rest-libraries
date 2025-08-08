@@ -1,4 +1,4 @@
-package org.qubership.cloud.configserver.common.configuration;
+package com.netcracker.cloud.configserver.common.configuration;
 
 import org.springframework.boot.DefaultPropertiesPropertySource;
 import org.springframework.boot.SpringApplication;
