@@ -1,9 +1,9 @@
 package com.netcracker.cloud.restlegacy.restclient;
 
-import org.qubership.cloud.restlegacy.restclient.error.ProxyRethrowException;
-import org.qubership.cloud.restlegacy.restclient.error.RestClientExceptionPropagator;
-import org.qubership.cloud.restlegacy.restclient.error.UtilException;
-import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyRethrowException;
+import com.netcracker.cloud.restlegacy.restclient.error.RestClientExceptionPropagator;
+import com.netcracker.cloud.restlegacy.restclient.error.UtilException;
+import com.netcracker.cloud.restlegacy.resttemplate.RestTemplateFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

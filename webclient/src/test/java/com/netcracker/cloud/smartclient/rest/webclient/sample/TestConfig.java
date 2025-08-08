@@ -1,6 +1,6 @@
 package com.netcracker.cloud.smartclient.rest.webclient.sample;
 
-import org.qubership.cloud.smartclient.config.annotation.EnableFrameworkWebClient;
+import com.netcracker.cloud.smartclient.config.annotation.EnableFrameworkWebClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;

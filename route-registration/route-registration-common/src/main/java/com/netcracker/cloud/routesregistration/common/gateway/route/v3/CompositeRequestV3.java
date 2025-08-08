@@ -1,10 +1,10 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.v3;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.Utils;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.DeleteDomainConfigurationV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Utils;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.DeleteDomainConfigurationV3;
 
 import java.util.ArrayList;
 import java.util.Iterator;

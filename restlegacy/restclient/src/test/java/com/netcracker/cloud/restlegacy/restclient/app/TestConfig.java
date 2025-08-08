@@ -1,8 +1,8 @@
 package com.netcracker.cloud.restlegacy.restclient.app;
 
-import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
-import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
+import com.netcracker.cloud.restlegacy.restclient.ApiGatewayClient;
+import com.netcracker.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,7 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -1,6 +1,6 @@
 package com.netcracker.cloud.consul.provider.spring.common;
 
-import org.qubership.cloud.consul.provider.common.TokenStorage;
+import com.netcracker.cloud.consul.provider.common.TokenStorage;
 import org.springframework.cloud.consul.config.ConsulConfigProperties;
 
 public class ConfigBasedTokenStorage implements TokenStorage {

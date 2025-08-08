@@ -44,12 +44,12 @@ class JBossLoggingSystemTest {
     void testGetLogLevels_getLogLevelFromParent() {
         JBossLoggingSystem loggingSystem = new JBossLoggingSystem();
         LogContext context = LogContext.getLogContext();
-        Logger testLogger1 = context.getLogger("org.qubership");
+        Logger testLogger1 = context.getLogger("com.netcracker");
         testLogger1.setLevel(Level.DEBUG);
-        Logger dbaasLog = context.getLogger("org.qubership.dbaas");
+        Logger dbaasLog = context.getLogger("com.netcracker.dbaas");
 
         Map<String, String> logLevels = loggingSystem.getLogLevels();
 
-        assertEquals("DEBUG", logLevels.get("org.qubership.dbaas"));
+        assertEquals("DEBUG", logLevels.get("com.netcracker.dbaas"));
     }
 }

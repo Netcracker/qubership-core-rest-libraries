@@ -1,11 +1,11 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
-import org.qubership.cloud.restclient.HttpMethod;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.entity.RestClientResponseEntity;
-import org.qubership.cloud.routesregistration.common.gateway.route.ControlPlaneClient;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
+import com.netcracker.cloud.restclient.HttpMethod;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.entity.RestClientResponseEntity;
+import com.netcracker.cloud.routesregistration.common.gateway.route.ControlPlaneClient;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

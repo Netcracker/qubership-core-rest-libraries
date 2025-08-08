@@ -1,14 +1,14 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.v3;
 
 import lombok.NonNull;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.Utils;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.AbstractRegistrationRequestFactory;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Utils;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.AbstractRegistrationRequestFactory;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

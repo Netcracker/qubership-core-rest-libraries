@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.restclient.configuration;
 
-import org.qubership.cloud.restlegacy.restclient.service.MessageService;
+import com.netcracker.cloud.restlegacy.restclient.service.MessageService;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

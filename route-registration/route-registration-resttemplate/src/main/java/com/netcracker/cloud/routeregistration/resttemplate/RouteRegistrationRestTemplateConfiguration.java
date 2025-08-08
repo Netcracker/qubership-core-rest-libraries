@@ -1,9 +1,9 @@
 package com.netcracker.cloud.routeregistration.resttemplate;
 
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplate;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.annotation.EnableFrameworkRestTemplate;
-import org.qubership.cloud.routesregistration.common.config.RoutesProcessingConfiguration;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.resttemplate.MicroserviceRestTemplate;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.annotation.EnableFrameworkRestTemplate;
+import com.netcracker.cloud.routesregistration.common.config.RoutesProcessingConfiguration;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

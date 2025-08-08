@@ -1,12 +1,12 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.transformation;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.annotation.processing.MicroserviceRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.annotation.processing.RouteAnnotationInfo;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.MicroserviceRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.RouteAnnotationInfo;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 
 import java.util.Collection;
 import java.util.Collections;

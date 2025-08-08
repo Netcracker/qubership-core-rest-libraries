@@ -17,7 +17,7 @@
 package com.netcracker.cloud.configserver.common.sample;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.configserver.common.configuration.TestConfiguration;
+import com.netcracker.cloud.configserver.common.configuration.TestConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;

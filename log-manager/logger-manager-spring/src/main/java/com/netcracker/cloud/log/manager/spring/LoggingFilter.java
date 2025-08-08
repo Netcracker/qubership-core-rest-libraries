@@ -1,7 +1,7 @@
 package com.netcracker.cloud.log.manager.spring;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.qubership.cloud.log.manager.common.LogManager;
+import com.netcracker.cloud.log.manager.common.LogManager;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

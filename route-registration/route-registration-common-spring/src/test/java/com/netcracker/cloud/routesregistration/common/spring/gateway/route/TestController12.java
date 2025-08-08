@@ -1,8 +1,8 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.addDebugInfo;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.createResponse;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.addDebugInfo;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.createResponse;
 
 @Slf4j
 @ControllerAdvice

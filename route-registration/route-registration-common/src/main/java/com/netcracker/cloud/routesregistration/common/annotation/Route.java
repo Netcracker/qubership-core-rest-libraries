@@ -1,7 +1,7 @@
 package com.netcracker.cloud.routesregistration.common.annotation;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 
 import java.lang.annotation.*;
 

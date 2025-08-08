@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.resttemplate.configuration.annotation;
 
-import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

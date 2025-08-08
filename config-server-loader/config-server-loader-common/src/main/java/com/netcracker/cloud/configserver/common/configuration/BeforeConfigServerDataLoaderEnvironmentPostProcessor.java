@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.qubership.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver.INNER_CONFIG_SERVER_LOCATION_PREFIX;
+import static com.netcracker.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver.INNER_CONFIG_SERVER_LOCATION_PREFIX;
 
 public class BeforeConfigServerDataLoaderEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
     public static final int ORDER = ConfigDataEnvironmentPostProcessor.ORDER - 1;

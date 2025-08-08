@@ -1,12 +1,12 @@
 package com.netcracker.cloud.smartclient.rest.webclient.interceptor;
 
-import org.qubership.cloud.context.propagation.core.contextdata.IncomingContextData;
+import com.netcracker.cloud.context.propagation.core.contextdata.IncomingContextData;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.qubership.cloud.framework.contexts.xrequestid.XRequestIdContextProvider.X_REQUEST_ID_CONTEXT_NAME;
+import static com.netcracker.cloud.framework.contexts.xrequestid.XRequestIdContextProvider.X_REQUEST_ID_CONTEXT_NAME;
 import static jakarta.ws.rs.core.HttpHeaders.ACCEPT_LANGUAGE;
 
 public class ContextDataRequest implements IncomingContextData {

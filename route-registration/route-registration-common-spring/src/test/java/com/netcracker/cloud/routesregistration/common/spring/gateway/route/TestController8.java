@@ -1,15 +1,15 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.RouteType.INTERNAL;
-import static org.qubership.cloud.routesregistration.common.gateway.route.RouteType.PRIVATE;
-import static org.qubership.cloud.routesregistration.common.gateway.route.RouteType.PUBLIC;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.RouteType.INTERNAL;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.RouteType.PRIVATE;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.RouteType.PUBLIC;
 
 @RestController("TestController8")
 @RequestMapping(path = {RoutesTestConfiguration.CLASS_ROUTES_8})

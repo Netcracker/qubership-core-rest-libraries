@@ -15,14 +15,14 @@ class LogbackLoggingSystemTest {
 
     @Test
     void testGetLogLevels() throws JoranException {
-        registerLog("org.qubership.cloud", Level.TRACE);
-        registerLog("org.qubership.cloud.dbaas", Level.DEBUG);
+        registerLog("com.netcracker.cloud", Level.TRACE);
+        registerLog("com.netcracker.cloud.dbaas", Level.DEBUG);
 
         LogbackLoggingSystem loggingSystem = new LogbackLoggingSystem();
 
         Map<String, String> logLevels = loggingSystem.getLogLevels();
-        assertEquals("TRACE", logLevels.get("org.qubership.cloud"));
-        assertEquals("DEBUG", logLevels.get("org.qubership.cloud.dbaas"));
+        assertEquals("TRACE", logLevels.get("com.netcracker.cloud"));
+        assertEquals("DEBUG", logLevels.get("com.netcracker.cloud.dbaas"));
     }
 
     private static void registerLog(String logName, Level level) {

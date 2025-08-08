@@ -1,6 +1,6 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route;
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.Constants.*;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.Constants.*;
 
 public enum GatewayNameKey {
     PUBLIC,

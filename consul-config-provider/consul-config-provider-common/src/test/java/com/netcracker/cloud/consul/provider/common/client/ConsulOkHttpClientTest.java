@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.qubership.cloud.consul.provider.common.client.ConsulClient.*;
+import static com.netcracker.cloud.consul.provider.common.client.ConsulClient.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.*;

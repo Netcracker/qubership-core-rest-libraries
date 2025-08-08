@@ -1,8 +1,8 @@
 package com.netcracker.cloud.disableapi.spring;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.qubership.cloud.core.error.rest.tmf.TmfErrorResponse;
-import org.qubership.cloud.disableapi.UrlsPatternsParser;
+import com.netcracker.cloud.core.error.rest.tmf.TmfErrorResponse;
+import com.netcracker.cloud.disableapi.UrlsPatternsParser;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

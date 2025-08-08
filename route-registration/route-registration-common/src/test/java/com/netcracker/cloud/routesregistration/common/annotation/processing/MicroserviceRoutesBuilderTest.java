@@ -1,8 +1,8 @@
 package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 
 import java.util.Collection;
 import java.util.Collections;

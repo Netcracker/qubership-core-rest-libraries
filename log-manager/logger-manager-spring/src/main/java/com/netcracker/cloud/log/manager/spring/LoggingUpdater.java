@@ -1,6 +1,6 @@
 package com.netcracker.cloud.log.manager.spring;
 
-import org.qubership.cloud.log.manager.common.LogManager;
+import com.netcracker.cloud.log.manager.common.LogManager;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.logging.LogLevel;
 import org.springframework.boot.logging.LoggingSystem;

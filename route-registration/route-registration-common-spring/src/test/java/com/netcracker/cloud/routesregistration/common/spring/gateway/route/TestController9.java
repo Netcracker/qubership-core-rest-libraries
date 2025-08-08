@@ -1,16 +1,16 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.annotation.FacadeGatewayRequestMapping;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.annotation.GatewayRequestMapping;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.annotation.FacadeGatewayRequestMapping;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.annotation.GatewayRequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.RouteType.INTERNAL;
-import static org.qubership.cloud.routesregistration.common.gateway.route.RouteType.PRIVATE;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.RouteType.INTERNAL;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.RouteType.PRIVATE;
 
 @RestController("TestController9")
 @GatewayRequestMapping(value = "/gateway/v1")

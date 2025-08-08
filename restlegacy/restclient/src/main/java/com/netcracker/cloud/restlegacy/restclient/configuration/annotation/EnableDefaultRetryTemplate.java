@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.restclient.configuration.annotation;
 
-import org.qubership.cloud.restlegacy.restclient.configuration.DefaultRetryTemplateConfiguration;
+import com.netcracker.cloud.restlegacy.restclient.configuration.DefaultRetryTemplateConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

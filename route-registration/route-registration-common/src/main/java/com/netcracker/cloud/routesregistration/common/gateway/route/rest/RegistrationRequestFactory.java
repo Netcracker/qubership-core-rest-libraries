@@ -1,8 +1,8 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.rest;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.Utils;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3Factory;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Utils;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3Factory;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Collection;

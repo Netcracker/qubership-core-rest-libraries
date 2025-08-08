@@ -1,7 +1,7 @@
 package com.netcracker.cloud.restlegacy.restclient;
 
-import org.qubership.cloud.restlegacy.restclient.error.ProxyErrorException;
-import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyErrorException;
+import com.netcracker.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

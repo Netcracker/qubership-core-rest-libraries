@@ -1,8 +1,8 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RoutesTestConfiguration.*;
+import static com.netcracker.cloud.routesregistration.common.spring.gateway.route.RoutesTestConfiguration.*;
 
 @SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
 class RouteAnnotationProcessorTest {

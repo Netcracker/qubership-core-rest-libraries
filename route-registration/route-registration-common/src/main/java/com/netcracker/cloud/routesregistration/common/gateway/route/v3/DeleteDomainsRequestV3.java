@@ -1,7 +1,7 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.v3;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.DeleteDomainsRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.DeleteDomainConfigurationV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.DeleteDomainsRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.DeleteDomainConfigurationV3;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

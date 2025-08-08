@@ -2,8 +2,8 @@ package com.netcracker.cloud.consul.provider.common;
 
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
-import org.qubership.cloud.consul.provider.common.client.ConsulClient;
-import org.qubership.cloud.consul.provider.common.client.ConsulClientResponse;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClientResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

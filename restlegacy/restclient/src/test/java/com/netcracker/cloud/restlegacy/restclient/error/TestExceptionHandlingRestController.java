@@ -15,8 +15,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import java.util.Date;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.NamedMessageParameter.date;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.NamedMessageParameter.string;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.NamedMessageParameter.date;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.NamedMessageParameter.string;
 import static java.util.Objects.isNull;
 
 @RestController
@@ -113,14 +113,14 @@ public class TestExceptionHandlingRestController {
 
     @GetMapping(value = THROW_EXCEPTION_WITH_DATE_PARAMETER_METHOD)
     public void throwExceptionWithDateParameter() {
-        throw new org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(
+        throw new com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(
                 GENERIC_DISPLAYED_EXCEPTION_V2_1_MESSAGE_CODE,
                 date(MESSAGE_DATE_PARAMETER_NAME, MESSAGE_DATE_PARAMETER_VALUE));
     }
 
     @GetMapping(value = THROW_GENERIC_DISPLAYED_EXCEPTION_V2_1_METHOD)
     public void throwGenericDisplayedExceptionV2_1() {
-        throw new org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(
+        throw new com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(
                 GENERIC_DISPLAYED_EXCEPTION_V2_1_MESSAGE_CODE,
                 string(GENERIC_DISPLAYED_EXCEPTION_V2_1_STRING_MESSAGE_PARAMETER_NAME,
                         GENERIC_DISPLAYED_EXCEPTION_V2_1_STRING_MESSAGE_PARAMETER_VALUE));
@@ -244,7 +244,7 @@ public class TestExceptionHandlingRestController {
 
     @GetMapping(value = SECOND_TRANSITIVE_LEVEL_METHOD_THAT_FAILS_ALWAYS_V2_1)
     public String secondTransitiveLevelMethodThatFailsAlwaysV2_1() {
-        throw new org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(TRANSITIVE_LEVEL_METHOD_MESSAGE_CODE,
+        throw new com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.GenericDisplayedException(TRANSITIVE_LEVEL_METHOD_MESSAGE_CODE,
                 string(TRANSITIVE_LEVEL_METHOD_MESSAGE_PARAM_NAME, TRANSITIVE_LEVEL_METHOD_MESSAGE_PARAM_VALUE));
     }
 

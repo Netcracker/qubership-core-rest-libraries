@@ -1,7 +1,7 @@
 package com.netcracker.cloud.consul.provider.common;
 
-import org.qubership.cloud.consul.provider.common.client.ConsulClient;
-import org.qubership.cloud.consul.provider.common.client.ConsulClientResponse;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClientResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

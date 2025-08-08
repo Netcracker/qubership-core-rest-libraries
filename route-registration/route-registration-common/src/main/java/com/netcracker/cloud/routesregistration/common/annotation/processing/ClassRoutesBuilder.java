@@ -1,6 +1,6 @@
 package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
 package com.netcracker.cloud.routeregistration.webclient;
 
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.webclient.MicroserviceWebClient;
-import org.qubership.cloud.routesregistration.common.config.RoutesProcessingConfiguration;
-import org.qubership.cloud.smartclient.config.annotation.EnableFrameworkWebClient;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.webclient.MicroserviceWebClient;
+import com.netcracker.cloud.routesregistration.common.config.RoutesProcessingConfiguration;
+import com.netcracker.cloud.smartclient.config.annotation.EnableFrameworkWebClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

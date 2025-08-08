@@ -1,10 +1,10 @@
 package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
-import org.qubership.cloud.routesregistration.common.gateway.route.Utils;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Utils;
 import lombok.*;
 
 import java.util.*;

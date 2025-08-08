@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
-import static org.qubership.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver.INNER_CONFIG_SERVER_LOCATION_PREFIX;
+import static com.netcracker.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver.INNER_CONFIG_SERVER_LOCATION_PREFIX;
 
 public class AfterConfigServerDataLoaderEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
     public static final int ORDER = ConfigDataEnvironmentPostProcessor.ORDER + 1;

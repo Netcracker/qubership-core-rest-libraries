@@ -1,6 +1,6 @@
 package com.netcracker.cloud.consul.provider.common;
 
-import org.qubership.cloud.consul.provider.common.client.ConsulClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

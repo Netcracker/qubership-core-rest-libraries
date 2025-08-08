@@ -1,15 +1,15 @@
 //package com.netcracker.cloud.smartclient.rest.webclient.sample;
 //
-//import org.qubership.cloud.context.propagation.core.ContextManager;
-//import org.qubership.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;
+//import com.netcracker.cloud.context.propagation.core.ContextManager;
+//import com.netcracker.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;
 //import com.sun.net.httpserver.HttpServer;
 //import org.junit.AfterClass;
 //import org.junit.Assert;
 //import org.junit.BeforeClass;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
-//import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
-//import org.qubership.cloud.security.common.webclient.SmartWebClient;
+//import com.netcracker.cloud.framework.contexts.tenant.TenantContextObject;
+//import com.netcracker.cloud.security.common.webclient.SmartWebClient;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@
 //import java.util.List;
 //import java.util.Objects;
 //
-//import static org.qubership.cloud.framework.contexts.tenant.TenantProvider.TENANT_CONTEXT_NAME;
+//import static com.netcracker.cloud.framework.contexts.tenant.TenantProvider.TENANT_CONTEXT_NAME;
 //
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = {TestConfig.class})

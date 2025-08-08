@@ -16,14 +16,14 @@ class Log4j2LoggingSystemTest {
 
     @Test
     void test() {
-        registerLog("org.qubership.cloud", Level.DEBUG);
-        registerLog("org.qubership.cloud.dbaas", Level.TRACE);
+        registerLog("com.netcracker.cloud", Level.DEBUG);
+        registerLog("com.netcracker.cloud.dbaas", Level.TRACE);
         Log4j2LoggingSystem log4j2LoggingSystem = new Log4j2LoggingSystem();
 
         Map<String, String> logLevels = log4j2LoggingSystem.getLogLevels();
 
-        assertEquals("DEBUG", logLevels.get("org.qubership.cloud"));
-        assertEquals("TRACE", logLevels.get("org.qubership.cloud.dbaas"));
+        assertEquals("DEBUG", logLevels.get("com.netcracker.cloud"));
+        assertEquals("TRACE", logLevels.get("com.netcracker.cloud.dbaas"));
     }
 
     private void registerLog(String logName, Level level) {

@@ -1,10 +1,10 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1;
 
-import org.qubership.cloud.restlegacy.restclient.error.EntityNotFoundException;
-import org.qubership.cloud.restlegacy.restclient.error.ErrorException;
-import org.qubership.cloud.restlegacy.restclient.error.ProxyErrorException;
-import org.qubership.cloud.restlegacy.restclient.error.v2.DebugInfo;
-import org.qubership.cloud.restlegacy.restclient.error.v2.HasDebugInfo;
+import com.netcracker.cloud.restlegacy.restclient.error.EntityNotFoundException;
+import com.netcracker.cloud.restlegacy.restclient.error.ErrorException;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyErrorException;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.DebugInfo;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.HasDebugInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,12 +31,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.VERSION_2_1;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.*;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.ErrorMessageCodes.*;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.MessageParameterTypes.LOCALIZED_STRING;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.MessageParameterTypes.STRING;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.VERSION_2_1;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.ErrorMessageCodes.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.MessageParameterTypes.LOCALIZED_STRING;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.MessageParameterTypes.STRING;
 
 
 @Slf4j

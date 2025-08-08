@@ -1,12 +1,12 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.rest;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.CompositeRequestV3;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.CompositeRequestV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

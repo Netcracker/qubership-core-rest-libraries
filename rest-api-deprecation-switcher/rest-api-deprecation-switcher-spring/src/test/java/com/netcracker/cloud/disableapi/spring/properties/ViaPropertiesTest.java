@@ -1,7 +1,7 @@
 package com.netcracker.cloud.disableapi.spring.properties;
 
-import org.qubership.cloud.disableapi.spring.AbstractTestParent;
-import org.qubership.cloud.disableapi.spring.DisableDeprecatedApi;
+import com.netcracker.cloud.disableapi.spring.AbstractTestParent;
+import com.netcracker.cloud.disableapi.spring.DisableDeprecatedApi;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

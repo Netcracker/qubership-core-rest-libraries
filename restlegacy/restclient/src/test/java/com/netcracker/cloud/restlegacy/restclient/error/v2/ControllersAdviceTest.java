@@ -5,9 +5,9 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
-import org.qubership.cloud.restlegacy.restclient.error.*;
-import org.qubership.cloud.restlegacy.restclient.service.MessageService;
+import com.netcracker.cloud.restlegacy.restclient.app.TestConfig;
+import com.netcracker.cloud.restlegacy.restclient.error.*;
+import com.netcracker.cloud.restlegacy.restclient.service.MessageService;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.MethodParameter;
@@ -27,7 +27,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {TestConfig.class, TestExceptionHandlingConfiguration.class, ControllerWithV2ExceptionModel.class})

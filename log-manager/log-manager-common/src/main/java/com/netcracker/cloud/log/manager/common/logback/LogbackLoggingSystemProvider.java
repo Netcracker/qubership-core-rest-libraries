@@ -1,8 +1,8 @@
 package com.netcracker.cloud.log.manager.common.logback;
 
-import org.qubership.cloud.log.manager.common.LogUtils;
-import org.qubership.cloud.log.manager.common.LoggingSystem;
-import org.qubership.cloud.log.manager.common.LoggingSystemProvider;
+import com.netcracker.cloud.log.manager.common.LogUtils;
+import com.netcracker.cloud.log.manager.common.LoggingSystem;
+import com.netcracker.cloud.log.manager.common.LoggingSystemProvider;
 
 public class LogbackLoggingSystemProvider implements LoggingSystemProvider {
 

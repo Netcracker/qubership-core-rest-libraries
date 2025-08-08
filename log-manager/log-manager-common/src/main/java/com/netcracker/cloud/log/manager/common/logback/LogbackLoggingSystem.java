@@ -2,7 +2,7 @@ package com.netcracker.cloud.log.manager.common.logback;
 
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
-import org.qubership.cloud.log.manager.common.LoggingSystem;
+import com.netcracker.cloud.log.manager.common.LoggingSystem;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 

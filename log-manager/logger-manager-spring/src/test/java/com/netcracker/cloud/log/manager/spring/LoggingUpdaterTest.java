@@ -1,6 +1,6 @@
 package com.netcracker.cloud.log.manager.spring;
 
-import org.qubership.cloud.log.manager.common.LogManager;
+import com.netcracker.cloud.log.manager.common.LogManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

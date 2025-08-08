@@ -4,7 +4,7 @@ import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.io.HttpClientConnectionManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.ConnectionManagerConfiguration;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.ConnectionManagerConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;

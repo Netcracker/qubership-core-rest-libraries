@@ -1,10 +1,10 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
-import org.qubership.cloud.restlegacy.restclient.error.DisplayedMessageException;
-import org.qubership.cloud.restlegacy.restclient.error.EntityNotFoundException;
-import org.qubership.cloud.restlegacy.restclient.error.ErrorException;
-import org.qubership.cloud.restlegacy.restclient.error.ProxyErrorException;
-import org.qubership.cloud.restlegacy.restclient.service.MessageService;
+import com.netcracker.cloud.restlegacy.restclient.error.DisplayedMessageException;
+import com.netcracker.cloud.restlegacy.restclient.error.EntityNotFoundException;
+import com.netcracker.cloud.restlegacy.restclient.error.ErrorException;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyErrorException;
+import com.netcracker.cloud.restlegacy.restclient.service.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +27,10 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.qubership.cloud.restlegacy.restclient.error.ErrorMessageCodes.*;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.VERSION_2;
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.ErrorMessageCodes.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.ERROR_HANDLER_VERSION_CONDITION_PROPERTY;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.VERSION_2;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.*;
 
 @Slf4j
 @ControllerAdvice

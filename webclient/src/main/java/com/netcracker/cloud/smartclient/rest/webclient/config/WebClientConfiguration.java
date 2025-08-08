@@ -1,15 +1,15 @@
 package com.netcracker.cloud.smartclient.rest.webclient.config;
 
 import jakarta.annotation.PostConstruct;
-import org.qubership.cloud.context.propagation.spring.webclient.annotation.EnableWebclientContextProvider;
-import org.qubership.cloud.context.propagation.spring.webclient.interceptor.CoreContextPropagator;
-import org.qubership.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.webclient.MicroserviceWebClient;
-import org.qubership.cloud.security.common.webclient.AuthorizationHeaderInterceptorFactory;
-import org.qubership.cloud.security.common.webclient.DefaultSmartWebClient;
-import org.qubership.cloud.security.common.webclient.SmartWebClient;
-import org.qubership.cloud.smartclient.rest.webclient.interceptor.RequestLoggingInterceptor;
+import com.netcracker.cloud.context.propagation.spring.webclient.annotation.EnableWebclientContextProvider;
+import com.netcracker.cloud.context.propagation.spring.webclient.interceptor.CoreContextPropagator;
+import com.netcracker.cloud.context.propagation.spring.webclient.interceptor.SpringWebClientInterceptor;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.webclient.MicroserviceWebClient;
+import com.netcracker.cloud.security.common.webclient.AuthorizationHeaderInterceptorFactory;
+import com.netcracker.cloud.security.common.webclient.DefaultSmartWebClient;
+import com.netcracker.cloud.security.common.webclient.SmartWebClient;
+import com.netcracker.cloud.smartclient.rest.webclient.interceptor.RequestLoggingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -27,8 +27,8 @@ import java.util.stream.Collectors;
 @Import(MicroserviceWebClientFactoryConfiguration.class)
 public class WebClientConfiguration {
 
-    private static final String WEB_CLIENT_INTERCEPTORS_ROOT_PACKAGE_NAME = "org.qubership.cloud.smartclient.rest.webclient.interceptor";
-    private static final String SECURITY_INTERCEPTORS_ROOT_PACKAGE_NAME = "org.qubership.cloud.securitycore.rest.webclient.interceptor";
+    private static final String WEB_CLIENT_INTERCEPTORS_ROOT_PACKAGE_NAME = "com.netcracker.cloud.smartclient.rest.webclient.interceptor";
+    private static final String SECURITY_INTERCEPTORS_ROOT_PACKAGE_NAME = "com.netcracker.cloud.securitycore.rest.webclient.interceptor";
 
     @Bean
     public RequestLoggingInterceptor requestLoggingInterceptor() {

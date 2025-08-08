@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.qubership.cloud.restlegacy.restclient.error.UtilException.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.UtilException.*;
 
 class UtilExceptionTest {
 
@@ -115,12 +115,12 @@ class UtilExceptionTest {
     @Test
     void testUncheckFunctionWithException() {
         assertThrows(Exception.class, () -> uncheck((classForName -> {
-            Class<?> clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            Class<?> clazzTmp = Class.forName("com.netcracker.cloud.microserviceframework.error.UtilExceptionTest");
             if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
                 throw new Exception();
             }
             return clazzTmp;
-        }), "org.qubership.cloud.microserviceframework.error.UtilExceptionTest"));
+        }), "com.netcracker.cloud.microserviceframework.error.UtilExceptionTest"));
     }
 
     @Test
@@ -133,7 +133,7 @@ class UtilExceptionTest {
     @Test
     void testUncheckWithException() {
         assertThrows(Exception.class, () -> uncheck(() -> {
-            Class<?> clazzTmp = Class.forName("org.qubership.cloud.microserviceframework.error.UtilExceptionTest");
+            Class<?> clazzTmp = Class.forName("com.netcracker.cloud.microserviceframework.error.UtilExceptionTest");
             if ("UtilExceptionTest".equals(clazzTmp.getSimpleName())) {
                 throw new Exception();
             }

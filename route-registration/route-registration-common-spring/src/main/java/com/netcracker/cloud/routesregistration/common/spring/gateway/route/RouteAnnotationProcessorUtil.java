@@ -1,10 +1,10 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
-import org.qubership.cloud.routesregistration.common.annotation.Routes;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.annotation.Routes;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
 
@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.Constants.UNSPECIFIED_TIMEOUT_FOR_ROUTE;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.Constants.UNSPECIFIED_TIMEOUT_FOR_ROUTE;
 
 public class RouteAnnotationProcessorUtil {
 

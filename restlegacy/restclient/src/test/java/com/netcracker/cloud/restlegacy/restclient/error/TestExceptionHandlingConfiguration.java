@@ -1,10 +1,10 @@
 package com.netcracker.cloud.restlegacy.restclient.error;
 
-import org.qubership.cloud.restlegacy.restclient.RestClient;
-import org.qubership.cloud.restlegacy.restclient.app.TestConfig;
-import org.qubership.cloud.restlegacy.restclient.configuration.annotation.EnableControllersAdvice;
-import org.qubership.cloud.restlegacy.restclient.configuration.annotation.EnableDefaultRetryTemplate;
-import org.qubership.cloud.restlegacy.restclient.configuration.annotation.EnableMessagesResolving;
+import com.netcracker.cloud.restlegacy.restclient.RestClient;
+import com.netcracker.cloud.restlegacy.restclient.app.TestConfig;
+import com.netcracker.cloud.restlegacy.restclient.configuration.annotation.EnableControllersAdvice;
+import com.netcracker.cloud.restlegacy.restclient.configuration.annotation.EnableDefaultRetryTemplate;
+import com.netcracker.cloud.restlegacy.restclient.configuration.annotation.EnableMessagesResolving;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration;

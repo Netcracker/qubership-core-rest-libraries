@@ -1,9 +1,9 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.transformation;
 
-import org.qubership.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;

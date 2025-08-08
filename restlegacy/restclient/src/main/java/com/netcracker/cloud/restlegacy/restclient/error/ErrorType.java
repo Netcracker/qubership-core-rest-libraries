@@ -4,7 +4,7 @@ package com.netcracker.cloud.restlegacy.restclient.error;
 import lombok.ToString;
 import org.springframework.http.HttpStatus;
 
-import static org.qubership.cloud.restlegacy.restclient.error.ErrorMessageCodes.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.ErrorMessageCodes.*;
 
 /**
  * @deprecated See javadoc on {@link ErrorException}

@@ -1,6 +1,6 @@
 package com.netcracker.cloud.log.manager.common.logback;
 
-import org.qubership.cloud.log.manager.common.LoggingSystem;
+import com.netcracker.cloud.log.manager.common.LoggingSystem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

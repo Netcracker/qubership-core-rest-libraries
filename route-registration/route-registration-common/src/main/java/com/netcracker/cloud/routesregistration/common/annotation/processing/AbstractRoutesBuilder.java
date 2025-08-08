@@ -1,12 +1,12 @@
 package com.netcracker.cloud.routesregistration.common.annotation.processing;
 
-import org.qubership.cloud.routesregistration.common.annotation.*;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
-import org.qubership.cloud.routesregistration.common.gateway.route.Utils;
+import com.netcracker.cloud.routesregistration.common.annotation.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Utils;
 
 import java.util.*;
 
-import static org.qubership.cloud.routesregistration.common.annotation.processing.RouteAnnotationUtils.isSingleEmptyStringArray;
+import static com.netcracker.cloud.routesregistration.common.annotation.processing.RouteAnnotationUtils.isSingleEmptyStringArray;
 
 /**
  * Abstract class for builders that build routes by information from annotations.

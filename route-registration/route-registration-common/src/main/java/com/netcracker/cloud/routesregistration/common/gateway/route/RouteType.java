@@ -1,7 +1,7 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route;
 
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.Constants.*;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.Constants.*;
 
 /**
  * RouteType specifies in which gateways this route should be registered.

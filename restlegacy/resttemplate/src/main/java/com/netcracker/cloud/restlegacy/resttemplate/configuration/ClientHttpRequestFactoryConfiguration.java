@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.resttemplate.configuration;
 
-import org.qubership.cloud.restlegacy.resttemplate.configuration.customizer.RequestFactoryProvider;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.customizer.RequestFactoryProvider;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.io.HttpClientConnectionManager;

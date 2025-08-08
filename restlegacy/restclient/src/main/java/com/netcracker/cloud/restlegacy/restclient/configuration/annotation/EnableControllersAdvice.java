@@ -1,9 +1,9 @@
 package com.netcracker.cloud.restlegacy.restclient.configuration.annotation;
 
-import org.qubership.cloud.restlegacy.restclient.error.v2.ControllersAdvice;
-import org.qubership.cloud.restlegacy.restclient.error.v2.ExceptionHandlingV2MainConfiguration;
-import org.qubership.cloud.restlegacy.restclient.error.v2.ExceptionHandlingV2_0Configuration;
-import org.qubership.cloud.restlegacy.restclient.error.v2.v2_1.ExceptionHandlingV2_1Configuration;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.ControllersAdvice;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.ExceptionHandlingV2MainConfiguration;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.ExceptionHandlingV2_0Configuration;
+import com.netcracker.cloud.restlegacy.restclient.error.v2.v2_1.ExceptionHandlingV2_1Configuration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

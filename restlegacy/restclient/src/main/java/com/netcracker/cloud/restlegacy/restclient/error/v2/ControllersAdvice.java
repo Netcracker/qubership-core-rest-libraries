@@ -1,7 +1,7 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
-import org.qubership.cloud.restlegacy.restclient.error.*;
-import org.qubership.cloud.restlegacy.restclient.service.MessageService;
+import com.netcracker.cloud.restlegacy.restclient.error.*;
+import com.netcracker.cloud.restlegacy.restclient.service.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

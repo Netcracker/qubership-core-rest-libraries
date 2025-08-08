@@ -15,7 +15,7 @@ import java.net.SocketTimeoutException;
 import java.util.Collections;
 import java.util.Date;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.isTransitiveError;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.isTransitiveError;
 
 
 /**

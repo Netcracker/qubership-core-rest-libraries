@@ -1,8 +1,8 @@
 package com.netcracker.cloud.consul.provider.spring.resttemplate.config;
 
-import org.qubership.cloud.consul.provider.spring.common.config.ConsulM2MConfigDataLocationResolver;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplate;
+import com.netcracker.cloud.consul.provider.spring.common.config.ConsulM2MConfigDataLocationResolver;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.resttemplate.MicroserviceRestTemplate;
 import org.springframework.boot.logging.DeferredLogFactory;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

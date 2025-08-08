@@ -1,8 +1,8 @@
 package com.netcracker.cloud.routesregistration.common.config;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.RoutesRestRegistrationProcessor;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessor;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.RoutesRegistrationApplicationListener;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RoutesRestRegistrationProcessor;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessor;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.RoutesRegistrationApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

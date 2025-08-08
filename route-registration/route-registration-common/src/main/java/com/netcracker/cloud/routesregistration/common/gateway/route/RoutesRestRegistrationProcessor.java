@@ -1,10 +1,10 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.ControlPlaneApiVersion;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactory;
-import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CommonRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.CompositeRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.ControlPlaneApiVersion;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactory;
+import com.netcracker.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;

@@ -1,6 +1,6 @@
 package com.netcracker.cloud.smartclient.config.annotation;
 
-import org.qubership.cloud.smartclient.rest.webclient.config.WebClientConfiguration;
+import com.netcracker.cloud.smartclient.rest.webclient.config.WebClientConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

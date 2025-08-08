@@ -1,9 +1,9 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.qubership.cloud.restlegacy.restclient.error.ErrorsDescription;
-import org.qubership.cloud.restlegacy.restclient.error.ProxyErrorException;
-import org.qubership.cloud.restlegacy.restclient.error.ProxyRethrowException;
+import com.netcracker.cloud.restlegacy.restclient.error.ErrorsDescription;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyErrorException;
+import com.netcracker.cloud.restlegacy.restclient.error.ProxyRethrowException;
 import org.springframework.http.HttpStatus;
 import org.springframework.retry.RetryContext;
 import org.springframework.retry.policy.SimpleRetryPolicy;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.isTransitiveError;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ResponseAdviceExceptionHelper.isTransitiveError;
 
 
 public class RestClientExceptionRetryPolicy extends SimpleRetryPolicy {

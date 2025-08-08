@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 
 import java.lang.annotation.*;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.*;
 
 /**
  * This custom annotation ErrorHandlerVersion2Condition created to encapsulate {@link ConditionalOnExpression} annotation

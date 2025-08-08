@@ -1,10 +1,10 @@
 package com.netcracker.cloud.configserver.common.configuration;
 
-import org.qubership.cloud.restclient.HttpMethod;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.entity.RestClientResponseEntity;
-import org.qubership.cloud.restclient.exception.MicroserviceRestClientException;
-import org.qubership.cloud.restclient.exception.MicroserviceRestClientResponseException;
+import com.netcracker.cloud.restclient.HttpMethod;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.entity.RestClientResponseEntity;
+import com.netcracker.cloud.restclient.exception.MicroserviceRestClientException;
+import com.netcracker.cloud.restclient.exception.MicroserviceRestClientResponseException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.context.config.ConfigDataLoaderContext;

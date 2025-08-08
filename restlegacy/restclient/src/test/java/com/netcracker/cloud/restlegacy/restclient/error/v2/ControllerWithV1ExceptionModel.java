@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
-import org.qubership.cloud.restlegacy.restclient.error.ErrorsDescription;
+import com.netcracker.cloud.restlegacy.restclient.error.ErrorsDescription;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 import java.util.Date;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV1ExceptionModel.SYSTEM_WITH_V1_MODEL;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ControllerWithV1ExceptionModel.SYSTEM_WITH_V1_MODEL;
 
 @RequestMapping(SYSTEM_WITH_V1_MODEL)
 @RestController

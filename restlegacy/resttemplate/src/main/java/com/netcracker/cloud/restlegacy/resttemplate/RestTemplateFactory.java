@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.resttemplate;
 
-import org.qubership.cloud.security.common.restclient.OAuthRestTemplateProvider;
+import com.netcracker.cloud.security.common.restclient.OAuthRestTemplateProvider;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.client.ClientHttpRequestFactory;

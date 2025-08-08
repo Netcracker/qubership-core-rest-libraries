@@ -1,7 +1,7 @@
 package com.netcracker.cloud.security.common;
 
-import org.qubership.cloud.security.core.auth.DummyM2MManager;
-import org.qubership.cloud.security.core.auth.M2MManager;
+import com.netcracker.cloud.security.core.auth.DummyM2MManager;
+import com.netcracker.cloud.security.core.auth.M2MManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Configurable;

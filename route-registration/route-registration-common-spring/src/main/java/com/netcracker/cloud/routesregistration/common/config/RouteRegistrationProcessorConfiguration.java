@@ -1,15 +1,15 @@
 package com.netcracker.cloud.routesregistration.common.config;
 
-import org.qubership.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
-import org.qubership.cloud.routesregistration.common.annotation.processing.RouteHostMapping;
-import org.qubership.cloud.routesregistration.common.gateway.route.*;
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactory;
-import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessor;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteFormatter;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.SpringControlPlaneClient;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.RouteHostMapping;
+import com.netcracker.cloud.routesregistration.common.gateway.route.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactory;
+import com.netcracker.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessor;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.RouteFormatter;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.SpringControlPlaneClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;

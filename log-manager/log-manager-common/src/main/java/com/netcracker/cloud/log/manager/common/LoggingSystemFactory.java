@@ -1,8 +1,8 @@
 package com.netcracker.cloud.log.manager.common;
 
-import org.qubership.cloud.log.manager.common.jboss.JBossLoggingSystemProvider;
-import org.qubership.cloud.log.manager.common.log4j2.Log4j2LoggingSystemProvider;
-import org.qubership.cloud.log.manager.common.logback.LogbackLoggingSystemProvider;
+import com.netcracker.cloud.log.manager.common.jboss.JBossLoggingSystemProvider;
+import com.netcracker.cloud.log.manager.common.log4j2.Log4j2LoggingSystemProvider;
+import com.netcracker.cloud.log.manager.common.logback.LogbackLoggingSystemProvider;
 
 import java.util.ArrayList;
 import java.util.List;

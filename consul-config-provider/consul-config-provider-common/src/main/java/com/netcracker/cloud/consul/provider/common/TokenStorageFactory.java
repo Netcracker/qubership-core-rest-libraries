@@ -1,6 +1,6 @@
 package com.netcracker.cloud.consul.provider.common;
 
-import org.qubership.cloud.consul.provider.common.client.ConsulClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClient;
 
 import java.util.Objects;
 import java.util.function.Supplier;

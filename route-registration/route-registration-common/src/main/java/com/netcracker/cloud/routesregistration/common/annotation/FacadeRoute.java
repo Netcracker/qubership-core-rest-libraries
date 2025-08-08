@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static org.qubership.cloud.routesregistration.common.gateway.route.Constants.UNSPECIFIED_TIMEOUT_FOR_ROUTE;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.Constants.UNSPECIFIED_TIMEOUT_FOR_ROUTE;
 
 
 @Deprecated

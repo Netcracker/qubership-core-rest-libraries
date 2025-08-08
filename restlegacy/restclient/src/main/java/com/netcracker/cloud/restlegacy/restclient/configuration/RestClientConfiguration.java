@@ -1,7 +1,7 @@
 package com.netcracker.cloud.restlegacy.restclient.configuration;
 
-import org.qubership.cloud.restlegacy.restclient.RestClient;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.annotation.EnableFrameworkRestTemplate;
+import com.netcracker.cloud.restlegacy.restclient.RestClient;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.annotation.EnableFrameworkRestTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

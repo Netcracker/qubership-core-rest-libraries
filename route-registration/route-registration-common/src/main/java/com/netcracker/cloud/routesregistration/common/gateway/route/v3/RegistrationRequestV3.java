@@ -1,7 +1,7 @@
 package com.netcracker.cloud.routesregistration.common.gateway.route.v3;
 
-import org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.RouteConfigurationRequestV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequest;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.RouteConfigurationRequestV3;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

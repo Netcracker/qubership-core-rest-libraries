@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.restclient.error.v2;
 
-import org.qubership.cloud.restlegacy.restclient.error.RestClientExceptionPropagator;
+import com.netcracker.cloud.restlegacy.restclient.error.RestClientExceptionPropagator;
 import org.springframework.web.client.RestClientException;
 
 @ErrorHandlerVersion2Condition

@@ -1,11 +1,11 @@
 package com.netcracker.cloud.consul.provider.spring.common.config;
 
 import org.apache.commons.logging.Log;
-import org.qubership.cloud.consul.provider.common.TokenProvider;
-import org.qubership.cloud.consul.provider.common.client.ConsulRestClient;
-import org.qubership.cloud.consul.provider.spring.common.Utils;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.security.core.auth.M2MManager;
+import com.netcracker.cloud.consul.provider.common.TokenProvider;
+import com.netcracker.cloud.consul.provider.common.client.ConsulRestClient;
+import com.netcracker.cloud.consul.provider.spring.common.Utils;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.security.core.auth.M2MManager;
 import org.springframework.boot.BootstrapRegistry;
 import org.springframework.boot.context.config.ConfigDataLocation;
 import org.springframework.boot.context.config.ConfigDataLocationResolverContext;

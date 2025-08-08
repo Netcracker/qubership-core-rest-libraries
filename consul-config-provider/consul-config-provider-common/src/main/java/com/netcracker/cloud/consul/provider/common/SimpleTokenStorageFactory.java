@@ -1,13 +1,13 @@
 package com.netcracker.cloud.consul.provider.common;
 
-import org.qubership.cloud.consul.provider.common.client.ConsulClient;
-import org.qubership.cloud.consul.provider.common.client.ConsulRestClient;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulClient;
+import com.netcracker.cloud.consul.provider.common.client.ConsulRestClient;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
 
 /*
     @Deprecated.
     The usage of {@link SimpleTokenStorageFactory} can cause issues.
-    Use {@link org.qubership.cloud.consul.provider.common.OkHttpTokenStorageFactory} instead.
+    Use {@link com.netcracker.cloud.consul.provider.common.OkHttpTokenStorageFactory} instead.
  */
 @Deprecated
 public class SimpleTokenStorageFactory extends TokenStorageFactory {

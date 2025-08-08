@@ -3,11 +3,11 @@ package com.netcracker.cloud.routesregistration.common.gateway.route.rest;
 import io.reactivex.schedulers.Schedulers;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.qubership.cloud.routesregistration.common.gateway.route.*;
-import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.CompositeRequestV3;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3;
-import org.qubership.cloud.routesregistration.common.gateway.route.v3.domain.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.*;
+import com.netcracker.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.CompositeRequestV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.RegistrationRequestV3;
+import com.netcracker.cloud.routesregistration.common.gateway.route.v3.domain.*;
 
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
-import static org.qubership.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactoryTest.*;
+import static com.netcracker.cloud.routesregistration.common.gateway.route.rest.RegistrationRequestFactoryTest.*;
 
 class RoutesRestRegistrationProcessorTest {
 

@@ -1,15 +1,15 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
-import org.qubership.cloud.routesregistration.common.annotation.FacadeRoute;
-import org.qubership.cloud.routesregistration.common.annotation.Route;
-import org.qubership.cloud.routesregistration.common.annotation.Routes;
-import org.qubership.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.annotation.processing.MethodRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.annotation.processing.MicroserviceRoutesBuilder;
-import org.qubership.cloud.routesregistration.common.annotation.processing.RouteHostMapping;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.annotation.FacadeGatewayRequestMapping;
-import org.qubership.cloud.routesregistration.common.spring.gateway.route.annotation.GatewayRequestMapping;
+import com.netcracker.cloud.routesregistration.common.annotation.FacadeRoute;
+import com.netcracker.cloud.routesregistration.common.annotation.Route;
+import com.netcracker.cloud.routesregistration.common.annotation.Routes;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.ClassRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.MethodRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.MicroserviceRoutesBuilder;
+import com.netcracker.cloud.routesregistration.common.annotation.processing.RouteHostMapping;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.annotation.FacadeGatewayRequestMapping;
+import com.netcracker.cloud.routesregistration.common.spring.gateway.route.annotation.GatewayRequestMapping;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorUtil.*;
+import static com.netcracker.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorUtil.*;
 
 /**
  * Class to collect routes based on {@link Routes}, {@link Route}, {@link FacadeRoute},

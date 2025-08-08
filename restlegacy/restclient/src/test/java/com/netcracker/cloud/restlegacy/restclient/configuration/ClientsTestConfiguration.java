@@ -1,9 +1,9 @@
 package com.netcracker.cloud.restlegacy.restclient.configuration;
 
-import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
-import org.qubership.cloud.restlegacy.restclient.RestClient;
-import org.qubership.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
-import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
+import com.netcracker.cloud.restlegacy.restclient.ApiGatewayClient;
+import com.netcracker.cloud.restlegacy.restclient.RestClient;
+import com.netcracker.cloud.restlegacy.restclient.retry.RetryTemplateBuilder;
+import com.netcracker.cloud.restlegacy.resttemplate.RestTemplateFactory;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

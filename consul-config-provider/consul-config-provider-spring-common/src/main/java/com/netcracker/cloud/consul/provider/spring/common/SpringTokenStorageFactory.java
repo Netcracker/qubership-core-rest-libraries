@@ -1,9 +1,9 @@
 package com.netcracker.cloud.consul.provider.spring.common;
 
-import org.qubership.cloud.consul.provider.common.SimpleTokenStorageFactory;
-import org.qubership.cloud.consul.provider.common.TokenStorage;
-import org.qubership.cloud.consul.provider.common.TokenStorageFactory;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.consul.provider.common.SimpleTokenStorageFactory;
+import com.netcracker.cloud.consul.provider.common.TokenStorage;
+import com.netcracker.cloud.consul.provider.common.TokenStorageFactory;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
 import org.springframework.cloud.consul.config.ConsulConfigProperties;
 
 

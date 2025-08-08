@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJack
 
 import jakarta.annotation.Resource;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.Constants.DEBUG_MODE_PROPERTY_NAME;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.Constants.DEBUG_MODE_PROPERTY_NAME;
 
 @ControllerAdvice
 @RequiredArgsConstructor

@@ -1,9 +1,9 @@
 package com.netcracker.cloud.consul.provider.common.client;
 
 import com.google.gson.Gson;
-import org.qubership.cloud.restclient.HttpMethod;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.entity.RestClientResponseEntity;
+import com.netcracker.cloud.restclient.HttpMethod;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.entity.RestClientResponseEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.qubership.cloud.consul.provider.common.client.ConsulClient.*;
+import static com.netcracker.cloud.consul.provider.common.client.ConsulClient.*;
 
 class ConsulRestClientTest {
 

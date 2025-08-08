@@ -1,12 +1,12 @@
 package com.netcracker.cloud.consul.provider.spring.resttemplate.config;
 
-import org.qubership.cloud.consul.provider.common.TokenStorage;
-import org.qubership.cloud.consul.provider.common.TokenStorageFactory;
-import org.qubership.cloud.consul.provider.spring.common.SpringTokenStorageFactory;
-import org.qubership.cloud.consul.provider.spring.common.Utils;
-import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplate;
-import org.qubership.cloud.security.core.auth.DummyM2MManager;
-import org.qubership.cloud.security.core.auth.M2MManager;
+import com.netcracker.cloud.consul.provider.common.TokenStorage;
+import com.netcracker.cloud.consul.provider.common.TokenStorageFactory;
+import com.netcracker.cloud.consul.provider.spring.common.SpringTokenStorageFactory;
+import com.netcracker.cloud.consul.provider.spring.common.Utils;
+import com.netcracker.cloud.restclient.resttemplate.MicroserviceRestTemplate;
+import com.netcracker.cloud.security.core.auth.DummyM2MManager;
+import com.netcracker.cloud.security.core.auth.M2MManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

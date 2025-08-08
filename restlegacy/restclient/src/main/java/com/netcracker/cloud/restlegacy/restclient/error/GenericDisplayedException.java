@@ -6,7 +6,7 @@ package com.netcracker.cloud.restlegacy.restclient.error;
 @DisplayedMessageException
 /**
  * Exception can be used for exception handling version 1, 2
- * For exception version 2.1 use  {@link org.qubership.cloud.microserviceframework.error.v2.v2_1.GenericDisplayedException}
+ * For exception version 2.1 use  {@link com.netcracker.cloud.microserviceframework.error.v2.v2_1.GenericDisplayedException}
  */
 public class GenericDisplayedException extends RuntimeException {
     public GenericDisplayedException(String message) {

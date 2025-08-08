@@ -1,9 +1,9 @@
 package com.netcracker.cloud.configserver.webclient;
 
-import org.qubership.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.webclient.MicroserviceWebClient;
-import org.qubership.cloud.security.core.auth.M2MManager;
+import com.netcracker.cloud.configserver.common.configuration.AbstractCustomConfigServerConfigDataLocationResolver;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.webclient.MicroserviceWebClient;
+import com.netcracker.cloud.security.core.auth.M2MManager;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.logging.DeferredLogFactory;
 import org.springframework.web.reactive.function.client.ClientRequest;

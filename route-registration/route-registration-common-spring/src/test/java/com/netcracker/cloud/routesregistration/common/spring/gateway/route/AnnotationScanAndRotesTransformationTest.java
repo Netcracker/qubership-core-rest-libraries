@@ -1,10 +1,10 @@
 package com.netcracker.cloud.routesregistration.common.spring.gateway.route;
 
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.routesregistration.common.gateway.route.Constants;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteEntry;
-import org.qubership.cloud.routesregistration.common.gateway.route.RouteType;
-import org.qubership.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
+import com.netcracker.cloud.routesregistration.common.gateway.route.Constants;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteEntry;
+import com.netcracker.cloud.routesregistration.common.gateway.route.RouteType;
+import com.netcracker.cloud.routesregistration.common.gateway.route.transformation.RouteTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.qubership.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorTest.collectionContainsExactRoute;
+import static com.netcracker.cloud.routesregistration.common.spring.gateway.route.RouteAnnotationProcessorTest.collectionContainsExactRoute;
 
 @SpringBootTest(classes = {RoutesTestConfiguration.class, RouteAnnotationProcessorTest.TestRegistrationConfiguration.class})
 class AnnotationScanAndRotesTransformationTest {

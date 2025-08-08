@@ -6,11 +6,11 @@ import net.jodah.failsafe.RetryPolicy;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.context.propagation.core.ContextManager;
-import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
-import org.qubership.cloud.restlegacy.restclient.ApiGatewayClient;
-import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
-import org.qubership.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
+import com.netcracker.cloud.context.propagation.core.ContextManager;
+import com.netcracker.cloud.framework.contexts.tenant.TenantContextObject;
+import com.netcracker.cloud.restlegacy.restclient.ApiGatewayClient;
+import com.netcracker.cloud.restlegacy.resttemplate.RestTemplateFactory;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.RestTemplateConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +22,7 @@ import java.time.Duration;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
+import static com.netcracker.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
 
 
 @SpringBootTest(classes = {TestConfig.class, RestTemplateConfiguration.class},

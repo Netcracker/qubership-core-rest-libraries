@@ -1,6 +1,6 @@
 package com.netcracker.cloud.restlegacy.resttemplate.connection.manager;
 
-import org.qubership.cloud.restlegacy.resttemplate.configuration.customizer.PoolingHttpClientConnectionManagerCustomizer;
+import com.netcracker.cloud.restlegacy.resttemplate.configuration.customizer.PoolingHttpClientConnectionManagerCustomizer;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.springframework.stereotype.Component;
 

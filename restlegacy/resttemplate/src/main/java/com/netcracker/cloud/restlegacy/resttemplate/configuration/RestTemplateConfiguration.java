@@ -1,11 +1,11 @@
 package com.netcracker.cloud.restlegacy.resttemplate.configuration;
 
 import jakarta.validation.constraints.NotNull;
-import org.qubership.cloud.context.propagation.spring.resttemplate.annotation.EnableResttemplateContextProvider;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.resttemplate.MicroserviceRestTemplate;
-import org.qubership.cloud.restlegacy.resttemplate.RestTemplateFactory;
-import org.qubership.cloud.security.common.restclient.OAuthRestTemplateProvider;
+import com.netcracker.cloud.context.propagation.spring.resttemplate.annotation.EnableResttemplateContextProvider;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.resttemplate.MicroserviceRestTemplate;
+import com.netcracker.cloud.restlegacy.resttemplate.RestTemplateFactory;
+import com.netcracker.cloud.security.common.restclient.OAuthRestTemplateProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

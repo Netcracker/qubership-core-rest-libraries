@@ -1,9 +1,9 @@
 package com.netcracker.cloud.consul.provider.common.client;
 
 import com.google.gson.Gson;
-import org.qubership.cloud.restclient.HttpMethod;
-import org.qubership.cloud.restclient.MicroserviceRestClient;
-import org.qubership.cloud.restclient.entity.RestClientResponseEntity;
+import com.netcracker.cloud.restclient.HttpMethod;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.entity.RestClientResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 /*
     @Deprecated.
     The usage of {@link ConsulRestClient} can cause issues.
-    Use {@link org.qubership.cloud.consul.provider.common.client.ConsulOkHttpClient} instead.
+    Use {@link com.netcracker.cloud.consul.provider.common.client.ConsulOkHttpClient} instead.
  */
 @Deprecated
 public class ConsulRestClient implements ConsulClient {

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.qubership.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.SYSTEM_WITH_V2_MODEL;
+import static com.netcracker.cloud.restlegacy.restclient.error.v2.ControllerWithV2ExceptionModel.SYSTEM_WITH_V2_MODEL;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 @RequestMapping(SYSTEM_WITH_V2_MODEL)

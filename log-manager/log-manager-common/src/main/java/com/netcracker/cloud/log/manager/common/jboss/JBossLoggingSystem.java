@@ -1,6 +1,6 @@
 package com.netcracker.cloud.log.manager.common.jboss;
 
-import org.qubership.cloud.log.manager.common.LoggingSystem;
+import com.netcracker.cloud.log.manager.common.LoggingSystem;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.logmanager.LogContext;
 import org.jboss.logmanager.Logger;

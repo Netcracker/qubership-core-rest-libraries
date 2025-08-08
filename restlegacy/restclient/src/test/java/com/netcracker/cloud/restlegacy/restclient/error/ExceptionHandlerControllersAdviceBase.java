@@ -2,9 +2,9 @@ package com.netcracker.cloud.restlegacy.restclient.error;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.qubership.cloud.context.propagation.core.ContextManager;
-import org.qubership.cloud.framework.contexts.tenant.TenantContextObject;
-import org.qubership.cloud.restlegacy.restclient.service.MessageService;
+import com.netcracker.cloud.context.propagation.core.ContextManager;
+import com.netcracker.cloud.framework.contexts.tenant.TenantContextObject;
+import com.netcracker.cloud.restlegacy.restclient.service.MessageService;
 import org.hamcrest.Matcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,9 +17,9 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.Iterator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.qubership.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
-import static org.qubership.cloud.restlegacy.restclient.error.RetryStatisticsMatcher.*;
-import static org.qubership.cloud.restlegacy.restclient.error.TestExceptionHandlingRestController.*;
+import static com.netcracker.cloud.framework.contexts.tenant.BaseTenantProvider.TENANT_CONTEXT_NAME;
+import static com.netcracker.cloud.restlegacy.restclient.error.RetryStatisticsMatcher.*;
+import static com.netcracker.cloud.restlegacy.restclient.error.TestExceptionHandlingRestController.*;
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

@@ -1,12 +1,12 @@
 package com.netcracker.cloud.consul.provider.spring.webclient.config;
 
-import org.qubership.cloud.consul.provider.common.TokenStorage;
-import org.qubership.cloud.consul.provider.common.TokenStorageFactory;
-import org.qubership.cloud.consul.provider.spring.common.SpringTokenStorageFactory;
-import org.qubership.cloud.consul.provider.spring.common.Utils;
-import org.qubership.cloud.restclient.webclient.MicroserviceWebClient;
-import org.qubership.cloud.security.common.reactive.DummyM2MManager;
-import org.qubership.cloud.security.common.reactive.M2MManager;
+import com.netcracker.cloud.consul.provider.common.TokenStorage;
+import com.netcracker.cloud.consul.provider.common.TokenStorageFactory;
+import com.netcracker.cloud.consul.provider.spring.common.SpringTokenStorageFactory;
+import com.netcracker.cloud.consul.provider.spring.common.Utils;
+import com.netcracker.cloud.restclient.webclient.MicroserviceWebClient;
+import com.netcracker.cloud.security.common.reactive.DummyM2MManager;
+import com.netcracker.cloud.security.common.reactive.M2MManager;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.consul.ConditionalOnConsulEnabled;

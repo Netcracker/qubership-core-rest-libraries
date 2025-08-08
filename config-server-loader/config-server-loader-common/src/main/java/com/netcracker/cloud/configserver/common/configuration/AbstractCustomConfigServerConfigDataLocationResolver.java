@@ -1,6 +1,6 @@
 package com.netcracker.cloud.configserver.common.configuration;
 
-import org.qubership.cloud.restclient.MicroserviceRestClient;
+import com.netcracker.cloud.restclient.MicroserviceRestClient;
 import org.apache.commons.logging.Log;
 import org.springframework.boot.BootstrapRegistry;
 import org.springframework.boot.context.config.ConfigDataLocation;

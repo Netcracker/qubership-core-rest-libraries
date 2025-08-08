@@ -70,7 +70,7 @@ public class ErrorsDescription {
     }
 
     /**
-     * @deprecated used only for legacy {org.qubership.cloud.microserviceframework.controller.ControllersAdvice} and legacy client errorHandler
+     * @deprecated used only for legacy {com.netcracker.cloud.microserviceframework.controller.ControllersAdvice} and legacy client errorHandler
      */
     @Deprecated
     @ToString
