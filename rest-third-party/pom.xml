@@ -18,10 +18,10 @@
         <qubership.context.framework>7.1.4-SNAPSHOT</qubership.context.framework>
 
         <!--Spring's libraries -->
-        <spring.boot.version>3.4.7</spring.boot.version>
-        <spring.cloud.version>4.2.1</spring.cloud.version>
-        <spring.version>6.2.8</spring.version>
-        <spring.security>6.4.7</spring.security>
+        <spring.boot.version>3.4.8</spring.boot.version>
+        <spring.cloud.version>4.2.3</spring.cloud.version>
+        <spring.version>6.2.9</spring.version>
+        <spring.security>6.4.8</spring.security>
 
         <!--Test libraries -->
         <mockito.version>5.14.2</mockito.version>
@@ -33,7 +33,7 @@
         <org.projectlombok.version>1.18.38</org.projectlombok.version>
         <slf4j.version>2.0.17</slf4j.version>
         <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
-        <hibernate-validator.version>8.0.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>8.0.3.Final</hibernate-validator.version>
         <jsr305.version>3.0.2</jsr305.version>
         <commons.lang3.version>3.17.0</commons.lang3.version>
     </properties>
@@ -204,7 +204,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-consul-config</artifactId>
-                <version>4.2.1</version>
+                <version>4.2.2</version>
             </dependency>
 
             <!--MISC-->
