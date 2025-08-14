@@ -18,7 +18,7 @@
         <qubership.context.framework>7.1.4</qubership.context.framework>
 
         <!--Spring's libraries -->
-        <spring.boot.version>3.4.7</spring.boot.version>
+        <spring.boot.version>3.4.8</spring.boot.version>
         <spring.cloud.version>4.2.1</spring.cloud.version>
         <spring.version>6.2.8</spring.version>
         <spring.security>6.4.7</spring.security>
