@@ -19,7 +19,7 @@
 
         <!--Spring's libraries -->
         <spring.boot.version>3.4.7</spring.boot.version>
-        <spring.cloud.version>4.2.1</spring.cloud.version>
+        <spring.cloud.version>4.2.3</spring.cloud.version>
         <spring.version>6.2.8</spring.version>
         <spring.security>6.4.7</spring.security>
 
@@ -204,7 +204,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-consul-config</artifactId>
-                <version>4.2.1</version>
+                <version>4.2.2</version>
             </dependency>
 
             <!--MISC-->
