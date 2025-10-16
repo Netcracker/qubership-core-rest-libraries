@@ -25,15 +25,11 @@ public class RouteV3 {
     }
 
     private void mergeRules(List<Rule> rulesToMerge) {
-        if (rulesToMerge == null || rulesToMerge.isEmpty()) {
-            return;
-        }
-
-        List<Rule> currentRules = (rules == null) ? List.of() : rules;
-
-        this.rules = Stream.concat(currentRules.stream(), rulesToMerge.stream())
-                .distinct()
-                .collect(Collectors.toList());
+        rulesToMerge.forEach(ruleToMerge -> {
+            if (rules.stream().noneMatch(ruleToMerge::equals)) {
+                rules.add(ruleToMerge);
+            }
+        });
     }
 
     @Override
@@ -47,4 +43,10 @@ public class RouteV3 {
         return rules != null && routeV3.rules != null && rules.size() == routeV3.rules.size()
                 && new HashSet<>(rules).containsAll(routeV3.rules) && new HashSet<>(routeV3.rules).containsAll(rules);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(destination);
+    }
 }
+

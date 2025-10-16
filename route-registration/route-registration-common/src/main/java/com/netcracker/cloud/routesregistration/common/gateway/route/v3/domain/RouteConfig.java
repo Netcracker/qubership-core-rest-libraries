@@ -48,4 +48,10 @@ public class RouteConfig {
         return routes != null && that.routes != null && routes.size() == that.routes.size()
                 && new HashSet<>(routes).containsAll(that.routes) && new HashSet<>(that.routes).containsAll(routes);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version);
+    }
 }
+
