@@ -25,11 +25,14 @@ public class RouteV3 {
     }
 
     private void mergeRules(List<Rule> rulesToMerge) {
-        rulesToMerge.forEach(ruleToMerge -> {
-            if (rules.stream().noneMatch(ruleToMerge::equals)) {
-                rules.add(ruleToMerge);
-            }
-        });
+        if (rulesToMerge == null || rulesToMerge.isEmpty()) {
+            return;
+        }
+
+        List<Rule> currentRules = (rules == null) ? List.of() : rules;
+        this.rules = Stream.concat(currentRules.stream(), rulesToMerge.stream())
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     @Override
