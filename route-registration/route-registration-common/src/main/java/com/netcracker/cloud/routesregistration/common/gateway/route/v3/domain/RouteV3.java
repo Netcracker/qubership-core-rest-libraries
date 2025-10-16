@@ -30,9 +30,7 @@ public class RouteV3 {
         }
 
         List<Rule> currentRules = (rules == null) ? List.of() : rules;
-        this.rules = Stream.concat(currentRules.stream(), rulesToMerge.stream())
-                .distinct()
-                .collect(Collectors.toList());
+        this.rules = Stream.concat(currentRules.stream(), rulesToMerge.stream()).distinct().toList();
     }
 
     @Override
