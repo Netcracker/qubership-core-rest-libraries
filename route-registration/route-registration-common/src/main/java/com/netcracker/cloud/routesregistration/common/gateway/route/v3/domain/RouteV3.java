@@ -4,13 +4,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Objects;
 
 @Data
 @Builder
-@EqualsAndHashCode
 public class RouteV3 {
     private RouteDestination destination;
     private List<Rule> rules;
@@ -24,14 +23,22 @@ public class RouteV3 {
     }
 
     private void mergeRules(List<Rule> rulesToMerge) {
-        if (rulesToMerge == null || rulesToMerge.isEmpty()) {
-            return;
+        rulesToMerge.forEach(ruleToMerge -> {
+            if (rules.stream().noneMatch(ruleToMerge::equals)) {
+                rules.add(ruleToMerge);
+            }
+        });
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RouteV3 routeV3 = (RouteV3) o;
+        if (!Objects.equals(destination, routeV3.destination)) {
+            return false;
         }
-
-        List<Rule> currentRules = (rules == null) ? List.of() : rules;
-
-        this.rules = Stream.concat(currentRules.stream(), rulesToMerge.stream())
-                .distinct()
-                .collect(Collectors.toList());
+        return rules != null && routeV3.rules != null && rules.size() == routeV3.rules.size()
+                && new HashSet<>(rules).containsAll(routeV3.rules) && new HashSet<>(routeV3.rules).containsAll(rules);
     }
 }
