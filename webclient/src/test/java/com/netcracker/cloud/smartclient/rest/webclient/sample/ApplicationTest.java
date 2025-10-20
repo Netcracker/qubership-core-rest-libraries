@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {TestConfig.class})
-public class ApplicationTest {
+class ApplicationTest {
 
     @Autowired
     SmartWebClient smartWebClient;
@@ -40,7 +40,7 @@ public class ApplicationTest {
     private static HttpServer httpServer;
 
     @BeforeAll
-    public static void initServer() throws Exception {
+    static void initServer() throws Exception {
         ContextManager.set(TENANT_CONTEXT_NAME, new TenantContextObject(""));
         httpServer = HttpServer.create(new InetSocketAddress(8181), 0);
 
@@ -73,7 +73,7 @@ public class ApplicationTest {
     }
 
     @AfterAll
-    public static void stopHttpServer() {
+    static void stopHttpServer() {
         httpServer.stop(0);
     }
 
@@ -81,38 +81,38 @@ public class ApplicationTest {
     private WebClient userWebClient;
 
     @Test
-    public void getWebClient() {
+    void getWebClient() {
         assertEquals(HttpStatus.OK, Objects.requireNonNull(userWebClient.get().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block()).getStatusCode());
     }
 
     @Test
-    public void postWebClient() {
+    void postWebClient() {
         assertEquals(HttpStatus.OK, Objects.requireNonNull(userWebClient.post().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block()).getStatusCode());
     }
 
     @Test
-    public void patchWebClient() {
+    void patchWebClient() {
         ResponseEntity<Void> response = userWebClient.patch().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block();
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
-    public void deleteWebClient() {
+    void deleteWebClient() {
         assertEquals(HttpStatus.OK, Objects.requireNonNull(userWebClient.delete().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block()).getStatusCode());
     }
 
     @Test
-    public void optionWebClient() {
+    void optionWebClient() {
         assertEquals(HttpStatus.OK, Objects.requireNonNull(userWebClient.options().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block()).getStatusCode());
     }
 
     @Test
-    public void headWebClient() {
+    void headWebClient() {
         assertEquals(HttpStatus.NO_CONTENT, Objects.requireNonNull(userWebClient.head().uri("http://localhost:8181/test").retrieve().toBodilessEntity().block()).getStatusCode());
     }
 
     @Test
-    public void smartWebClientInterceptorsTest() throws NoSuchFieldException, IllegalAccessException {
+    void smartWebClientInterceptorsTest() throws NoSuchFieldException, IllegalAccessException {
         Field genericInterceptors = smartWebClient.getClass().getDeclaredField("genericInterceptors");
         genericInterceptors.setAccessible(true);
         List<ExchangeFilterFunction> interceptors = (List<ExchangeFilterFunction>) genericInterceptors.get(smartWebClient);
