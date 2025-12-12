@@ -27,6 +27,7 @@
         <mockito.version>5.18.0</mockito.version>
 
         <org.powermock.version>2.0.9</org.powermock.version>
+        <junit-jupiter.version>5.14.1</junit-jupiter.version>
 
         <!-- Misc -->
         <okhttp3.version>4.12.0</okhttp3.version>
@@ -180,13 +181,19 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.13.4</version>
+                <version>${junit-jupiter.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
-                <version>5.14.1</version>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit-jupiter.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
