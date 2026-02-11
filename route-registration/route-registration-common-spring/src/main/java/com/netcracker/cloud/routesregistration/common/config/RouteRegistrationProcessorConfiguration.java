@@ -56,6 +56,10 @@ public class RouteRegistrationProcessorConfiguration {
         }
     }
 
+    protected Boolean getPostRoutesEnabled() {
+        return postRoutesEnabled;
+    }
+
     private static final String DEFAULT_CONTROL_PLANE_URL = "http://control-plane:8080";
     private static final String GATEWAY_NAME_PROP = "mesh.gateway.name";
     private static final String GATEWAY_VIRTUAL_HOST_PROP = "mesh.gateway.virtualHosts";
