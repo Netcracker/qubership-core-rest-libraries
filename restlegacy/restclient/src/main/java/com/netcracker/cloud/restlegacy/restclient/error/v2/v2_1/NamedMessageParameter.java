@@ -21,9 +21,13 @@ public class NamedMessageParameter {
     }
 
     public static NamedMessageParameter date(final String parameterName, final Date parameterValue) {
-        ZonedDateTime zonedDateTime = parameterValue.toInstant()
-                .atZone(ZoneId.systemDefault());
-        String formattedDate = zonedDateTime.format(DateTimeFormatter.RFC_1123_DATE_TIME);
+        String formattedDate = null;
+        if (parameterValue != null) {
+            ZonedDateTime zonedDateTime = parameterValue.toInstant()
+                    .atZone(ZoneId.systemDefault());
+            formattedDate = zonedDateTime.format(DateTimeFormatter.RFC_1123_DATE_TIME);
+        }
+
         return new NamedMessageParameter(parameterName, formattedDate, "date");
     }
 
