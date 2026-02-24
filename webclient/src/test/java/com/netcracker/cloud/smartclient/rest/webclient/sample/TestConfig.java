@@ -17,12 +17,6 @@ public class TestConfig {
 
     @Bean
     @ConditionalOnMissingBean
-    public WebClient.Builder webClientBuilder() {
-        return WebClient.builder();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
     public RestTemplateBuilder restTemplateBuilder() {
         return new RestTemplateBuilder();
     }
