@@ -1,3 +1,0 @@
-# ConfigData Location Resolvers
-org.springframework.boot.context.config.ConfigDataLocationResolver=\
-com.netcracker.cloud.configserver.webclient.WebClientConfigServerConfigDataLocationResolver

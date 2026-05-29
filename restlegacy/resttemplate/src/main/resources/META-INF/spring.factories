@@ -1,3 +1,0 @@
-# Bootstrap Configuration
-org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-configuration.com.netcracker.cloud.restlegacy.resttemplate.MicroserviceRestTemplateFactoryConfiguration

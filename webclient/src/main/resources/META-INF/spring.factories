@@ -1,3 +1,0 @@
-# Bootstrap Configuration
-org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-config.webclient.rest.com.netcracker.cloud.smartclient.MicroserviceWebClientFactoryConfiguration

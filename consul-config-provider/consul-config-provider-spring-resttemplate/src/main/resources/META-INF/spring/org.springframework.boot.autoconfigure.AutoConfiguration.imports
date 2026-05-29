@@ -1,2 +1,0 @@
-com.netcracker.cloud.consul.provider.spring.resttemplate.config.ConsulM2MRestTemplateAutoConfiguration
-com.netcracker.cloud.consul.provider.spring.resttemplate.config.ConsulM2MRestTemplateDefaultBeanConfiguration

@@ -1,8 +1,7 @@
-[![Maven build](https://github.com/Netcracker/qubership-core-rest-libraries/actions/workflows/maven-deploy.yml/badge.svg)](https://github.com/Netcracker/qubership-core-rest-libraries/actions/workflows/maven-deploy.yml)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?metric=coverage&project=Netcracker_qubership-core-rest-libraries)](https://sonarcloud.io/summary/overall?id=Netcracker_qubership-core-rest-libraries)
-[![duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?metric=duplicated_lines_density&project=Netcracker_qubership-core-rest-libraries)](https://sonarcloud.io/summary/overall?id=Netcracker_qubership-core-rest-libraries)
-[![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?metric=vulnerabilities&project=Netcracker_qubership-core-rest-libraries)](https://sonarcloud.io/summary/overall?id=Netcracker_qubership-core-rest-libraries)
-[![bugs](https://sonarcloud.io/api/project_badges/measure?metric=bugs&project=Netcracker_qubership-core-rest-libraries)](https://sonarcloud.io/summary/overall?id=Netcracker_qubership-core-rest-libraries)
-[![code_smells](https://sonarcloud.io/api/project_badges/measure?metric=code_smells&project=Netcracker_qubership-core-rest-libraries)](https://sonarcloud.io/summary/overall?id=Netcracker_qubership-core-rest-libraries)
+# Archived
 
-#Rest libraries
+This repository is archived. No new commits should be made here.
+
+All source code and git history has been moved to the monorepo [qubership-core-java-libs](https://github.com/Netcracker/qubership-core-java-libs/).
+
+> **Note:** This repository is preserved solely for publishing Maven artifacts. Please do not delete it.
